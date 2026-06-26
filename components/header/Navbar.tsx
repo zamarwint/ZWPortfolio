@@ -1,0 +1,176 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { Menu } from 'lucide-react';
+import { X } from 'lucide-react';
+import { motion, useScroll } from "framer-motion";
+import { scrollToAnchor } from "../../lib/handyFunctions";
+import { Sun, Moon } from 'lucide-react';
+
+import * as React from "react"
+import { useTheme } from "next-themes"
+
+import { Button } from "@/components/ui/button"
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+export function ModeToggle() {
+	const { setTheme } = useTheme()
+
+	return (
+		<DropdownMenu>
+			<DropdownMenuTrigger asChild>
+				<Button variant="outline" size="icon">
+					<Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+					<Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+					<span className="sr-only">Toggle theme</span>
+				</Button>
+			</DropdownMenuTrigger>
+			<DropdownMenuContent align="end">
+				<DropdownMenuItem onClick={() => setTheme("light")}>
+					Light
+				</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => setTheme("dark")}>
+					Dark
+				</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => setTheme("system")}>
+					System
+				</DropdownMenuItem>
+			</DropdownMenuContent>
+		</DropdownMenu>
+	)
+}
+
+const navigationLinks = [
+	{
+		label: "Home",
+		path: "/",
+	},
+	{
+		label: "Gallery",
+		path: "/gallery",
+	},
+	{
+		label: "Chat",
+		path: "/chat",
+	},
+];
+
+const Navbar = () => {
+	const [open, setOpen] = useState(false);
+	const { scrollYProgress } = useScroll();
+
+	// PREVENT USER FROM SCROLLING WHEN MOBILE MENU IS ACTIVE
+	useEffect(() => {
+		if (open) {
+			document.documentElement.style.overflow = "hidden";
+		} else {
+			document.documentElement.style.overflow = "auto";
+		}
+	}, [open]);
+
+	// IMPLEMENTATION
+	scrollToAnchor();
+	return (
+		<>
+			<motion.nav
+				initial={{ opacity: 0 }}
+				whileInView={{ opacity: 1 }}
+				viewport={{ once: true }}
+				transition={{
+					duration: 1,
+				}}
+				className="flex flex-row w-full items-center justify-around py-5 z-999 text-black dark:text-white bg-transparent backdrop-blur-sm fixed"
+			>
+				{/* LOGO */}
+				<Link href="/" className="text-4xl font-bold cursor-pointer">
+					ZW
+				</Link>
+
+				{/* DESKTOP MENU */}
+				<div className="hidden lg:flex text-white items-center justify-center gap-2 bg-transparent dark:bg-neutral-900 p-1 rounded-full border border-black dark:border-neutral-800">
+					{navigationLinks.map((link, index): any => (
+						<Link
+							key={index}
+							href={link.path}
+							className={
+								usePathname() === link.path
+									? `bg-black dark:bg-white text-white dark:text-black cursor-pointer rounded-full px-4 py-1`
+									: "text-black dark:text-white hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black cursor-pointer rounded-full px-4 py-1"
+							}
+						>
+							{link.label}
+						</Link>
+					))}
+				</div>
+
+				{/* CONTACT LINK */}
+				<div className="flex flex-row justify-center items-center gap-5">
+					<ModeToggle />
+					<Link
+						href="#contact"
+						className="dark:bg-white dark:text-black dark:hover:text-white dark:hover:border-white cursor-pointer px-4 py-2 bg-black border border-white/20 text-white rounded-full text-xl hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors duration-300 ease-in-out text-shadow-black text-shadow-xl"
+					>
+						Contact Me
+					</Link>
+				</div>
+
+				{/* MOBILE MENU ICON */}
+				<div className="lg:hidden">
+					<div
+						onClick={() => setOpen(!open)}
+						className="cursor-pointer text-black dark:text-white"
+					>
+						{open ? <X size={48} /> : <Menu size={48} />}
+					</div>
+				</div>
+
+				{/* MOBILE MENU */}
+				<div
+					className={
+						open
+							? "flex flex-col lg:hidden bg-white/90 dark:bg-neutral-900/90 text-black dark:text-white w-screen h-screen items-left justify-left fixed top-20 left-0 z-999"
+							: "hidden"
+					}
+				>
+					{open &&
+						navigationLinks.map((link, index): any => (
+							<Link
+								key={index}
+								href={link.path}
+								className={
+									location.pathname === link.path
+										? `block active:text-amber-900 transition bg-black text-white dark:bg-white dark:text-black w-full p-5`
+										: "block active:text-amber-900 transition text-black dark:text-white w-full p-5"
+								}
+							>
+								{link.label}
+							</Link>
+						))}
+				</div>
+				<motion.div
+					id="scroll-indicator"
+					style={{
+						scaleX: scrollYProgress,
+						position: "fixed",
+						top: 0,
+						left: 0,
+						right: 0,
+						height: 5,
+						originX: 0,
+						width: "100vw",
+						backgroundColor: "#ffba00",
+					}}
+				/>
+			</motion.nav>
+		</>
+	);
+};
+
+export default Navbar;
