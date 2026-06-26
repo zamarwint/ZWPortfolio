@@ -3,7 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { contents } from "@/lib/data";
-// import Modal from "../components/Modal";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 
 const Gallery = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +32,10 @@ const Gallery = () => {
                 }}
                 className="flex flex-col items-center justify-center"
             >
-                <div className="text-6xl md:text-8xl py-20">Gallery</div>
+                <h1 className="text-6xl md:text-8xl font-bold mt-20">Gallery</h1>
+                <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-4">
+                    The library of my work.
+                </p>
                 <div className="container mx-auto p-4 md:p-10">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5">
                         {/* PREVIEW IMAGE OF VIDEO IS SHOWN IF THE CONTENT IS A VIDEO */}
@@ -61,25 +64,21 @@ const Gallery = () => {
                     </div>
                 </div>
             </motion.div>
-            {/* <Modal
-                title={contentTitle}
-                content={contentType === "Image" ? (
-                    <img
-                        src={content}
-                        alt="Image"
-                        className="w-full max-h-100 md:max-h-140 rounded-xl object-cover transition-transform"
-                    />
-                ) : (
-                    <video
-                        src={content}
-                        autoPlay
-                        controls
-                        className="w-full max-h-100 md:max-h-140 rounded-xl object-cover transition-transform"
-                    />
-                )}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-            /> */}
+
+            <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                <DialogContent className="z-999">
+                    <DialogHeader>
+                        <DialogTitle>{contentTitle}</DialogTitle>
+                    </DialogHeader>
+                    <div>
+                        {contentType === "Image" ? (
+                            <img src={content} alt="Image" className="rounded-lg" />
+                        ) : (
+                            <video src={content} autoPlay controls className="rounded-lg" />
+                        )}
+                    </div>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };

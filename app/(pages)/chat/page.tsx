@@ -5,14 +5,14 @@ import { useState, useEffect, useRef } from "react";
 import io, { Socket } from "socket.io-client";
 import ChatMessages from "../../../components/chat/ChatMessages";
 import ChatInput from "../../../components/chat/ChatInput";
-// import { errorContent } from "../../../components/chat/handyFunctions";
-// import Modal from "../components/Modal";
+import { errorContent } from "../../../components/modal-content";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 
 // Define the socket outside the component to prevent multiple connections on re-render
 const socket: Socket =
-    window.location.hostname === "localhost"
+    process.env.NODE_ENV === "development"
         ? io("http://localhost:4000")
-        : io("https://zp-backend-production.up.railway.app");
+        : io("https://zw-agent-backend-production.up.railway.app");
 
 const Chat = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -95,7 +95,7 @@ const Chat = () => {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="text-center mb-10"
                 >
-                    <h1 className="text-5xl md:text-7xl font-hoves-demi-bold tracking-tight">
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
                         Ask me anything
                     </h1>
                     <p className="mt-4 text-neutral-500 dark:text-neutral-400 font-hoves-regular">
@@ -135,15 +135,18 @@ const Chat = () => {
                     </footer>
                 </motion.div>
             </main>
-            {/* <Modal
-                title="Error"
-                content={errorContent({
-                    errorMessage:
-                        "The server is currently offline. Please try again when it comes online.",
-                })}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-            /> */}
+            <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                <DialogContent>
+                    <DialogHeader className="text-center">
+                        <DialogTitle className="text-2xl font-bold">Error</DialogTitle>
+                    </DialogHeader>
+                    <DialogDescription className="flex flex-col items-center gap-4 text-center">
+                        {errorContent({
+                            errorMessage: "The server is currently offline. Please try again when it comes online."
+                        })}
+                    </DialogDescription>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 };

@@ -9,15 +9,10 @@ export default function PagesLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html
-            lang="en"
-            suppressHydrationWarning
-        >
-            <body className="min-h-full flex flex-col">
-                <Navbar />
-                {children}
-                <Footer />
-            </body>
-        </html>
+        <div className="min-h-full flex flex-col">
+            <Navbar />
+            {children}
+            <Footer />
+        </div>
     );
 }

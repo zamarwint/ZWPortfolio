@@ -5,10 +5,11 @@ import { GrLinkTop } from "react-icons/gr";
 import { checkLocation } from "./../../lib/handyFunctions";
 import { TbArrowForward } from "react-icons/tb";
 import { FaExternalLinkAlt } from "react-icons/fa";
-// import { successContent, errorContent } from "../components/Functions";
+import { successContent, errorContent } from "../../components/modal-content";
 import { useState } from "react";
-// import Modal from "./Modal";
 import { FiArrowUpRight } from "react-icons/fi";
+import { Button } from "../ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
 
 const Footer = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -130,19 +131,15 @@ const Footer = () => {
 				<div className="cursor-pointer font-hoves-demi-bold flex flex-col md:flex-row items-center justify-center gap-5">
 					<Link
 						href="/chat"
-						className="text-xl border-2 w-3xs flex items-center justify-center p-2 bg-black dark:bg-white rounded-full text-white dark:text-black hover:bg-transparent hover:text-black hover:dark:text-white hover:border-black hover:dark:border-white transition-colors duration-100 ease-in-out"
 					>
-						<TbArrowForward className="inline-block w-6 h-6" /> &nbsp;{" "}
-						<span>Chat with me</span>
+						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><TbArrowForward className="w-6 h-6" /> Chat with me</Button>
 					</Link>
 					<a
 						href="https://solo.to/zamfc"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-xl border-2 w-3xs flex items-center justify-center p-2 bg-black dark:bg-white rounded-full text-white dark:text-black hover:bg-transparent hover:text-black hover:dark:text-white hover:border-black hover:dark:border-white transition-colors duration-100 ease-in-out"
 					>
-						<span>See all links</span>&nbsp;
-						<FiArrowUpRight className="inline-block w-7 h-7" />
+						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg">See all links <FiArrowUpRight className="w-7 h-7" /></Button>
 					</a>
 				</div>
 			</footer>
@@ -156,7 +153,7 @@ const Footer = () => {
 					<span>Back to top</span>
 					<GrLinkTop className="inline-block w-5 h-5" />
 				</Link>
-				<Link href="/" className="text-4xl font-bold cursor-pointer">
+				<Link href="/" className="text-4xl font-serif cursor-pointer">
 					ZW
 				</Link>
 				<div className="font-hoves-regular hover:text-neutral-600 hover:dark:text-neutral-300 text-right">
@@ -167,22 +164,16 @@ const Footer = () => {
 				</div>
 			</div>
 
-			{/* <Modal
-				title={result ? "Success" : "Error"}
-				content={
-					result
-						? successContent({
-							successMessage:
-								"Successfully copied to clipboard! I will get back to you as soon as possible.",
-						})
-						: errorContent({
-							errorMessage:
-								"There was an error copying to your clipboard. Please try again.",
-						})
-				}
-				isOpen={isOpen}
-				setIsOpen={setIsOpen}
-			/> */}
+			<Dialog open={isOpen} onOpenChange={setIsOpen}>
+				<DialogContent>
+					<DialogHeader className="text-center">
+						<DialogTitle className="text-2xl font-bold">{result ? "Success" : "Error"}</DialogTitle>
+					</DialogHeader>
+					<DialogDescription className="flex flex-col items-center gap-4 text-center">{result ?
+						successContent({ successMessage: "Successfully copied to clipboard! I will get back to you as soon as possible." })
+						: errorContent({ errorMessage: "There was an error copying to your clipboard. Please try again." })}</DialogDescription>
+				</DialogContent>
+			</Dialog>
 		</>
 	);
 };

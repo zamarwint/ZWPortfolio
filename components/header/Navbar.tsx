@@ -26,7 +26,7 @@ export function ModeToggle() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button variant="outline" size="icon" className="cursor-pointer">
+				<Button variant="ghost" size="icon-lg" className="cursor-pointer rounded-full">
 					<Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
 					<Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
 					<span className="sr-only">Toggle theme</span>
@@ -89,12 +89,12 @@ const Navbar = () => {
 				className="flex flex-row w-full items-center justify-around py-5 z-999 text-black dark:text-white bg-transparent backdrop-blur-sm fixed"
 			>
 				{/* LOGO */}
-				<Link href="/" className="text-4xl font-bold cursor-pointer">
+				<Link href="/" className="text-4xl font-bold font-serif cursor-pointer">
 					ZW
 				</Link>
 
 				{/* DESKTOP MENU */}
-				<div className="hidden lg:flex text-white items-center justify-center gap-2 bg-transparent dark:bg-neutral-900 p-1 rounded-full border border-black dark:border-neutral-800">
+				<div className="hidden lg:flex text-white items-center justify-center gap-2 p-1 rounded-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800">
 					{navigationLinks.map((link, index): any => (
 						<Link
 							key={index}
@@ -115,9 +115,8 @@ const Navbar = () => {
 					<ModeToggle />
 					<Link
 						href="#contact"
-						className="dark:bg-white dark:text-black dark:hover:text-white dark:hover:border-white cursor-pointer px-4 py-2 bg-black border border-white/20 text-white rounded-full text-xl hover:bg-transparent hover:text-black hover:border hover:border-black transition-colors duration-300 ease-in-out text-shadow-black text-shadow-xl"
 					>
-						Contact Me
+						<Button className="text-xl p-5 rounded-full" variant="secondary" size="lg">Contact Me</Button>
 					</Link>
 				</div>
 

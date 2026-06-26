@@ -3,6 +3,7 @@
 import { CornerDownRight } from 'lucide-react';
 import { useScroll, useTransform, motion } from "motion/react";
 import { accolades, education, workExperience, appDescriptions1, appDescriptions2, homePageImages } from "@/lib/data";
+import { Button } from '@/components/ui/button';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -190,10 +191,8 @@ const Home = () => {
                 href={app.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 w-3xs font-hoves-demi-bold text-2xl flex items-center justify-center p-1 bg-black dark:bg-white rounded-full text-white dark:text-black hover:bg-transparent hover:text-black hover:dark:text-white hover:border-black hover:dark:border-white transition-colors duration-100 ease-in-out"
               >
-                <CornerDownRight className="w-10 h-10" />
-                View Project
+                <Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><CornerDownRight className="w-10 h-10" /> View Project</Button>
               </a>
             </div>
           ))}
@@ -216,8 +215,8 @@ const Home = () => {
         </div>
         <div>
           <img
-            src="http://localhost:6001/image/quote-picture.jpeg"
-            alt="Zam2"
+            src={homePageImages[2].src}
+            alt={homePageImages[2].alt}
             className="w-150 h-200 md:w-110 object-cover aspect-square rounded-full"
           />
         </div>
@@ -249,10 +248,8 @@ const Home = () => {
                 href="/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 w-3xs font-hoves-demi-bold text-2xl flex items-center justify-center p-1 bg-black dark:bg-white rounded-full text-white dark:text-black hover:bg-transparent hover:text-black hover:dark:text-white hover:border-black hover:dark:border-white transition-colors duration-100 ease-in-out"
               >
-                <CornerDownRight className="w-10 h-10" />
-                Coming Soon
+                <Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><CornerDownRight className="w-10 h-10" /> Coming soon</Button>
               </a>
             </div>
           ))}

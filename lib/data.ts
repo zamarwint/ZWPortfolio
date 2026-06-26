@@ -1,7 +1,9 @@
 // FILE EXTRACTION
 
 // CHECK WHETHER PRODUCTION OR DEVELOPMENT
-const url = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://zamarwint.vercel.app";
+const url = process.env.NODE_ENV === "development"
+    ? "http://localhost:5000"
+    : "https://zw-assets-backend.onrender.com";
 
 const files = {
     accolades: [
@@ -26,6 +28,10 @@ const files = {
         {
             fileName: "School Picture",
             link: `${url}/image/school-picture-1.jpg`,
+        },
+        {
+            fileName: "Quote Picture",
+            link: `${url}/image/quote-picture.jpeg`,
         },
     ],
     projects: [
@@ -186,6 +192,12 @@ const homePageImages: ContentType[] = [
         type: "Image",
         src: files.realImages[1].link,
         alt: "Zamar School Picture",
+    },
+    {
+        id: 3,
+        type: "Image",
+        src: files.realImages[2].link,
+        alt: "Zamar Quote Picture",
     },
 ]
 

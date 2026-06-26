@@ -35,7 +35,7 @@ const seasonsSerif = localFont({
       weight: '400',
       style: 'normal'
     },
-  ]
+  ],
 })
 
 const ttHovesSans = localFont({
@@ -66,7 +66,7 @@ export default function RootLayout({
       className={`${seasonsSerif.className} ${ttHovesSans.className} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}</ThemeProvider></body>
     </html>
