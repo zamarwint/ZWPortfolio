@@ -1,70 +1,62 @@
 // FILE EXTRACTION
 
+// CHECK WHETHER PRODUCTION OR DEVELOPMENT
+const url = process.env.NODE_ENV === "development" ? "http://localhost:5000" : "https://zamarwint.vercel.app";
+
 const files = {
     accolades: [
         {
             fileName: "Accolade 1",
-            devLink: "http://localhost:6001/image/accolade1.png",
-            prodLink: ""
+            link: `${url}/image/accolade1.png`,
         },
         {
             fileName: "Accolade 2",
-            devLink: "http://localhost:6001/image/accolade2.png",
-            prodLink: ""
+            link: `${url}/image/accolade2.png`,
         },
         {
             fileName: "Accolade 3",
-            devLink: "http://localhost:6001/image/accolade3.png",
-            prodLink: ""
+            link: `${url}/image/accolade3.png`,
         },
     ],
     realImages: [
         {
             fileName: "Hero Picture",
-            devLink: "http://localhost:6001/image/hero-picture.jpg",
-            prodLink: ""
+            link: `${url}/image/hero-picture.jpg`,
         },
         {
             fileName: "School Picture",
-            devLink: "http://localhost:6001/image/school-picture-1.jpg",
-            prodLink: ""
+            link: `${url}/image/school-picture-1.jpg`,
         },
     ],
     projects: [
         {
             fileName: "WardPass Project",
-            devLink: "http://localhost:6001/image/wardpass-project-picture.png",
-            prodLink: ""
+            link: `${url}/image/wardpass-project-picture.png`,
         },
         {
             fileName: "Reckon Project",
-            devLink: "http://localhost:6001/image/reckon-project-picture.png",
-            prodLink: ""
+            link: `${url}/image/reckon-project-picture.png`,
         },
         {
             fileName: "Portfolio Project",
-            devLink: "http://localhost:6001/image/portfolio-project-picture.png",
-            prodLink: ""
+            link: `${url}/image/portfolio-project-picture.png`,
         },
     ],
     comingSoon: [
         {
             fileName: "Coming Soon",
-            devLink: "http://localhost:6001/image/coming-soon.png",
-            prodLink: ""
+            link: `${url}/image/coming-soon.png`,
         }
     ],
     videos: [
         {
             fileName: "Template Video",
-            devLink: "http://localhost:6001/video/template-video.mp4",
-            prodLink: ""
+            link: `${url}/video/template-video.mp4`,
         }
     ]
 }
 
 // HOME PAGE DATA
-
 const education = [
     {
         certificate: "Bachelor of Science in Computer Engineering",
@@ -112,19 +104,19 @@ const workExperience = [
 const appDescriptions1 = [
     {
         title: null,
-        image: files.projects[0].devLink,
+        image: files.projects[0].link,
         description: "A simple password generator application.",
         link: "https://wardpass.netlify.app/",
     },
     {
         title: null,
-        image: files.projects[1].devLink,
+        image: files.projects[1].link,
         description: "An application with mathematical and investment calculators.",
         link: "https://reckon-p.netlify.app/",
     },
     {
         title: null,
-        image: files.projects[2].devLink,
+        image: files.projects[2].link,
         description: "This Portfolio.",
         link: "/",
     },
@@ -133,22 +125,22 @@ const appDescriptions1 = [
 const appDescriptions2 = [
     {
         title: null,
-        image: files.comingSoon[0].devLink,
+        image: files.comingSoon[0].link,
         description: "A secure password management system.",
     },
     {
         title: null,
-        image: files.comingSoon[0].devLink,
+        image: files.comingSoon[0].link,
         description: "A productivity suite for writers, planners, bloggers, etc.",
     },
     {
         title: null,
-        image: files.comingSoon[0].devLink,
+        image: files.comingSoon[0].link,
         description: "Customer relationship management software.",
     },
     {
         title: null,
-        image: files.comingSoon[0].devLink,
+        image: files.comingSoon[0].link,
         description: "Artificial Intelligence systems.",
     },
 ];
@@ -156,17 +148,17 @@ const appDescriptions2 = [
 const accolades = [
     {
         title: null,
-        image: files.accolades[0].devLink,
+        image: files.accolades[0].link,
         description: "Emmanuel Apostolic Church, Portmore.",
     },
     {
         title: null,
-        image: files.accolades[1].devLink,
+        image: files.accolades[1].link,
         description: "Kingston College.",
     },
     {
         title: null,
-        image: files.accolades[2].devLink,
+        image: files.accolades[2].link,
         description:
             "Awarded the certificate of Highest Academic Distinction for Fall 2024, Summer 2025, and Fall 2025 at the University of the Commonwealth Caribbean.",
     },
@@ -186,13 +178,13 @@ const homePageImages: ContentType[] = [
     {
         id: 1,
         type: "Image",
-        src: files.realImages[0].devLink,
+        src: files.realImages[0].link,
         alt: "Zamar Hero Picture",
     },
     {
         id: 2,
         type: "Image",
-        src: files.realImages[1].devLink,
+        src: files.realImages[1].link,
         alt: "Zamar School Picture",
     },
 ]
@@ -201,14 +193,14 @@ const homePageImages: ContentType[] = [
 const contents: ContentType[] = [
     { id: 1, type: "Image", src: "https://picsum.photos/400/300", alt: "Image 1" },
     { id: 2, type: "Image", src: "https://picsum.photos/401/301", alt: "Image 2" },
-    { id: 3, type: "Image", src: files.realImages[0].devLink, alt: "Image 3" },
-    { id: 4, type: "Image", src: files.realImages[1].devLink, alt: "Image 4" },
-    { id: 5, type: "Image", src: files.accolades[0].devLink, alt: "Image 5" },
-    { id: 6, type: "Image", src: files.accolades[1].devLink, alt: "Image 6" },
-    { id: 7, type: "Image", src: files.accolades[2].devLink, alt: "Image 7" },
-    { id: 8, type: "Image", src: files.projects[0].devLink, alt: "Image 8" },
-    { id: 9, type: "Image", src: files.projects[1].devLink, alt: "Image 9" },
-    { id: 10, type: "Image", src: files.projects[2].devLink, alt: "Image 10" },
+    { id: 3, type: "Image", src: files.realImages[0].link, alt: "Image 3" },
+    { id: 4, type: "Image", src: files.realImages[1].link, alt: "Image 4" },
+    { id: 5, type: "Image", src: files.accolades[0].link, alt: "Image 5" },
+    { id: 6, type: "Image", src: files.accolades[1].link, alt: "Image 6" },
+    { id: 7, type: "Image", src: files.accolades[2].link, alt: "Image 7" },
+    { id: 8, type: "Image", src: files.projects[0].link, alt: "Image 8" },
+    { id: 9, type: "Image", src: files.projects[1].link, alt: "Image 9" },
+    { id: 10, type: "Image", src: files.projects[2].link, alt: "Image 10" },
     { id: 11, type: "Image", src: "https://picsum.photos/500/500", alt: "Image 11" },
     { id: 12, type: "Image", src: "https://picsum.photos/500/501", alt: "Image 12" },
     { id: 13, type: "Image", src: "https://picsum.photos/500/502", alt: "Image 13" },
@@ -220,7 +212,7 @@ const contents: ContentType[] = [
     { id: 19, type: "Image", src: "https://picsum.photos/500/508", alt: "Image 19" },
     { id: 20, type: "Image", src: "https://picsum.photos/500/509", alt: "Image 20" },
     { id: 21, type: "Image", src: "https://picsum.photos/500/510", alt: "Image 21" },
-    { id: 22, type: "Video", src: files.videos[0].devLink, imgPrwSrcForVideo: files.realImages[0].devLink, alt: "Video 1" }
+    { id: 22, type: "Video", src: files.videos[0].link, imgPrwSrcForVideo: files.realImages[0].link, alt: "Video 1" }
 
     // ... more content
 ];
