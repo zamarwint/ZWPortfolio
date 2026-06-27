@@ -65,6 +65,7 @@ const navigationLinks = [
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
 	const { scrollYProgress } = useScroll();
+	const pathName = usePathname();
 
 	// PREVENT USER FROM SCROLLING WHEN MOBILE MENU IS ACTIVE
 	useEffect(() => {
@@ -100,7 +101,7 @@ const Navbar = () => {
 							key={index}
 							href={link.path}
 							className={
-								usePathname() === link.path
+								pathName === link.path
 									? `bg-black dark:bg-white text-white dark:text-black cursor-pointer rounded-full px-4 py-1`
 									: "text-black dark:text-white hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black cursor-pointer rounded-full px-4 py-1"
 							}
@@ -144,7 +145,7 @@ const Navbar = () => {
 								key={index}
 								href={link.path}
 								className={
-									location.pathname === link.path
+									pathName === link.path
 										? `block active:text-amber-900 transition bg-black text-white dark:bg-white dark:text-black w-full p-5`
 										: "block active:text-amber-900 transition text-black dark:text-white w-full p-5"
 								}
@@ -155,16 +156,9 @@ const Navbar = () => {
 				</div>
 				<motion.div
 					id="scroll-indicator"
+					className="fixed top-0 left-0 right-0 h-[5px] w-screen bg-[#ffba00] origin-left z-50"
 					style={{
 						scaleX: scrollYProgress,
-						position: "fixed",
-						top: 0,
-						left: 0,
-						right: 0,
-						height: 5,
-						originX: 0,
-						width: "100vw",
-						backgroundColor: "#ffba00",
 					}}
 				/>
 			</motion.nav>

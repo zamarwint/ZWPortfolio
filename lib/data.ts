@@ -58,7 +58,11 @@ const files = {
         {
             fileName: "Template Video",
             link: `${url}/video/template-video.mp4`,
-        }
+        },
+        {
+            fileName: "Not Found Video",
+            link: `${url}/video/notFound.mp4`,
+        },
     ]
 }
 
@@ -201,6 +205,17 @@ const homePageImages: ContentType[] = [
     },
 ]
 
+// NOT FOUND PAGE VIDEO
+const notFoundPageContent: ContentType[] = [
+    {
+        id: 1,
+        type: "Video",
+        src: files.videos[1].link,
+        imgPrwSrcForVideo: files.realImages[1].link,
+        alt: "Not Found Page Video"
+    }
+]
+
 // GALLERY PAGE DATA
 const contents: ContentType[] = [
     { id: 1, type: "Image", src: "https://picsum.photos/400/300", alt: "Image 1" },
@@ -229,4 +244,4 @@ const contents: ContentType[] = [
     // ... more content
 ];
 
-export { education, workExperience, appDescriptions1, appDescriptions2, accolades, homePageImages, contents };
+export { education, workExperience, appDescriptions1, appDescriptions2, accolades, homePageImages, contents, notFoundPageContent };

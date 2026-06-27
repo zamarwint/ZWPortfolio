@@ -1,5 +1,5 @@
-// import NotFoundVideo from "../assets/NotFound.mp4";
 import Link from "next/link";
+import { notFoundPageContent } from "../lib/data";
 
 const NotFound = () => {
     return (
@@ -18,7 +18,7 @@ const NotFound = () => {
             </div>
             <div className="w-full h-full">
                 <video
-                    src=""
+                    src={notFoundPageContent[0].src}
                     autoPlay
                     loop
                     muted
