@@ -1,67 +1,62 @@
 // FILE EXTRACTION
 
-// CHECK WHETHER PRODUCTION OR DEVELOPMENT
-const url = process.env.NODE_ENV === "development"
-    ? "http://localhost:5000"
-    : "https://zw-assets-backend.onrender.com";
-
 const files = {
     accolades: [
         {
             fileName: "Accolade 1",
-            link: `${url}/image/accolade1.png`,
+            link: "/assets/accolade1.png",
         },
         {
             fileName: "Accolade 2",
-            link: `${url}/image/accolade2.png`,
+            link: "/assets/accolade2.png",
         },
         {
             fileName: "Accolade 3",
-            link: `${url}/image/accolade3.png`,
+            link: "/assets/accolade3.png",
         },
     ],
     realImages: [
         {
             fileName: "Hero Picture",
-            link: `${url}/image/hero-picture.jpg`,
+            link: "/assets/hero-picture.jpg",
         },
         {
             fileName: "School Picture",
-            link: `${url}/image/school-picture-1.jpg`,
+            link: "/assets/school-picture-1.jpg",
         },
         {
             fileName: "Quote Picture",
-            link: `${url}/image/quote-picture.jpeg`,
+            link: "/assets/quote-picture.jpeg",
         },
     ],
     projects: [
         {
             fileName: "WardPass Project",
-            link: `${url}/image/wardpass-project-picture.png`,
+            link: "/assets/wardpass-project-picture.png",
         },
         {
             fileName: "Reckon Project",
-            link: `${url}/image/reckon-project-picture.png`,
+            link: "/assets/reckon-project-picture.png",
         },
         {
             fileName: "Portfolio Project",
-            link: `${url}/image/portfolio-project-picture.png`,
+            link: "/assets/portfolio-project-picture.png",
         },
     ],
     comingSoon: [
         {
             fileName: "Coming Soon",
-            link: `${url}/image/coming-soon.png`,
+            link: "/assets/coming-soon.png",
         }
     ],
     videos: [
         {
             fileName: "Template Video",
-            link: `${url}/video/template-video.mp4`,
+            link: "/assets/template-video.mp4",
         },
         {
             fileName: "Not Found Video",
-            link: `${url}/video/notFound.mp4`,
+            link: "/assets/notFound.mp4",
         },
     ]
 }
@@ -218,16 +213,16 @@ const notFoundPageContent: ContentType[] = [
 
 // GALLERY PAGE DATA
 const contents: ContentType[] = [
-    { id: 1, type: "Image", src: "https://picsum.photos/400/300", alt: "Image 1" },
-    { id: 2, type: "Image", src: "https://picsum.photos/401/301", alt: "Image 2" },
-    { id: 3, type: "Image", src: files.realImages[0].link, alt: "Image 3" },
-    { id: 4, type: "Image", src: files.realImages[1].link, alt: "Image 4" },
-    { id: 5, type: "Image", src: files.accolades[0].link, alt: "Image 5" },
-    { id: 6, type: "Image", src: files.accolades[1].link, alt: "Image 6" },
-    { id: 7, type: "Image", src: files.accolades[2].link, alt: "Image 7" },
-    { id: 8, type: "Image", src: files.projects[0].link, alt: "Image 8" },
-    { id: 9, type: "Image", src: files.projects[1].link, alt: "Image 9" },
-    { id: 10, type: "Image", src: files.projects[2].link, alt: "Image 10" },
+    { id: 1, type: "Image", src: files.realImages[0].link, alt: "Image 1" },
+    { id: 2, type: "Image", src: files.realImages[1].link, alt: "Image 2" },
+    { id: 3, type: "Image", src: files.accolades[0].link, alt: "Image 3" },
+    { id: 4, type: "Image", src: files.accolades[1].link, alt: "Image 4" },
+    { id: 5, type: "Image", src: files.accolades[2].link, alt: "Image 5" },
+    { id: 6, type: "Image", src: files.projects[0].link, alt: "Image 6" },
+    { id: 7, type: "Image", src: files.projects[1].link, alt: "Image 7" },
+    { id: 8, type: "Image", src: files.projects[2].link, alt: "Image 8" },
+    { id: 9, type: "Image", src: "https://picsum.photos/400/300", alt: "Image 9" },
+    { id: 10, type: "Image", src: "https://picsum.photos/401/301", alt: "Image 10" },
     { id: 11, type: "Image", src: "https://picsum.photos/500/500", alt: "Image 11" },
     { id: 12, type: "Image", src: "https://picsum.photos/500/501", alt: "Image 12" },
     { id: 13, type: "Image", src: "https://picsum.photos/500/502", alt: "Image 13" },
