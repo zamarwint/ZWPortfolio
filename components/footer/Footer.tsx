@@ -5,7 +5,7 @@ import { GrLinkTop } from "react-icons/gr";
 import { checkLocation } from "./../../lib/handyFunctions";
 import { TbArrowForward } from "react-icons/tb";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { successContent, errorContent } from "../../components/modal-content";
+import { SuccessContent, ErrorContent } from "../../components/modal-content";
 import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { Button } from "../ui/button";
@@ -34,12 +34,12 @@ const Footer = () => {
 		<>
 			<footer
 				id="contact"
-				className="flex flex-col dark:bg-black dark:text-white gap-5 py-40 items-center justify-center"
+				className="flex flex-col dark:bg-black dark:text-white gap-5 py-40 items-center justify-center w-full"
 			>
 				<div className="text-6xl md:text-8xl text-center md:text-left">
 					Reach out to me
 				</div>
-				<div className="font-hoves-regular select-none flex flex-col gap-12 py-10 lg:py-20 w-full text-center md:text-left">
+				<div className="select-none flex flex-col gap-12 py-10 lg:py-20 w-full text-center md:text-left">
 					<div className="flex flex-col md:flex-row items-center justify-center gap-10">
 						<div
 							onClick={() => handleCopy("wintzamar@gmail.com")}
@@ -148,15 +148,15 @@ const Footer = () => {
 			<div className="flex flex-row items-center justify-around bg-neutral-100 w-full p-5 dark:bg-neutral-900 dark:text-white">
 				<Link
 					href={checkLocation()}
-					className="text-2xl font-hoves-regular flex flex-col md:flex-row items-center justify-center gap-2 cursor-pointer relative no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+					className="text-2xl flex flex-col md:flex-row items-center justify-center gap-2 cursor-pointer relative no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
 				>
 					<span>Back to top</span>
 					<GrLinkTop className="inline-block w-5 h-5" />
 				</Link>
-				<Link href="/" className="text-4xl font-serif cursor-pointer">
+				<Link href="/" className="text-4xl font-medium cursor-pointer">
 					ZW
 				</Link>
-				<div className="font-hoves-regular hover:text-neutral-600 hover:dark:text-neutral-300 text-right">
+				<div className="hover:text-neutral-600 hover:dark:text-neutral-300 text-right">
 					<div>
 						Designed and Developed <br /> by Zamar Wint
 					</div>
@@ -169,9 +169,18 @@ const Footer = () => {
 					<DialogHeader className="text-center">
 						<DialogTitle className="text-2xl font-bold">{result ? "Success" : "Error"}</DialogTitle>
 					</DialogHeader>
-					<DialogDescription className="flex flex-col items-center gap-4 text-center">{result ?
-						successContent({ successMessage: "Successfully copied to clipboard! I will get back to you as soon as possible." })
-						: errorContent({ errorMessage: "There was an error copying to your clipboard. Please try again." })}</DialogDescription>
+					{result ? (
+						<DialogDescription className="flex flex-col items-center justify-center gap-4 text-center">
+							<SuccessContent />
+							Successfully copied to clipboard! I will get back to you as soon as possible.
+						</DialogDescription>
+					) : (
+						<DialogDescription className="flex flex-col items-center justify-center gap-4 text-center">
+							<ErrorContent />
+							There was an error copying to your clipboard. Please try again.
+						</DialogDescription>
+					)
+					}
 				</DialogContent>
 			</Dialog>
 		</>

@@ -52,11 +52,11 @@ const files = {
     videos: [
         {
             fileName: "Template Video",
-            link: "/assets/template-video.mp4",
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/template-video.mp4`,
         },
         {
             fileName: "Not Found Video",
-            link: "/assets/notFound.mp4",
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/notFound.mp4`,
         },
     ]
 }

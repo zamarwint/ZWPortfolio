@@ -1,9 +1,10 @@
 "use client";
 
-import { CornerDownRight } from 'lucide-react';
+import { CornerDownRight, Type } from 'lucide-react';
 import { useScroll, useTransform, motion } from "motion/react";
 import { accolades, education, workExperience, appDescriptions1, appDescriptions2, homePageImages } from "@/lib/data";
 import { Button } from '@/components/ui/button';
+import TypewriterEffect from '@/components/typewriter';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -13,9 +14,9 @@ const Home = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
   return (
-    <main
+    <motion.main
       id="home"
-      className="bg-background flex flex-col gap-20 dark:bg-black dark:text-white py-30 lg:py-10"
+      className="bg-background flex flex-col gap-20 py-30 lg:py-10"
     >
       <motion.section
         initial={{ opacity: 0 }}
@@ -24,13 +25,13 @@ const Home = () => {
         className="flex items-center justify-center lg:justify-around flex-col lg:flex-row mx-10 lg:mx-15 mt-10 gap-10 lg:gap-0"
       >
         <div className="flex flex-col items-center gap-10">
-          <div className="text-6xl md:text-8xl text-center md:text-left">
-            Welcome to <br /> My Portfolio
+          <div className="text-6xl md:text-8xl text-center min-w-sm md:min-w-xl max-w-xl">
+            Welcome. <br /> I am <span className='text-amber-900 dark:text-amber-200'><TypewriterEffect words={['Zamar Wint', 'a Computer Engineer', 'a Software Engineer', 'a AI Engineer', 'an IT Professional']} /></span>
           </div>
-          <div className="font-hoves-regular text-2xl border border-black rounded-full px-10 py-4 text-center dark:border-white">
+          <div className="text-2xl border border-black rounded-full px-10 py-4 text-center dark:border-white">
             Zamar Wint / Software Engineer
           </div>
-          <div className="flex items-center gap-2 font-hoves-regular text-2xl">
+          <div className="flex items-center gap-2 text-2xl">
             <CornerDownRight className="w-10 h-10" />
             <a
               href="../../Zamar-Wint-Resume1.zip"
@@ -70,18 +71,18 @@ const Home = () => {
         </div>
         <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-10 w-full md:w-1/2 text-center md:text-left">
           <div className="text-6xl md:text-8xl">About Me</div>
-          <div className="font-hoves-regular text-2xl">
+          <div className="text-2xl">
             Zamar Wint is known as a reliable engineer in his field, someone you
             can depend on to get tasks done no matter the difficulty.
           </div>
-          <div className="font-hoves-regular text-2xl">
+          <div className="text-2xl">
             Growing up in the beautiful island of Jamaica in the Caribbean, I
             developed a passion for computers at a young age. As a result, I
             expanded my knowledge ever since learning to use computers and the
             technology behind them, as I had to use devices every day to do my
             school and college assignments.
           </div>
-          <div className="font-hoves-regular text-2xl">
+          <div className="text-2xl">
             I treat every project as a learning experience. When I see
             something, a design, or a good piece of software, I say to myself, I
             want to know how to build that too. Every piece of software built
@@ -114,7 +115,7 @@ const Home = () => {
               Educational Background
             </div>
             <div className="flex flex-row">
-              <div className="font-hoves-regular text-2xl text-center md:text-left">
+              <div className="text-2xl text-center md:text-left">
                 My educational journey has equipped me with a deep understanding
                 of software engineering, from the ground up. From writing my
                 first line of code in Python back in 2021 to building production
@@ -131,7 +132,7 @@ const Home = () => {
                   <div className="text-3xl p-5 w-full font-hoves-bold">
                     {edu.certificate}
                   </div>
-                  <div className="text-2xl p-5 w-full font-hoves-regular border-t-2 border-b-2 border-neutral-200 dark:border-neutral-800">
+                  <div className="text-2xl p-5 w-full border-t-2 border-b-2 border-neutral-200 dark:border-neutral-800">
                     {edu.placeOfStudy}
                   </div>
                   <div className="text-1xl p-5 w-full font-hoves-light">
@@ -153,7 +154,7 @@ const Home = () => {
                 <div className="text-3xl w-full font-hoves-bold p-1">
                   {work.company}
                 </div>
-                <div className="text-2xl w-full font-hoves-regular p-1">
+                <div className="text-2xl w-full p-1">
                   {work.title}
                 </div>
                 <div className="text-1xl w-full font-hoves-light p-1">
@@ -184,7 +185,7 @@ const Home = () => {
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
             >
               <div><img src={app.image} alt="App image" /></div>
-              <div className="text-2xl font-hoves-regular text-center">
+              <div className="text-2xl text-center">
                 {app.description}
               </div>
               <a
@@ -241,7 +242,7 @@ const Home = () => {
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
             >
               <div><img src={app.image} alt="App image" /></div>
-              <div className="text-2xl font-hoves-regular text-center">
+              <div className="text-2xl text-center">
                 {app.description}
               </div>
               <a
@@ -270,14 +271,14 @@ const Home = () => {
               className="w-full h-full md:w-110 md:h-110 flex flex-col gap-10 items-center justify-center p-5 md:p-15 cursor-pointer rounded-4xl border-4 border-neutral-200 dark:border-neutral-800 shadow-2xl/20 shadow-neutral-600 bg-black text-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400"
             >
               <div><img src={accolade.image} alt="Accolade image" /></div>
-              <div className="text-2xl font-hoves-regular text-center w-75 md:w-100">
+              <div className="text-2xl text-center w-75 md:w-100">
                 {accolade.description}
               </div>
             </div>
           ))}
         </div>
       </motion.section>
-    </main>
+    </motion.main>
   );
 };
 

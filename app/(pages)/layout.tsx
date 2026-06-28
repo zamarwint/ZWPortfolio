@@ -9,9 +9,11 @@ export default function PagesLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="min-h-full flex flex-col">
+        <div className="w-full flex flex-col min-h-screen">
             <Navbar />
-            {children}
+            <main className="flex-1 w-full">
+                {children}
+            </main>
             <Footer />
         </div>
     );
