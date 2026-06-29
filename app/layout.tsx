@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { seasonsSerif, ttHovesSans } from "./fonts";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "./_components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Zamar Wint",

@@ -53,10 +53,12 @@ const files = {
         {
             fileName: "Template Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/template-video.mp4`,
+            videoPage: "/videos/template-video"
         },
         {
             fileName: "Not Found Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/not-found.mp4`,
+            videoPage: "null"
         },
     ]
 }
@@ -174,7 +176,8 @@ type ContentType = {
     id: number,
     type: "Image" | "Video",
     src: string,
-    imgPrwSrcForVideo?: string
+    imgPrwSrcForVideo?: string,
+    videoPage?: string,
     alt: string,
 }
 
@@ -234,9 +237,9 @@ const contents: ContentType[] = [
     { id: 19, type: "Image", src: "https://picsum.photos/500/508", alt: "Image 19" },
     { id: 20, type: "Image", src: "https://picsum.photos/500/509", alt: "Image 20" },
     { id: 21, type: "Image", src: "https://picsum.photos/500/510", alt: "Image 21" },
-    { id: 22, type: "Video", src: files.videos[0].link, imgPrwSrcForVideo: files.realImages[0].link, alt: "Video 1" }
+    { id: 22, type: "Video", src: files.videos[0].link, imgPrwSrcForVideo: files.realImages[0].link, videoPage: files.videos[0].videoPage, alt: "Video 1" }
 
     // ... more content
 ];
 
-export { education, workExperience, appDescriptions1, appDescriptions2, accolades, homePageImages, contents, notFoundPageContent };
+export { files, education, workExperience, appDescriptions1, appDescriptions2, accolades, homePageImages, contents, notFoundPageContent };

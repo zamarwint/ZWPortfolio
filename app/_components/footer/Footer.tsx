@@ -2,14 +2,14 @@ import { FaGithub } from "react-icons/fa";
 import { BsPaypal, BsTwitterX, BsYoutube } from "react-icons/bs";
 import Link from "next/link";
 import { GrLinkTop } from "react-icons/gr";
-import { checkLocation } from "./../../lib/handyFunctions";
+import { checkLocation } from "../../../lib/handyFunctions";
 import { TbArrowForward } from "react-icons/tb";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import { SuccessContent, ErrorContent } from "../../components/modal-content";
+import { SuccessContent, ErrorContent } from "../../_components/modal-content";
 import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
-import { Button } from "../ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const Footer = () => {
 	const [isOpen, setIsOpen] = useState(false);

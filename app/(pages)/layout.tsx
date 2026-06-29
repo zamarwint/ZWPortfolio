@@ -1,7 +1,7 @@
 "use client";
 
-import Navbar from "@/components/header/Navbar";
-import Footer from "@/components/footer/Footer";
+import Navbar from "../_components/header/Navbar";
+import Footer from "../_components/footer/Footer";
 
 export default function PagesLayout({
     children,

@@ -4,7 +4,7 @@ import { CornerDownRight, Type } from 'lucide-react';
 import { useScroll, useTransform, motion } from "motion/react";
 import { accolades, education, workExperience, appDescriptions1, appDescriptions2, homePageImages } from "@/lib/data";
 import { Button } from '@/components/ui/button';
-import TypewriterEffect from '@/components/typewriter';
+import TypewriterEffect from '../_components/typewriter';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();

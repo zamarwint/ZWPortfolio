@@ -4,18 +4,22 @@ import { motion } from "motion/react";
 import { useState } from "react";
 import { contents } from "@/lib/data";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const Gallery = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setContent] = useState("");
     const [contentTitle, setContentTitle] = useState("");
     const [contentType, setContentType] = useState("");
+    const [contentVideoPage, setContentVideoPage] = useState("");
 
-    const showContent = (content: string, contentType: string, contentAltText: string) => {
+    const showContent = (content: string, contentType: string, contentAltText: string, contentVideoPage?: string | null) => {
         setIsOpen(true);
         setContent(content);
         setContentType(contentType);
         setContentTitle(contentAltText);
+        setContentVideoPage(contentVideoPage || "");
     };
 
     return (
@@ -53,7 +57,7 @@ const Gallery = () => {
                                     src={content.imgPrwSrcForVideo}
                                     alt={content.alt}
                                     className="w-full h-64 object-cover hover:scale-105 transition-transform cursor-pointer"
-                                    onClick={() => showContent(content.src, content.type, content.alt)}
+                                    onClick={() => showContent(content.src, content.type, content.alt, content.videoPage)}
                                 />
                             )}
                         </div>
@@ -68,9 +72,16 @@ const Gallery = () => {
                     </DialogHeader>
                     <div>
                         {contentType === "Image" ? (
-                            <img src={content} alt={contentTitle} className="rounded-lg" />
+                            <img src={content} draggable="false" alt={contentTitle} className="rounded-lg pointer-events-none select-none" />
                         ) : (
-                            <video src={content} autoPlay controls className="rounded-lg" />
+                            <div className="flex flex-col gap-4">
+                                <video src={`${content}#t=0,5`} draggable="false" autoPlay className="rounded-lg select-none" />
+                                <Link href={contentVideoPage}>
+                                    <Button variant="default" size="lg" className="cursor-pointer rounded-full w-full font-semibold">
+                                        Watch full video
+                                    </Button>
+                                </Link>
+                            </div>
                         )}
                     </div>
                 </DialogContent>

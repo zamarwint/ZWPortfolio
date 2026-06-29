@@ -3,9 +3,9 @@
 import { motion } from "motion/react";
 import { useState, useEffect, useRef } from "react";
 import io, { Socket } from "socket.io-client";
-import ChatMessages from "../../../components/chat/ChatMessages";
-import ChatInput from "../../../components/chat/ChatInput";
-import { ErrorContent } from "../../../components/modal-content";
+import ChatMessages from "../../_components/chat/ChatMessages";
+import ChatInput from "../../_components/chat/ChatInput";
+import { ErrorContent } from "../../_components/modal-content";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 
 // Define the socket outside the component to prevent multiple connections on re-render
