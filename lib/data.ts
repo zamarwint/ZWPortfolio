@@ -56,7 +56,7 @@ const files = {
         },
         {
             fileName: "Not Found Video",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/notFound.mp4`,
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/not-found.mp4`,
         },
     ]
 }
