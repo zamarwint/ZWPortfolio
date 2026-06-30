@@ -27,7 +27,7 @@ export default function VideosPage({
                 duration: 2,
             }}
             id="gallery"
-            className="flex flex-col items-center justify-center py-10">
+            className="flex flex-col items-center justify-center py-10 text-center">
             <h1 className="text-6xl font-bold">{slug}</h1>
             <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-4">
                 Full video
@@ -38,7 +38,7 @@ export default function VideosPage({
                     autoPlay
                     controls
                     draggable="false"
-                    className="size-8/12 rounded-lg"
+                    className="size-11/12 md:size-8/12 rounded-lg"
                 ></video>
             </div>
             <Link href="/gallery">
