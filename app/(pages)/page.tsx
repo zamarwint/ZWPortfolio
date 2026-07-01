@@ -2,12 +2,16 @@
 
 import { CornerDownRight, Type } from 'lucide-react';
 import { useScroll, useTransform, motion } from "motion/react";
-import { accolades, education, workExperience, appDescriptions1, appDescriptions2, homePageImages } from "@/lib/data";
+import { accolades, education, workExperience, appDescriptions1, appDescriptions2, homePageImages, accoladeImages } from "@/lib/data";
 import { Button } from '@/components/ui/button';
 import TypewriterEffect from '../_components/typewriter';
+import { useState } from 'react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentAccolade, setCurrentAccolade] = useState<string>("");
 
   // Flip from 0 to 360 degrees as user scrolls from top to bottom
   const rotate = useTransform(scrollYProgress, [0, 1], [0, 400]);
@@ -16,15 +20,15 @@ const Home = () => {
   return (
     <motion.main
       id="home"
-      className="bg-background flex flex-col gap-20 py-30 lg:py-10"
+      className="bg-background flex flex-col items-center justify-center gap-20 py-30 lg:py-10"
     >
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="flex items-center justify-center lg:justify-around flex-col lg:flex-row mx-10 lg:mx-15 mt-10 gap-10 lg:gap-0"
+        className="w-full flex flex-col md:flex-row items-center justify-center md:justify-around px-10 py-5"
       >
-        <div className="flex flex-col items-center gap-10">
+        <div className="flex flex-col items-center gap-10 md:w-2/4 lg:w-auto">
           <div className="text-6xl md:text-8xl text-center min-w-sm md:min-w-xl max-w-xl">
             Welcome. <br /> I am <span className='text-amber-900 dark:text-amber-200'><TypewriterEffect words={['Zamar Wint', 'a Computer Engineer', 'a Software Engineer', 'a AI Engineer', 'an IT Professional']} /></span>
           </div>
@@ -54,13 +58,13 @@ const Home = () => {
       </motion.section>
 
       <motion.section
-        initial={{ x: 100 }}
-        whileInView={{ x: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{
           duration: 2,
         }}
-        className="flex flex-col md:flex-row items-center justify-center gap-20 m-10 md:m-30"
+        className="flex flex-col md:flex-row items-center justify-center md:justify-around gap-20 m-10 md:m-30"
       >
         <div>
           <img
@@ -70,7 +74,7 @@ const Home = () => {
           />
         </div>
         <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-10 w-full md:w-1/2 text-center md:text-left">
-          <div className="text-6xl md:text-8xl">About Me</div>
+          <div className="text-6xl md:text-8xl font-semibold">About Me</div>
           <div className="text-2xl">
             Zamar Wint is known as a reliable engineer in his field, someone you
             can depend on to get tasks done no matter the difficulty.
@@ -111,7 +115,7 @@ const Home = () => {
       >
         <div className="flex flex-col gap-50">
           <div className="flex flex-col gap-10">
-            <div className="text-6xl md:text-8xl text-center md:text-left">
+            <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
               Educational Background
             </div>
             <div className="flex flex-row">
@@ -123,7 +127,7 @@ const Home = () => {
                 evident in my accomplishments.
               </div>
             </div>
-            <div className="grid grid-rows-3 md:grid-cols-3 md:grid-rows-1 gap-5 cursor-pointer">
+            <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-5 cursor-pointer">
               {education.map((edu, index) => (
                 <div
                   key={index}
@@ -142,27 +146,38 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <div className="flex flex-col gap-5 items-center justify-center">
-            <div className="text-6xl md:text-8xl text-left mb-15">
-              Work Experience
-            </div>
-            {workExperience.map((work, index) => (
-              <div
-                key={index}
-                className="cursor-pointer w-80vw sm:w-120 md:w-160 p-5 rounded-xl border-2 border-neutral-200 shadow-2xl/20 shadow-neutral-600 bg-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400 dark:shadow-neutral-600 dark:bg-neutral-900 dark:text-white dark:border-neutral-800"
-              >
-                <div className="text-3xl w-full font-hoves-bold p-1">
-                  {work.company}
-                </div>
-                <div className="text-2xl w-full p-1">
-                  {work.title}
-                </div>
-                <div className="text-1xl w-full font-hoves-light p-1">
-                  {work.description}
-                </div>
-              </div>
-            ))}
+        </div>
+      </motion.section>
+
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 2,
+        }}
+        className="flex flex-col justify-center items-center m-10 md:m-40"
+      >
+        <div className="flex flex-col gap-5 items-center justify-center">
+          <div className="text-6xl md:text-8xl text-left mb-15 font-semibold">
+            Work Experience
           </div>
+          {workExperience.map((work, index) => (
+            <div
+              key={index}
+              className="cursor-pointer w-80vw sm:w-120 md:w-160 p-5 rounded-xl border-2 border-neutral-200 shadow-2xl/20 shadow-neutral-600 bg-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400 dark:shadow-neutral-600 dark:bg-neutral-900 dark:text-white dark:border-neutral-800"
+            >
+              <div className="text-3xl w-full font-hoves-bold p-1">
+                {work.company}
+              </div>
+              <div className="text-2xl w-full p-1">
+                {work.title}
+              </div>
+              <div className="text-1xl w-full font-hoves-light p-1">
+                {work.description}
+              </div>
+            </div>
+          ))}
         </div>
       </motion.section>
 
@@ -175,7 +190,7 @@ const Home = () => {
         }}
         className="flex flex-col justify-center items-center p-30 m-5 gap-20"
       >
-        <div className="text-6xl md:text-8xl text-center md:text-left">
+        <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
           My Projects
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
@@ -210,7 +225,7 @@ const Home = () => {
         className="flex flex-col md:flex-row justify-center items-center m-5 md:m-20 gap-20"
       >
         <div className="flex flex-col gap-10 w-full md:w-1/2 text-left">
-          <div className="text-6xl md:text-8xl text-center md:text-left p-2">
+          <div className="text-6xl md:text-8xl text-center md:text-left p-2 font-semibold">
             Hard work and passion will make anyone succeed.
           </div>
         </div>
@@ -232,7 +247,7 @@ const Home = () => {
         }}
         className="flex flex-col justify-around items-center p-30 m-5 gap-20"
       >
-        <div className="text-6xl md:text-8xl text-center md:text-left">
+        <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
           More of my Work
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
@@ -258,26 +273,53 @@ const Home = () => {
       </motion.section>
 
       <motion.section
-        style={{ rotate, scale }}
-        className="flex flex-col justify-center items-center m-5 gap-20 h-[200vh]"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{
+          duration: 2,
+        }}
+        className="flex flex-col justify-center items-center p-30 m-5 gap-20 mb-50"
       >
-        <div className="text-6xl md:text-8xl text-center md:text-left">
+        <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
           Accolades
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
           {accolades.map((accolade, index) => (
             <div
               key={index}
-              className="w-full h-full md:w-110 md:h-110 flex flex-col gap-10 items-center justify-center p-5 md:p-15 cursor-pointer rounded-4xl border-4 border-neutral-200 dark:border-neutral-800 shadow-2xl/20 shadow-neutral-600 bg-black text-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400"
+              onClick={() => {
+                setCurrentAccolade(accolade.description)
+                setIsOpen(true)
+              }}
+              className="w-full h-full p-10 md:p-0 md:w-105 md:h-105 flex flex-col gap-10 items-center justify-center cursor-pointer rounded-4xl border-4 border-neutral-200 dark:border-neutral-800 shadow-2xl/20 shadow-neutral-600 bg-black text-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400"
             >
               <div><img src={accolade.image} alt="Accolade image" /></div>
-              <div className="text-2xl text-center w-75 md:w-100">
+              <div className="text-2xl text-center w-75">
                 {accolade.description}
               </div>
             </div>
           ))}
         </div>
       </motion.section>
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="z-999">
+          <DialogHeader>
+            <DialogTitle>{currentAccolade}</DialogTitle>
+          </DialogHeader>
+          <div>
+            {currentAccolade.includes("Emmanuel") && (
+              <img src={accoladeImages.eacPortmore} draggable="false" alt={currentAccolade} className="rounded-lg pointer-events-none select-none" />
+            )}
+            {currentAccolade.includes("Kingston") && (
+              <img src={accoladeImages.kingstonCollege} draggable="false" alt={currentAccolade} className="rounded-lg pointer-events-none select-none" />
+            )}
+            {currentAccolade.includes("University") && (
+              <img src={accoladeImages.ucc} draggable="false" alt={currentAccolade} className="rounded-lg pointer-events-none select-none" />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </motion.main>
   );
 };

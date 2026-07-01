@@ -1,10 +1,10 @@
 import { FaGithub } from "react-icons/fa";
-import { BsPaypal, BsTwitterX, BsYoutube } from "react-icons/bs";
+import { BsTwitterX, BsYoutube } from "react-icons/bs";
 import Link from "next/link";
 import { GrLinkTop } from "react-icons/gr";
 import { checkLocation } from "../../../lib/handyFunctions";
-import { TbArrowForward } from "react-icons/tb";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaExternalLinkAlt, FaInstagram } from "react-icons/fa";
+import { GiCoffeeMug } from "react-icons/gi";
 import { SuccessContent, ErrorContent } from "../../_components/modal-content";
 import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
@@ -36,11 +36,11 @@ const Footer = () => {
 				id="contact"
 				className="flex flex-col dark:bg-black dark:text-white gap-5 py-40 items-center justify-center w-full"
 			>
-				<div className="text-6xl md:text-8xl text-center md:text-left">
+				<div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
 					Reach out to me
 				</div>
-				<div className="select-none flex flex-col gap-12 py-10 lg:py-20 w-full text-center md:text-left">
-					<div className="flex flex-col md:flex-row items-center justify-center gap-10">
+				<div className="select-none flex flex-col gap-12 py-10 lg:py-20 text-center w-xl md:text-left">
+					<div className="flex flex-col md:flex-row items-center justify-around gap-10 lg:gap-0">
 						<div
 							onClick={() => handleCopy("wintzamar@gmail.com")}
 							className="cursor-pointer"
@@ -63,7 +63,7 @@ const Footer = () => {
 							</div>
 						</div>
 					</div>
-					<div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-15">
+					<div className="flex flex-col md:flex-row items-center justify-around gap-10 lg:gap-0">
 						<div className="flex flex-col items-center md:items-start">
 							<FaGithub className="w-12 h-12 mb-2" />
 							<div className="font-hoves-demi-bold text-black dark:text-white">
@@ -110,17 +110,17 @@ const Footer = () => {
 							</a>
 						</div>
 						<div className="flex flex-col items-center md:items-start">
-							<BsPaypal className="w-12 h-12 mb-2" />
+							<FaInstagram className="w-12 h-12 mb-2" />
 							<div className="font-hoves-demi-bold text-black dark:text-white">
-								PayPal
+								Instagram
 							</div>
 							<a
-								href="https://paypal.me/zamarwint"
+								href="https://www.instagram.com/zamfcs"
 								target="_blank"
 								rel="noopener noreferrer"
 								className="flex flex-row items-center justify-start text-gray-500 hover:text-gray-400 cursor-pointer"
 							>
-								<span>paypal &nbsp;</span>
+								<span>@zamfcs &nbsp;</span>
 								<FaExternalLinkAlt className="inline-block w-3 h-3" />
 							</a>
 						</div>
@@ -129,17 +129,19 @@ const Footer = () => {
 
 				{/* Chat with me and See all links buttons */}
 				<div className="cursor-pointer font-hoves-demi-bold flex flex-col md:flex-row items-center justify-center gap-5">
-					<Link
-						href="/chat"
-					>
-						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><TbArrowForward className="w-6 h-6" /> Chat with me</Button>
-					</Link>
 					<a
 						href="https://solo.to/zamfc"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg">See all links <FiArrowUpRight className="w-7 h-7" /></Button>
+					</a>
+					<a
+						href="https://paypal.me/zamarwint"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg">Buy me a coffee via Paypal <GiCoffeeMug className="w-7 h-7" /></Button>
 					</a>
 				</div>
 			</footer>

@@ -28,6 +28,14 @@ const files = {
             fileName: "Quote Picture",
             link: "/assets/quote-picture.jpeg",
         },
+        {
+            fileName: "School Picture 2",
+            link: "/assets/school-picture-2.png",
+        },
+        {
+            fileName: "School Picture 3",
+            link: "/assets/school-picture-3.png",
+        },
     ],
     projects: [
         {
@@ -59,6 +67,21 @@ const files = {
             fileName: "Not Found Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/not-found.mp4`,
             videoPage: "null"
+        },
+        {
+            fileName: "EAC Accolade 1 Video",
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/eac-accolade-short.mp4`,
+            videoPage: "/videos/eac-accolade-short"
+        },
+        {
+            fileName: "EAC Accolade 2 Video",
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/eac-accolade-short2.mp4`,
+            videoPage: "/videos/eac-accolade-short2"
+        },
+        {
+            fileName: "UCC Awards Video",
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/ucc-awards-vid.mp4`,
+            videoPage: "/videos/ucc-awards-vid"
         },
     ]
 }
@@ -171,6 +194,12 @@ const accolades = [
     },
 ];
 
+const accoladeImages = {
+    eacPortmore: "/eac-accolade.jpg",
+    kingstonCollege: "/kc-accolade.jpg",
+    ucc: "/ucc-accolade.jpg",
+}
+
 // TYPE SAFETY FOR CONTENT
 type ContentType = {
     id: number,
@@ -237,9 +266,12 @@ const contents: ContentType[] = [
     { id: 19, type: "Image", src: "https://picsum.photos/500/508", alt: "Image 19" },
     { id: 20, type: "Image", src: "https://picsum.photos/500/509", alt: "Image 20" },
     { id: 21, type: "Image", src: "https://picsum.photos/500/510", alt: "Image 21" },
-    { id: 22, type: "Video", src: files.videos[0].link, imgPrwSrcForVideo: files.realImages[0].link, videoPage: files.videos[0].videoPage, alt: "Video 1" }
+    { id: 22, type: "Video", src: files.videos[0].link, imgPrwSrcForVideo: files.realImages[3].link, videoPage: files.videos[0].videoPage, alt: "Video 1" },
+    { id: 23, type: "Video", src: files.videos[2].link, imgPrwSrcForVideo: files.realImages[3].link, videoPage: files.videos[0].videoPage, alt: "Video 2" },
+    { id: 24, type: "Video", src: files.videos[3].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[0].videoPage, alt: "Video 3" },
+    { id: 25, type: "Video", src: files.videos[4].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[0].videoPage, alt: "Video 4" },
 
     // ... more content
 ];
 
-export { files, education, workExperience, appDescriptions1, appDescriptions2, accolades, homePageImages, contents, notFoundPageContent };
+export { files, education, workExperience, appDescriptions1, appDescriptions2, accolades, accoladeImages, homePageImages, contents, notFoundPageContent };

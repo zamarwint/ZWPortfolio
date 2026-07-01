@@ -28,8 +28,8 @@ export default function VideosPage({
             }}
             id="gallery"
             className="flex flex-col items-center justify-center py-10 text-center">
-            <h1 className="text-6xl font-bold">{slug}</h1>
-            <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-4">
+            <h1 className="text-5xl font-bold">{slug}</h1>
+            <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-2">
                 Full video
             </p>
             <div className="container flex flex-col items-center justify-center p-4">

@@ -31,14 +31,14 @@ const Gallery = () => {
                 duration: 2,
             }}
             id="gallery"
-            className="flex flex-col items-center justify-center py-30"
+            className="flex flex-col items-center justify-center py-30 w-screen"
         >
             <h1 className="text-6xl md:text-8xl font-bold">Gallery</h1>
             <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-4">
                 The library of my work.
             </p>
-            <div className="container mx-auto p-4 md:p-10">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5">
+            <div className="container w-full mx-auto p-4 md:p-10">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5">
                     {/* PREVIEW IMAGE OF VIDEO IS SHOWN IF THE CONTENT IS A VIDEO */}
                     {contents.map((content) => (
                         <div
