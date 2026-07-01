@@ -1,89 +1,126 @@
-// FILE EXTRACTION
-
-const files = {
+// MEDIA FILES
+const media = {
     accolades: [
         {
-            fileName: "Accolade 1",
-            link: "/assets/accolade1.png",
+            title: "Accolade 1",
+            image: "/assets/accolade1.png",
+            description: "Emmanuel Apostolic Church, Portmore.",
         },
         {
-            fileName: "Accolade 2",
-            link: "/assets/accolade2.png",
+            title: "Accolade 2",
+            image: "/assets/accolade2.png",
+            description: "Kingston College.",
         },
         {
-            fileName: "Accolade 3",
-            link: "/assets/accolade3.png",
+            title: "Accolade 3",
+            image: "/assets/accolade3.png",
+            description:
+                "Awarded the certificate of Highest Academic Distinction for Fall 2024, Summer 2025, and Fall 2025 at the University of the Commonwealth Caribbean.",
         },
     ],
-    realImages: [
+    pictures: [
         {
-            fileName: "Hero Grad Picture",
-            link: "/assets/grad-picture.jpg",
+            id: 1,
+            type: "Image",
+            image: "/assets/grad-picture.jpg",
+            alt: "Zamar Hero Picture",
         },
         {
-            fileName: "School Picture",
-            link: "/assets/school-picture-1.jpg",
+            id: 2,
+            type: "Image",
+            image: "/assets/school-picture-1.jpg",
+            alt: "Zamar School Picture",
         },
         {
-            fileName: "Quote Picture",
-            link: "/assets/quote-picture.jpeg",
+            id: 3,
+            type: "Image",
+            image: "/assets/quote-picture.jpeg",
+            alt: "Zamar Quote Picture",
         },
         {
-            fileName: "School Picture 2",
-            link: "/assets/school-picture-2.png",
+            id: 4,
+            type: "Image",
+            image: "/assets/school-picture-2.png",
+            alt: "Zamar School Picture 2",
         },
         {
-            fileName: "School Picture 3",
-            link: "/assets/school-picture-3.png",
+            id: 5,
+            type: "Image",
+            image: "/assets/school-picture-3.png",
+            alt: "Zamar School Picture 3",
         },
         {
-            fileName: "School Picture 4",
-            link: "/assets/school-picture-4.png",
+            id: 6,
+            type: "Image",
+            image: "/assets/school-picture-4.jpg",
+            alt: "Zamar School Picture 4",
         },
     ],
     projects: [
         {
-            fileName: "WardPass Project",
-            link: "/assets/wardpass-project-picture.png",
+            title: "WardPass Project",
+            image: "/assets/wardpass-project-picture.png",
+            description: "A simple password generator application.",
+            link: "https://wardpass.netlify.app/",
         },
         {
-            fileName: "Reckon Project",
-            link: "/assets/reckon-project-picture.png",
+            title: "Reckon Project",
+            image: "/assets/reckon-project-picture.png",
+            description: "An application with mathematical and investment calculators.",
+            link: "https://reckon-p.netlify.app/",
         },
         {
-            fileName: "Portfolio Project",
-            link: "/assets/portfolio-project-picture.png",
+            title: "Portfolio Project",
+            image: "/assets/portfolio-project-picture.png",
+            description: "This Portfolio.",
+            link: "/",
         },
     ],
     comingSoon: [
         {
-            fileName: "Coming Soon",
-            link: "/assets/coming-soon.png",
-        }
+            title: "Coming Soon",
+            image: "/assets/coming-soon.png",
+            description: "A secure password management system.",
+        },
+        {
+            title: "Coming Soon",
+            image: "/assets/coming-soon.png",
+            description: "A productivity suite for writers, planners, bloggers, etc.",
+        },
+        {
+            title: "Coming Soon",
+            image: "/assets/coming-soon.png",
+            description: "Customer relationship management software.",
+        },
+        {
+            title: "Coming Soon",
+            image: "/assets/coming-soon.png",
+            description: "Artificial Intelligence systems.",
+        },
     ],
     videos: [
         {
-            fileName: "Template Video",
+            title: "Template Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/template-video.mp4`,
             videoPage: "/videos/template-video"
         },
         {
-            fileName: "Not Found Video",
+            title: "Not Found Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/not-found.mp4`,
             videoPage: "null"
         },
         {
-            fileName: "EAC Accolade 1 Video",
+            title: "EAC Accolade 1 Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/eac-accolade-short.mp4`,
             videoPage: "/videos/eac-accolade-short"
         },
         {
-            fileName: "EAC Accolade 2 Video",
+            title: "EAC Accolade 2 Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/eac-accolade-short2.mp4`,
             videoPage: "/videos/eac-accolade-short2"
         },
         {
-            fileName: "UCC Awards Video",
+            title: "UCC Awards Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/ucc-awards-vid.mp4`,
             videoPage: "/videos/ucc-awards-vid"
         },
@@ -135,69 +172,6 @@ const workExperience = [
     },
 ];
 
-const appDescriptions1 = [
-    {
-        title: null,
-        image: files.projects[0].link,
-        description: "A simple password generator application.",
-        link: "https://wardpass.netlify.app/",
-    },
-    {
-        title: null,
-        image: files.projects[1].link,
-        description: "An application with mathematical and investment calculators.",
-        link: "https://reckon-p.netlify.app/",
-    },
-    {
-        title: null,
-        image: files.projects[2].link,
-        description: "This Portfolio.",
-        link: "/",
-    },
-];
-
-const appDescriptions2 = [
-    {
-        title: null,
-        image: files.comingSoon[0].link,
-        description: "A secure password management system.",
-    },
-    {
-        title: null,
-        image: files.comingSoon[0].link,
-        description: "A productivity suite for writers, planners, bloggers, etc.",
-    },
-    {
-        title: null,
-        image: files.comingSoon[0].link,
-        description: "Customer relationship management software.",
-    },
-    {
-        title: null,
-        image: files.comingSoon[0].link,
-        description: "Artificial Intelligence systems.",
-    },
-];
-
-const accolades = [
-    {
-        title: null,
-        image: files.accolades[0].link,
-        description: "Emmanuel Apostolic Church, Portmore.",
-    },
-    {
-        title: null,
-        image: files.accolades[1].link,
-        description: "Kingston College.",
-    },
-    {
-        title: null,
-        image: files.accolades[2].link,
-        description:
-            "Awarded the certificate of Highest Academic Distinction for Fall 2024, Summer 2025, and Fall 2025 at the University of the Commonwealth Caribbean.",
-    },
-];
-
 const accoladeImages = {
     eacPortmore: "/eac-accolade.jpg",
     kingstonCollege: "/kc-accolade.jpg",
@@ -214,69 +188,40 @@ type ContentType = {
     alt: string,
 }
 
-// HOME PAGE IMAGES
-const homePageImages: ContentType[] = [
-    {
-        id: 1,
-        type: "Image",
-        src: files.realImages[0].link,
-        alt: "Zamar Hero Picture",
-    },
-    {
-        id: 2,
-        type: "Image",
-        src: files.realImages[1].link,
-        alt: "Zamar School Picture",
-    },
-    {
-        id: 3,
-        type: "Image",
-        src: files.realImages[2].link,
-        alt: "Zamar Quote Picture",
-    },
-]
-
 // NOT FOUND PAGE VIDEO
 const notFoundPageContent: ContentType[] = [
     {
         id: 1,
         type: "Video",
-        src: files.videos[1].link,
-        imgPrwSrcForVideo: files.realImages[1].link,
+        src: media.videos[1].link,
+        imgPrwSrcForVideo: "https://picsum.photos/400/302",
         alt: "Not Found Page Video"
     }
 ]
 
 // GALLERY PAGE DATA
-const contents: ContentType[] = [
-    { id: 1, type: "Image", src: files.realImages[0].link, alt: "Image 1" },
-    { id: 2, type: "Image", src: files.realImages[1].link, alt: "Image 2" },
-    { id: 3, type: "Image", src: files.realImages[4].link, alt: "Image 3" },
-    { id: 4, type: "Image", src: files.accolades[0].link, alt: "Image 4" },
-    { id: 5, type: "Image", src: files.accolades[1].link, alt: "Image 5" },
-    { id: 6, type: "Image", src: files.accolades[2].link, alt: "Image 6" },
-    { id: 7, type: "Image", src: files.projects[0].link, alt: "Image 7" },
-    { id: 8, type: "Image", src: files.projects[1].link, alt: "Image 8" },
-    { id: 9, type: "Image", src: files.projects[2].link, alt: "Image 9" },
-    { id: 10, type: "Image", src: "https://picsum.photos/400/300", alt: "Image 10" },
-    { id: 11, type: "Image", src: "https://picsum.photos/401/301", alt: "Image 11" },
-    { id: 12, type: "Image", src: "https://picsum.photos/500/500", alt: "Image 12" },
-    { id: 13, type: "Image", src: "https://picsum.photos/500/501", alt: "Image 13" },
-    { id: 14, type: "Image", src: "https://picsum.photos/500/502", alt: "Image 14" },
-    { id: 15, type: "Image", src: "https://picsum.photos/500/503", alt: "Image 15" },
-    { id: 16, type: "Image", src: "https://picsum.photos/500/504", alt: "Image 16" },
-    { id: 17, type: "Image", src: "https://picsum.photos/500/505", alt: "Image 17" },
-    { id: 18, type: "Image", src: "https://picsum.photos/500/506", alt: "Image 18" },
-    { id: 19, type: "Image", src: "https://picsum.photos/500/507", alt: "Image 19" },
-    { id: 20, type: "Image", src: "https://picsum.photos/500/508", alt: "Image 20" },
-    { id: 21, type: "Image", src: "https://picsum.photos/500/509", alt: "Image 21" },
-    { id: 22, type: "Image", src: "https://picsum.photos/500/510", alt: "Image 22" },
-    { id: 23, type: "Video", src: files.videos[0].link, imgPrwSrcForVideo: files.realImages[3].link, videoPage: files.videos[0].videoPage, alt: "Video 1" },
-    { id: 24, type: "Video", src: files.videos[2].link, imgPrwSrcForVideo: files.realImages[3].link, videoPage: files.videos[2].videoPage, alt: "Video 2" },
-    { id: 25, type: "Video", src: files.videos[3].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[3].videoPage, alt: "Video 3" },
-    { id: 26, type: "Video", src: files.videos[4].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[4].videoPage, alt: "Video 4" },
+const gallery: ContentType[] = [
+    { id: 1, type: "Image", src: media.pictures[0].image, alt: media.pictures[0].alt },
+    { id: 2, type: "Image", src: media.pictures[1].image, alt: media.pictures[1].alt },
+    { id: 3, type: "Image", src: media.pictures[2].image, alt: media.pictures[2].alt },
+    { id: 4, type: "Image", src: media.pictures[3].image, alt: media.pictures[3].alt },
+    { id: 5, type: "Image", src: media.pictures[4].image, alt: media.pictures[4].alt },
+    { id: 6, type: "Image", src: media.pictures[5].image, alt: media.pictures[5].alt },
+    { id: 7, type: "Image", src: media.accolades[0].image, alt: media.accolades[0].title },
+    { id: 8, type: "Image", src: media.accolades[1].image, alt: media.accolades[1].title },
+    { id: 9, type: "Image", src: media.accolades[2].image, alt: media.accolades[2].title },
+    { id: 10, type: "Image", src: media.projects[0].image, alt: media.projects[0].title },
+    { id: 11, type: "Image", src: media.projects[1].image, alt: media.projects[1].title },
+    { id: 12, type: "Image", src: media.projects[2].image, alt: media.projects[2].title },
+    { id: 13, type: "Image", src: accoladeImages.eacPortmore, alt: "Long Service Award at EAC Portmore" },
+    { id: 14, type: "Image", src: accoladeImages.kingstonCollege, alt: "Diploma in General Studies at Kingston College" },
+    { id: 15, type: "Image", src: accoladeImages.ucc, alt: "Highest Academic Award at University of the Commonwealth Caribbean" },
+    { id: 16, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/400/300", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
+    { id: 17, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/401/301", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
+    { id: 18, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/500/500", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
+    { id: 19, type: "Video", src: media.videos[4].link, imgPrwSrcForVideo: "https://picsum.photos/500/502", videoPage: media.videos[4].videoPage, alt: media.videos[4].title },
 
     // ... more content
 ];
 
-export { files, education, workExperience, appDescriptions1, appDescriptions2, accolades, accoladeImages, homePageImages, contents, notFoundPageContent };
+export { media, education, workExperience, accoladeImages, gallery, notFoundPageContent };

@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { contents } from "@/lib/data";
+import { gallery } from "@/lib/data";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -40,7 +40,7 @@ const Gallery = () => {
             <div className="container w-full mx-auto p-4 md:p-10">
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5">
                     {/* PREVIEW IMAGE OF VIDEO IS SHOWN IF THE CONTENT IS A VIDEO */}
-                    {contents.map((content) => (
+                    {gallery.map((content) => (
                         <div
                             key={content.id}
                             className="overflow-hidden rounded-lg shadow-md bg-black"

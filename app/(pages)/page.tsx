@@ -2,7 +2,7 @@
 
 import { CornerDownRight, Type } from 'lucide-react';
 import { useScroll, useTransform, motion } from "motion/react";
-import { accolades, education, workExperience, appDescriptions1, appDescriptions2, homePageImages, accoladeImages } from "@/lib/data";
+import { media, education, workExperience, accoladeImages } from "@/lib/data";
 import { Button } from '@/components/ui/button';
 import TypewriterEffect from '../_components/typewriter';
 import { useState } from 'react';
@@ -30,10 +30,10 @@ const Home = () => {
       >
         <div className="flex flex-col items-center gap-10 md:w-2/4 lg:w-auto">
           <div className="text-6xl md:text-8xl text-center min-w-sm md:min-w-xl max-w-xl">
-            Welcome. <br /> I am <span className='text-amber-900 dark:text-amber-200'><TypewriterEffect words={['Zamar Wint', 'a Computer Engineer', 'a Software Engineer', 'a AI Engineer', 'an IT Professional']} /></span>
+            Welcome. <br /> I am <span className='text-amber-900 dark:text-amber-200'><TypewriterEffect words={['Zamar Wint', 'a Computer Engineer', 'a Software Engineer', 'a AI Engineer', 'an upcoming Data Scientist', 'a Problem Solver', 'an Entrepreneur', 'a Leader', 'a Researcher', 'a Communicator']} /></span>
           </div>
           <div className="text-2xl border border-black rounded-full px-10 py-4 text-center dark:border-white">
-            Zamar Wint / Software Engineer
+            Zamar Wint / Computer Engineer
           </div>
           <div className="flex items-center gap-2 text-2xl">
             <CornerDownRight className="w-10 h-10" />
@@ -50,8 +50,8 @@ const Home = () => {
         </div>
         <div>
           <img
-            src={homePageImages[0].src}
-            alt={homePageImages[0].alt}
+            src={media.pictures[0].image}
+            alt={media.pictures[0].alt}
             className="w-150 h-200 md:w-110 object-cover aspect-square rounded-full py-10 md:py-0"
           />
         </div>
@@ -68,8 +68,8 @@ const Home = () => {
       >
         <div>
           <img
-            src={homePageImages[1].src}
-            alt={homePageImages[1].alt}
+            src={media.pictures[1].image}
+            alt={media.pictures[1].alt}
             className="w-150 h-200 md:w-110 md:h-210 object-cover aspect-square rounded-full"
           />
         </div>
@@ -167,13 +167,13 @@ const Home = () => {
               key={index}
               className="cursor-pointer w-80vw sm:w-120 md:w-160 p-5 rounded-xl border-2 border-neutral-200 shadow-2xl/20 shadow-neutral-600 bg-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400 dark:shadow-neutral-600 dark:bg-neutral-900 dark:text-white dark:border-neutral-800"
             >
-              <div className="text-3xl w-full font-hoves-bold p-1">
+              <div className="text-3xl w-full font-semibold p-1">
                 {work.company}
               </div>
               <div className="text-2xl w-full p-1">
                 {work.title}
               </div>
-              <div className="text-1xl w-full font-hoves-light p-1">
+              <div className="text-1xl w-full p-1">
                 {work.description}
               </div>
             </div>
@@ -194,7 +194,7 @@ const Home = () => {
           My Projects
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
-          {appDescriptions1.map((app, index) => (
+          {media.projects.map((app, index) => (
             <div
               key={index}
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
@@ -231,8 +231,8 @@ const Home = () => {
         </div>
         <div>
           <img
-            src={homePageImages[2].src}
-            alt={homePageImages[2].alt}
+            src={media.pictures[2].image}
+            alt={media.pictures[2].alt}
             className="w-150 h-200 md:w-110 object-cover aspect-square rounded-full"
           />
         </div>
@@ -251,7 +251,7 @@ const Home = () => {
           More of my Work
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
-          {appDescriptions2.map((app, index) => (
+          {media.comingSoon.map((app, index) => (
             <div
               key={index}
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
@@ -285,7 +285,7 @@ const Home = () => {
           Accolades
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
-          {accolades.map((accolade, index) => (
+          {media.accolades.map((accolade, index) => (
             <div
               key={index}
               onClick={() => {
