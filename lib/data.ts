@@ -267,9 +267,9 @@ const contents: ContentType[] = [
     { id: 20, type: "Image", src: "https://picsum.photos/500/509", alt: "Image 20" },
     { id: 21, type: "Image", src: "https://picsum.photos/500/510", alt: "Image 21" },
     { id: 22, type: "Video", src: files.videos[0].link, imgPrwSrcForVideo: files.realImages[3].link, videoPage: files.videos[0].videoPage, alt: "Video 1" },
-    { id: 23, type: "Video", src: files.videos[2].link, imgPrwSrcForVideo: files.realImages[3].link, videoPage: files.videos[0].videoPage, alt: "Video 2" },
-    { id: 24, type: "Video", src: files.videos[3].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[0].videoPage, alt: "Video 3" },
-    { id: 25, type: "Video", src: files.videos[4].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[0].videoPage, alt: "Video 4" },
+    { id: 23, type: "Video", src: files.videos[2].link, imgPrwSrcForVideo: files.realImages[3].link, videoPage: files.videos[2].videoPage, alt: "Video 2" },
+    { id: 24, type: "Video", src: files.videos[3].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[3].videoPage, alt: "Video 3" },
+    { id: 25, type: "Video", src: files.videos[4].link, imgPrwSrcForVideo: files.realImages[4].link, videoPage: files.videos[4].videoPage, alt: "Video 4" },
 
     // ... more content
 ];
