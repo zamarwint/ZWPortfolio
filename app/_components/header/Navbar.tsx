@@ -87,7 +87,7 @@ const Navbar = () => {
 			className="flex flex-row w-full items-center justify-around py-5 z-999 bg-transparent backdrop-blur-sm fixed"
 		>
 			{/* LOGO */}
-			<Link href="/" className="font-seasons-serif text-4xl font-bold seasons-serif cursor-pointer">
+			<Link href="/" className="text-4xl font-bold cursor-pointer">
 				ZW
 			</Link>
 

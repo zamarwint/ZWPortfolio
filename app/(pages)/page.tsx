@@ -133,7 +133,7 @@ const Home = () => {
                   key={index}
                   className="rounded-xl border-2 border-neutral-200 shadow-2xl/20 shadow-neutral-600 bg-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400 dark:shadow-neutral-800 dark:bg-neutral-900 dark:text-white dark:border-neutral-800"
                 >
-                  <div className="text-3xl p-5 w-full font-hoves-bold">
+                  <div className="text-3xl p-5 w-full font-semibold">
                     {edu.certificate}
                   </div>
                   <div className="text-2xl p-5 w-full border-t-2 border-b-2 border-neutral-200 dark:border-neutral-800">

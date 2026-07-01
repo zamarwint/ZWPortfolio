@@ -155,7 +155,7 @@ const Footer = () => {
 					<span>Back to top</span>
 					<GrLinkTop className="inline-block w-5 h-5" />
 				</Link>
-				<Link href="/" className="text-4xl font-medium cursor-pointer">
+				<Link href="/" className="text-4xl font-semibold cursor-pointer">
 					ZW
 				</Link>
 				<div className="hover:text-neutral-600 hover:dark:text-neutral-300 text-right">

@@ -117,7 +117,7 @@ const Chat = () => {
                                     : "w-3 h-3 rounded-full bg-red-500 animate-pulse"
                             }
                         ></div>
-                        <span className="font-normal">Zamar's Assistant</span>
+                        <span className="font-semibold">Zamar's Assistant</span>
                     </div>
                     <div className="text-sm font-normal text-neutral-500 dark:text-neutral-400">
                         {isConnected ? "Online" : "Offline"}
