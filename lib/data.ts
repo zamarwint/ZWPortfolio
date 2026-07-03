@@ -60,7 +60,7 @@ const media = {
         {
             title: "WardPass Project",
             image: "/assets/wardpass-project-picture.png",
-            description: "A simple password generator application.",
+            description: "A secure password management system.",
             link: "https://wardpass.netlify.app/",
         },
         {
@@ -80,11 +80,6 @@ const media = {
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
-            description: "A secure password management system.",
-        },
-        {
-            title: "Coming Soon",
-            image: "/assets/coming-soon.png",
             description: "A productivity suite for writers, planners, bloggers, etc.",
         },
         {
@@ -96,6 +91,11 @@ const media = {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
             description: "Artificial Intelligence systems.",
+        },
+        {
+            title: "Coming Soon",
+            image: "/assets/coming-soon.png",
+            description: "Live (realtime) code analysis and optimization tool.",
         },
     ],
     videos: [
