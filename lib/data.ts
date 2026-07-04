@@ -15,7 +15,7 @@ const media = {
             title: "Accolade 3",
             image: "/assets/accolade3.png",
             description:
-                "Awarded the certificate of Highest Academic Distinction for Fall 2024, Summer 2025, and Fall 2025 at the University of the Commonwealth Caribbean.",
+                "University of the Commonwealth Caribbean.",
         },
     ],
     pictures: [
