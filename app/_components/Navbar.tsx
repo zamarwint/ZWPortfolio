@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from 'lucide-react';
 import { motion, useScroll } from "framer-motion";
-import { scrollToAnchor } from "../../../lib/handyFunctions";
+import { scrollToAnchor } from "../../lib/handyFunctions";
 import { Sun, Moon } from 'lucide-react';
 
 import { useTheme } from "next-themes"

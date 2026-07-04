@@ -2,7 +2,7 @@
 
 import { CornerDownRight, Type } from 'lucide-react';
 import { useScroll, useTransform, motion } from "motion/react";
-import { media, education, workExperience, accoladeImages } from "@/lib/data";
+import { media, accoladeImages } from "@/lib/data";
 import { Button } from '@/components/ui/button';
 import TypewriterEffect from '../_components/typewriter';
 import { useState } from 'react';
@@ -118,66 +118,25 @@ const Home = () => {
             <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
               Educational Background
             </div>
-            <div className="flex flex-row">
-              <div className="text-2xl text-center md:text-left">
+            <div className="flex flex-col text-2xl text-center md:text-left gap-10">
+              <p>
                 My educational journey has equipped me with a deep understanding
                 of software engineering, from the ground up. From writing my
                 first line of code in Python back in 2021 to building production
                 projects in React in 2026, my dedication to learning software is
                 evident in my accomplishments.
-              </div>
-            </div>
-            <div className="grid grid-rows-3 lg:grid-cols-3 lg:grid-rows-1 gap-5 cursor-pointer">
-              {education.map((edu, index) => (
-                <div
-                  key={index}
-                  className="rounded-xl border-2 border-neutral-200 shadow-2xl/20 shadow-neutral-600 bg-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400 dark:shadow-neutral-800 dark:bg-neutral-900 dark:text-white dark:border-neutral-800"
-                >
-                  <div className="text-3xl p-5 w-full font-semibold">
-                    {edu.certificate}
-                  </div>
-                  <div className="text-2xl p-5 w-full border-t-2 border-b-2 border-neutral-200 dark:border-neutral-800">
-                    {edu.placeOfStudy}
-                  </div>
-                  <div className="text-1xl p-5 w-full font-hoves-light">
-                    {edu.description}
-                  </div>
-                </div>
-              ))}
+              </p>
+              <p>
+                I have done exceptionally well throughout my school years and now I am in university pursuing a STEM degree.
+                I am a visionary, a problem solver, an innovator, an entrepreneur, and a leader.
+                I innovate to elevate, the lives of others, as I believe that technology should be used to improve the lives of others.
+              </p>
+              <p>
+                I have volunteered as a camera operator, and a vision mixer and I have worked as a Data Entry clerk.
+                When I was volunteering as a vision mixer, I also assisted in broadcasting and live streaming and setting up stream schedules.
+              </p>
             </div>
           </div>
-        </div>
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 2,
-        }}
-        className="flex flex-col justify-center items-center m-10 md:m-40"
-      >
-        <div className="flex flex-col gap-5 items-center justify-center">
-          <div className="text-6xl md:text-8xl text-left mb-15 font-semibold">
-            Work Experience
-          </div>
-          {workExperience.map((work, index) => (
-            <div
-              key={index}
-              className="cursor-pointer w-80vw sm:w-120 md:w-160 p-5 rounded-xl border-2 border-neutral-200 shadow-2xl/20 shadow-neutral-600 bg-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400 dark:shadow-neutral-600 dark:bg-neutral-900 dark:text-white dark:border-neutral-800"
-            >
-              <div className="text-3xl w-full font-semibold p-1">
-                {work.company}
-              </div>
-              <div className="text-2xl w-full p-1">
-                {work.title}
-              </div>
-              <div className="text-1xl w-full p-1">
-                {work.description}
-              </div>
-            </div>
-          ))}
         </div>
       </motion.section>
 

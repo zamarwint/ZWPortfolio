@@ -4,7 +4,7 @@ const media = {
         {
             title: "Accolade 1",
             image: "/assets/accolade1.png",
-            description: "Emmanuel Apostolic Church, Portmore.",
+            description: "Emmanuel Apostolic Church.",
         },
         {
             title: "Accolade 2",
@@ -128,50 +128,6 @@ const media = {
 }
 
 // HOME PAGE DATA
-const education = [
-    {
-        certificate: "Bachelor of Science in Computer Engineering",
-        placeOfStudy:
-            "University of the Commonwealth Caribbean, New Kingston, Jamaica",
-        description: "Will study in the future by God’s grace.",
-    },
-    {
-        certificate: "Associate of Science in Information Technology",
-        placeOfStudy:
-            "University of the Commonwealth Caribbean, New Kingston, Jamaica",
-        description:
-            "Currently studying Information Technology, furthering studies in networking, programming, and mathematics.",
-    },
-    {
-        certificate: "High School Diploma",
-        placeOfStudy: "Kingston College, Kingston, Jamaica",
-        description:
-            "Exited High school with the Caribbean Secondary Education Certiﬁcate and a strong foundation in Computers.",
-    },
-];
-
-const workExperience = [
-    {
-        company: "Emmanuel Apostolic Church, Portmore, Braeton Parkway, Pines Road",
-        title: "Camera Operator",
-        description: "Currently volunteering as a Camera Operator on Sundays.",
-        duration: "AUGUST 2023 – PRESENT",
-    },
-    {
-        company: "GBI Logistics Ltd.",
-        title: "Data Entry Clerk",
-        description: "Accurately entered shipment data into the database.",
-        duration: "JUNE 10, 2024 – JUNE 22, 2024",
-    },
-    {
-        company: "Emmanuel Apostolic Church, Portmore, Braeton Parkway, Pines Road",
-        title: "Vision Mixer",
-        description:
-            "Voluntary Service. \n Assisted in broadcasting and live streaming. \n Assisted in setting up live stream schedules for broadcasting.",
-        duration: "SEPTEMBER 2019 – AUGUST 2023",
-    },
-];
-
 const accoladeImages = {
     eacPortmore: "/eac-accolade.jpg",
     kingstonCollege: "/kc-accolade.jpg",
@@ -224,4 +180,4 @@ const gallery: ContentType[] = [
     // ... more content
 ];
 
-export { media, education, workExperience, accoladeImages, gallery, notFoundPageContent };
+export { media, accoladeImages, gallery, notFoundPageContent };
