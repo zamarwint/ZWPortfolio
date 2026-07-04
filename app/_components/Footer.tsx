@@ -117,7 +117,7 @@ const Footer = () => {
 				</Link>
 				<div className="flex flex-col hover:text-neutral-600 hover:dark:text-neutral-300 text-right gap-4 md:gap-0">
 					<div className="text-lg font-semibold">
-						Designed and Developed  <br /> <span className='text-amber-400 text-md'>by Zamar Wint</span>
+						Designed and Developed  <br /> <span className='text-amber-900 dark:text-amber-200 text-md'>by Zamar Wint</span>
 					</div>
 					<div>
 						<div className="flex font-semibold flex-col md:flex-row items-end justify-center gap-2">
