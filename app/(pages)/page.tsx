@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import TypewriterEffect from '../_components/typewriter';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { underlineDrawAmber } from '../_components/UnderlineDraw';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
@@ -42,7 +43,7 @@ const Home = () => {
               target="_blank"
               rel="noopener noreferrer"
               download
-              className="cursor-pointer relative inline-block no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+              className={`${underlineDrawAmber()}`}
             >
               Work with me today
             </a>
@@ -147,6 +148,7 @@ const Home = () => {
         transition={{
           duration: 2,
         }}
+        id="projects-1"
         className="flex flex-col justify-center items-center p-30 m-5 gap-20"
       >
         <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
@@ -204,6 +206,7 @@ const Home = () => {
         transition={{
           duration: 2,
         }}
+        id="projects-2"
         className="flex flex-col justify-around items-center p-30 m-5 gap-20"
       >
         <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
@@ -228,6 +231,9 @@ const Home = () => {
               </a>
             </div>
           ))}
+        </div>
+        <div className="text-lg md:text-xl text-center w-xl">
+          And so much more... in the works. I plan to make AI models and other tremendous solutions that will elevate and improve the lives of others.
         </div>
       </motion.section>
 

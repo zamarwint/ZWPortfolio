@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { underlineDrawAmber, underlineDrawNeutral } from "./UnderlineDraw";
 
 const bottomLinks = [
 	{
@@ -107,17 +108,17 @@ const Footer = () => {
 			<div className="flex flex-row items-center justify-around bg-neutral-100 w-full p-5 dark:bg-neutral-900 dark:text-white">
 				<Link
 					href={checkLocation()}
-					className="text-2xl flex flex-col md:flex-row items-start md:items-center justify-center gap-2 cursor-pointer relative no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-amber-400 after:transition-all after:duration-300 hover:after:w-full"
+					className={`text-2xl flex flex-col md:flex-row items-start md:items-center justify-center ${underlineDrawAmber()}`}
 				>
-					<span>Back to top</span>
+					<span>Back to top</span> &nbsp;
 					<GrLinkTop className="inline-block w-5 h-5" />
 				</Link>
 				<Link href="/" className="text-4xl font-semibold cursor-pointer">
 					ZW
 				</Link>
-				<div className="flex flex-col hover:text-neutral-600 hover:dark:text-neutral-300 text-right gap-4 md:gap-0">
-					<div className="text-lg font-semibold">
-						Designed and Developed  <br /> <span className='text-amber-900 dark:text-amber-200 text-md'>by Zamar Wint</span>
+				<div className="flex flex-col hover:text-neutral-600 hover:dark:text-neutral-300 items-end justify-center text-right gap-4 md:gap-0">
+					<div className="text-lg tracking-wide ">
+						Designed & Developed by Zamar Wint
 					</div>
 					<div>
 						<div className="flex font-semibold flex-col md:flex-row items-end justify-center gap-2">
@@ -127,7 +128,7 @@ const Footer = () => {
 										href={bottomLink.link}
 										target="_blank"
 										rel="noopener noreferrer"
-										className="flex flex-row items-center justify-center text-neutral-400 hover:underline hover:underline-offset-4 cursor-pointer"
+										className={`flex flex-row items-center justify-center text-neutral-500 dark:text-neutral-400 ${underlineDrawNeutral()}`}
 									>
 										{bottomLink.name}
 									</a>

@@ -55,6 +55,12 @@ const media = {
             image: "/assets/school-picture-4.jpg",
             alt: "Zamar School Picture 4",
         },
+        {
+            id: 7,
+            type: "Image",
+            image: "/assets/eac-cam-picture.png",
+            alt: "Voluntary Service at EAC Portmore",
+        },
     ],
     projects: [
         {
@@ -80,22 +86,22 @@ const media = {
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
-            description: "A productivity suite for writers, planners, bloggers, etc.",
+            description: "A productivity suite for writers, planners, bloggers, content creators, journalists, etc.",
         },
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
-            description: "Customer relationship management software.",
+            description: "Customer relationship management software for small to medium size businesses.",
         },
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
-            description: "Artificial Intelligence systems.",
+            description: "A social media platform for everyone, with an AI algorithm, designed to boost content creators.",
         },
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
-            description: "Live (realtime) code analysis and optimization tool.",
+            description: "Realtime code mapping, analysis and optimization tool for developers and startup founders.",
         },
     ],
     videos: [
@@ -163,19 +169,20 @@ const gallery: ContentType[] = [
     { id: 4, type: "Image", src: media.pictures[3].image, alt: media.pictures[3].alt },
     { id: 5, type: "Image", src: media.pictures[4].image, alt: media.pictures[4].alt },
     { id: 6, type: "Image", src: media.pictures[5].image, alt: media.pictures[5].alt },
-    { id: 7, type: "Image", src: media.accolades[0].image, alt: media.accolades[0].title },
-    { id: 8, type: "Image", src: media.accolades[1].image, alt: media.accolades[1].title },
-    { id: 9, type: "Image", src: media.accolades[2].image, alt: media.accolades[2].title },
-    { id: 10, type: "Image", src: media.projects[0].image, alt: media.projects[0].title },
-    { id: 11, type: "Image", src: media.projects[1].image, alt: media.projects[1].title },
-    { id: 12, type: "Image", src: media.projects[2].image, alt: media.projects[2].title },
-    { id: 13, type: "Image", src: accoladeImages.eacPortmore, alt: "Long Service Award at EAC Portmore" },
-    { id: 14, type: "Image", src: accoladeImages.kingstonCollege, alt: "Diploma in General Studies at Kingston College" },
-    { id: 15, type: "Image", src: accoladeImages.ucc, alt: "Highest Academic Award at University of the Commonwealth Caribbean" },
-    { id: 16, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/400/300", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
-    { id: 17, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/401/301", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
-    { id: 18, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/500/500", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
-    { id: 19, type: "Video", src: media.videos[4].link, imgPrwSrcForVideo: "https://picsum.photos/500/502", videoPage: media.videos[4].videoPage, alt: media.videos[4].title },
+    { id: 7, type: "Image", src: media.pictures[6].image, alt: media.pictures[6].alt },
+    { id: 8, type: "Image", src: media.accolades[0].image, alt: media.accolades[0].title },
+    { id: 9, type: "Image", src: media.accolades[1].image, alt: media.accolades[1].title },
+    { id: 10, type: "Image", src: media.accolades[2].image, alt: media.accolades[2].title },
+    { id: 11, type: "Image", src: media.projects[0].image, alt: media.projects[0].title },
+    { id: 12, type: "Image", src: media.projects[1].image, alt: media.projects[1].title },
+    { id: 13, type: "Image", src: media.projects[2].image, alt: media.projects[2].title },
+    { id: 14, type: "Image", src: accoladeImages.eacPortmore, alt: "Long Service Award at EAC Portmore" },
+    { id: 15, type: "Image", src: accoladeImages.kingstonCollege, alt: "Diploma in General Studies at Kingston College" },
+    { id: 16, type: "Image", src: accoladeImages.ucc, alt: "Highest Academic Award at University of the Commonwealth Caribbean" },
+    { id: 17, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/400/300", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
+    { id: 18, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/401/301", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
+    { id: 19, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/500/500", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
+    { id: 20, type: "Video", src: media.videos[4].link, imgPrwSrcForVideo: "https://picsum.photos/500/502", videoPage: media.videos[4].videoPage, alt: media.videos[4].title },
 
     // ... more content
 ];
