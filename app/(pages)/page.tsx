@@ -209,7 +209,7 @@ const Home = () => {
         id="projects-2"
         className="flex flex-col justify-around items-center p-30 m-5 gap-20"
       >
-        <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
+        <div className="text-6xl w-sm md:w-fit md:text-8xl text-center md:text-left font-semibold">
           More of my Work
         </div>
         <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
@@ -218,8 +218,8 @@ const Home = () => {
               key={index}
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
             >
-              <div><img src={app.image} alt="App image" /></div>
-              <div className="text-2xl text-center">
+              <div><img src={app.image} alt="App image" className='w-50 h-50 md:w-fit md:h-fit' /></div>
+              <div className="text-2xl text-center w-sm md:w-fit">
                 {app.description}
               </div>
               <a
@@ -232,7 +232,7 @@ const Home = () => {
             </div>
           ))}
         </div>
-        <div className="text-lg md:text-xl text-center w-xl">
+        <div className="text-lg md:text-xl text-center w-sm md:w-xl">
           And so much more... in the works. I plan to make AI models and other tremendous solutions that will elevate and improve the lives of others.
         </div>
       </motion.section>
