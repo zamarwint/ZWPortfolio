@@ -78,7 +78,7 @@ const media = {
         {
             title: "Portfolio Project",
             image: "/assets/portfolio-project-picture.png",
-            description: "This Portfolio.",
+            description: "This wonderful portfolio website project.",
             link: "/",
         },
     ],
@@ -106,16 +106,6 @@ const media = {
     ],
     videos: [
         {
-            title: "Template Video",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/template-video.mp4`,
-            videoPage: "/videos/template-video"
-        },
-        {
-            title: "Not Found Video",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/not-found.mp4`,
-            videoPage: "null"
-        },
-        {
             title: "EAC Accolade 1 Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/eac-accolade-short.mp4`,
             videoPage: "/videos/eac-accolade-short"
@@ -129,6 +119,11 @@ const media = {
             title: "UCC Awards Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/ucc-awards-vid.mp4`,
             videoPage: "/videos/ucc-awards-vid"
+        },
+        {
+            title: "Math Revision Outreach Video",
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/math-revision-outreach.mp4`,
+            videoPage: "/videos/math-revision-outreach"
         },
     ]
 }
@@ -150,17 +145,6 @@ type ContentType = {
     alt: string,
 }
 
-// NOT FOUND PAGE VIDEO
-const notFoundPageContent: ContentType[] = [
-    {
-        id: 1,
-        type: "Video",
-        src: media.videos[1].link,
-        imgPrwSrcForVideo: "https://picsum.photos/400/302",
-        alt: "Not Found Page Video"
-    }
-]
-
 // GALLERY PAGE DATA
 const gallery: ContentType[] = [
     { id: 1, type: "Image", src: media.pictures[0].image, alt: media.pictures[0].alt },
@@ -180,11 +164,11 @@ const gallery: ContentType[] = [
     { id: 15, type: "Image", src: accoladeImages.kingstonCollege, alt: "Diploma in General Studies at Kingston College" },
     { id: 16, type: "Image", src: accoladeImages.ucc, alt: "Highest Academic Award at University of the Commonwealth Caribbean" },
     { id: 17, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/400/300", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
-    { id: 18, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/401/301", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
-    { id: 19, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/500/500", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
-    { id: 20, type: "Video", src: media.videos[4].link, imgPrwSrcForVideo: "https://picsum.photos/500/502", videoPage: media.videos[4].videoPage, alt: media.videos[4].title },
+    { id: 18, type: "Video", src: media.videos[1].link, imgPrwSrcForVideo: "https://picsum.photos/401/301", videoPage: media.videos[1].videoPage, alt: media.videos[1].title },
+    { id: 19, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/500/500", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
+    { id: 20, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/500/502", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
 
     // ... more content
 ];
 
-export { media, accoladeImages, gallery, notFoundPageContent };
+export { media, accoladeImages, gallery };

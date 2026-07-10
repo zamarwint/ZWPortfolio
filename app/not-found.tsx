@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { notFoundPageContent } from "../lib/data";
 import { Button } from "@/components/ui/button"
 
 const NotFound = () => {
@@ -16,12 +15,10 @@ const NotFound = () => {
                     </Link>
                 </Button>
             </div>
-            <video
-                src={notFoundPageContent[0].src}
-                autoPlay
-                loop
-                muted
+            <img
+                src="/Not-Found.svg"
                 className="w-300 md:w-150 h-150 object-cover"
+                alt="Not Found Page Image"
             />
         </div>
     );

@@ -116,12 +116,12 @@ const Footer = () => {
 				<Link href="/" className="text-4xl font-semibold cursor-pointer">
 					ZW
 				</Link>
-				<div className="flex flex-col hover:text-neutral-600 hover:dark:text-neutral-300 items-end justify-center text-right gap-4 md:gap-0">
-					<div className="text-lg tracking-wide ">
+				<div className="w-3xs md:w-fit flex flex-col hover:text-neutral-600 hover:dark:text-neutral-300 items-end justify-center text-right gap-4 md:gap-0">
+					<div className="text-lg tracking-wide">
 						Designed & Developed by Zamar Wint
 					</div>
 					<div>
-						<div className="flex font-semibold flex-col md:flex-row items-end justify-center gap-2">
+						<div className="flex flex-col md:flex-row items-end justify-center gap-2">
 							{bottomLinks.map((bottomLink, index) => (
 								<div key={index} className="flex flex-col items-center md:items-start">
 									<a

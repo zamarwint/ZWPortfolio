@@ -12,7 +12,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 const socket: Socket =
     process.env.NODE_ENV === "development"
         ? io("http://localhost:4000")
-        : io("https://zw-agent-backend-production.up.railway.app");
+        : io("https://zw-agent-backend.onrender.com");
 
 const Chat = () => {
     const [isOpen, setIsOpen] = useState(false);

@@ -31,7 +31,7 @@ const Home = () => {
       >
         <div className="flex flex-col items-center gap-10 md:w-2/4 lg:w-auto">
           <div className="text-6xl md:text-8xl text-center min-w-sm md:min-w-xl max-w-xl">
-            Welcome. <br /> I am <span className='text-amber-900 dark:text-amber-200'><TypewriterEffect words={['Zamar Wint', 'a Computer Engineer', 'a Software Engineer', 'a AI Engineer', 'an upcoming Data Scientist', 'a Problem Solver', 'an Entrepreneur', 'a Leader', 'a Researcher', 'a Communicator']} /></span>
+            Welcome. <br /> I am <span className='text-amber-900 dark:text-amber-500'><TypewriterEffect words={['Zamar Wint', 'a Computer Engineer', 'a Software Engineer', 'a AI Engineer', 'an upcoming Data Scientist', 'a Problem Solver', 'an Entrepreneur', 'a Leader', 'a Researcher', 'a Communicator']} /></span>
           </div>
           <div className="text-2xl border border-black rounded-full px-10 py-4 text-center dark:border-white">
             Zamar Wint / Computer Engineer
