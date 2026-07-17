@@ -1,152 +1,205 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useState, useEffect, useRef } from "react";
-import io, { Socket } from "socket.io-client";
+import { useState, useEffect, useRef, useCallback } from "react";
 import ChatMessages from "../../_components/chat/ChatMessages";
 import ChatInput from "../../_components/chat/ChatInput";
 import { ErrorContent } from "../../_components/modal-content";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+} from "../../../components/ui/dialog";
 
-// Define the socket outside the component to prevent multiple connections on re-render
-const socket: Socket =
-    process.env.NODE_ENV === "development"
-        ? io("http://localhost:4000")
-        : io("https://zw-agent-backend.onrender.com");
+interface ChatMessage {
+	senderId: string;
+	text: string;
+	timestamp: string;
+}
+
+const INITIAL_GREETING: ChatMessage = {
+	senderId: "bot",
+	text: "Hi there! I'm Zamar's automated assistant. You can ask me about his skills, projects, experience, or how to contact him!",
+	timestamp: "",
+};
 
 const Chat = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [messages, setMessages] = useState<any[]>([]);
-    const [isConnected, setIsConnected] = useState<boolean>(socket.connected);
-    const messagesEndRef = useRef<HTMLDivElement>(null);
+	const [isOpen, setIsOpen] = useState(false);
+	const [messages, setMessages] = useState<ChatMessage[]>([]);
+	const [isLoading, setIsLoading] = useState(false);
+	const messagesContainerRef = useRef<HTMLDivElement>(null);
+	const hasGreeted = useRef(false);
 
-    // TOGGLE MODAL
-    const toggleModal = () => {
-        setIsOpen(true);
-    };
+	// Show initial greeting on mount
+	useEffect(() => {
+		if (hasGreeted.current) return;
+		hasGreeted.current = true;
 
-    // CHECK IF THE SOCKET IS CONNECTED AND AUTOMATICALLY UPDATE THE CONNECTION STATUS
-    useEffect(() => {
-        // Sync state in case the connection status changed before the effect ran
-        setIsConnected(socket.connected);
+		const timer = setTimeout(() => {
+			setMessages([
+				{
+					...INITIAL_GREETING,
+					timestamp: new Date().toLocaleTimeString([], {
+						hour: "2-digit",
+						minute: "2-digit",
+					}),
+				},
+			]);
+		}, 1000);
 
-        const onConnect = () => {
-            setIsConnected(true);
-            console.log("Connected to server", socket.id);
-        };
+		return () => clearTimeout(timer);
+	}, []);
 
-        const onDisconnect = () => {
-            setIsConnected(false);
-            console.log("Disconnected from server", socket.id);
-        };
+	const scrollToLatestMessage = useCallback(() => {
+		const container = messagesContainerRef.current;
+		if (!container) return;
+		const lastMessage = container.querySelector(".flex.flex-col > :last-child");
+		lastMessage?.scrollIntoView({ behavior: "smooth", block: "start" });
+	}, []);
 
-        socket.on("connect", onConnect);
-        socket.on("disconnect", onDisconnect);
+	useEffect(() => {
+		scrollToLatestMessage();
+	}, [messages, scrollToLatestMessage]);
 
-        return () => {
-            socket.off("connect", onConnect);
-            socket.off("disconnect", onDisconnect);
-        };
-    }, []);
+	const sendMessage = async (text: string) => {
+		const userMessage: ChatMessage = {
+			senderId: "user",
+			text,
+			timestamp: new Date().toLocaleTimeString([], {
+				hour: "2-digit",
+				minute: "2-digit",
+			}),
+		};
 
-    const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-    };
+		// Optimistically add user message and an empty bot placeholder
+		const botPlaceholder: ChatMessage = {
+			senderId: "bot",
+			text: "",
+			timestamp: new Date().toLocaleTimeString([], {
+				hour: "2-digit",
+				minute: "2-digit",
+			}),
+		};
 
-    useEffect(() => {
-        scrollToBottom();
-    }, [messages]);
+		setMessages((prev) => [...prev, userMessage, botPlaceholder]);
+		setIsLoading(true);
 
-    useEffect(() => {
-        // Listen for incoming messages
-        socket.on("chat message", (msg) => {
-            setMessages((items) => [...items, msg]);
-        });
+		try {
+			const res = await fetch("/api/chat", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ text }),
+			});
 
-        // Cleanup listener on unmount
-        return () => {
-            socket.off("chat message");
-        };
-    }, []);
+			if (!res.ok) {
+				throw new Error(`Server error: ${res.status}`);
+			}
 
-    const sendMessage = (text: string) => {
-        if (!isConnected) toggleModal();
+			const reader = res.body?.getReader();
+			if (!reader) {
+				throw new Error("No response body");
+			}
 
-        // Send message to server
-        socket.emit("chat message", {
-            senderId: socket.id,
-            text,
-            timestamp: new Date().toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-            }),
-        });
-    };
+			const decoder = new TextDecoder();
+			let accumulated = "";
 
-    return (
-        <motion.div
-            id="chat"
-            className="w-full h-full min-h-screen py-30 flex flex-col items-center justify-center"
-        >
-            <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="text-center mb-10"
-            >
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-                    Ask me anything
-                </h1>
-                <p className="py-4 text-neutral-500 dark:text-neutral-400 font-normal">
-                    Drop a message and let's talk.
-                </p>
-            </motion.div>
+			while (true) {
+				const { done, value } = await reader.read();
+				if (done) break;
 
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                className="w-full max-w-3xl h-[60vh] md:h-[70vh] flex flex-col bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800"
-            >
-                <header className="p-5 bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between z-10">
-                    <div className="flex items-center gap-3">
-                        <div
-                            className={
-                                isConnected
-                                    ? "w-3 h-3 rounded-full bg-green-500 animate-pulse"
-                                    : "w-3 h-3 rounded-full bg-red-500 animate-pulse"
-                            }
-                        ></div>
-                        <span className="font-semibold">Zamar's Assistant</span>
-                    </div>
-                    <div className="text-sm font-normal text-neutral-500 dark:text-neutral-400">
-                        {isConnected ? "Online" : "Offline"}
-                    </div>
-                </header>
+				accumulated += decoder.decode(value, { stream: true });
 
-                <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth bg-neutral-50/50 dark:bg-neutral-900/50">
-                    <ChatMessages messages={messages} currentUserId={socket.id} />
-                    <div ref={messagesEndRef} />
-                </div>
+				// Update the last message (bot placeholder) with accumulated text
+				setMessages((prev) => {
+					const updated = [...prev];
+					updated[updated.length - 1] = {
+						...updated[updated.length - 1],
+						text: accumulated,
+					};
+					return updated;
+				});
+			}
+		} catch (error) {
+			console.error("Failed to send message:", error);
+			// Remove the empty bot placeholder on error
+			setMessages((prev) => {
+				const last = prev[prev.length - 1];
+				if (last?.senderId === "bot" && last.text === "") {
+					return prev.slice(0, -1);
+				}
+				return prev;
+			});
+			setIsOpen(true);
+		} finally {
+			setIsLoading(false);
+		}
+	};
 
-                <footer className="p-4 bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
-                    <ChatInput onSend={sendMessage} />
-                </footer>
-            </motion.div>
+	return (
+		<motion.div
+			id="chat"
+			className="w-full h-full min-h-screen py-30 flex flex-col items-center justify-center"
+		>
+			<motion.div
+				initial={{ opacity: 0, y: 50 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, ease: "easeOut" }}
+				className="text-center mb-10"
+			>
+				<h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+					Ask me anything
+				</h1>
+				<p className="py-4 text-neutral-500 dark:text-neutral-400 font-normal">
+					Drop a message and let&apos;s talk.
+				</p>
+			</motion.div>
 
-            <Dialog open={isOpen} onOpenChange={setIsOpen}>
-                <DialogContent>
-                    <DialogHeader className="text-center">
-                        <DialogTitle className="text-2xl font-bold">Error</DialogTitle>
-                    </DialogHeader>
-                    <DialogDescription className="flex flex-col items-center text-center gap-4">
-                        <ErrorContent />
-                        The server is currently offline. Please try again when it comes online.
-                    </DialogDescription>
-                </DialogContent>
-            </Dialog>
-        </motion.div>
-    );
+			<motion.div
+				initial={{ opacity: 0, scale: 0.95 }}
+				animate={{ opacity: 1, scale: 1 }}
+				transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+				className="w-full max-w-3xl h-[60vh] md:h-[70vh] flex flex-col bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800"
+			>
+				<header className="p-5 bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between z-10">
+					<div className="flex items-center gap-3">
+						<div
+							className={
+								isLoading
+									? "w-3 h-3 rounded-full bg-yellow-500 animate-pulse"
+									: "w-3 h-3 rounded-full bg-green-500"
+							}
+						></div>
+						<span className="font-semibold">Zamar&apos;s Assistant</span>
+					</div>
+					<div className="text-sm font-normal text-neutral-500 dark:text-neutral-400">
+						{isLoading ? "Thinking..." : "Ready"}
+					</div>
+				</header>
+
+				<div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth bg-neutral-50/50 dark:bg-neutral-900/50">
+					<ChatMessages messages={messages} currentUserId={"user"} />
+				</div>
+
+				<footer className="p-4 bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
+					<ChatInput onSend={sendMessage} />
+				</footer>
+			</motion.div>
+
+			<Dialog open={isOpen} onOpenChange={setIsOpen}>
+				<DialogContent>
+					<DialogHeader className="text-center">
+						<DialogTitle className="text-2xl font-bold">Error</DialogTitle>
+					</DialogHeader>
+					<DialogDescription className="flex flex-col items-center text-center gap-4">
+						<ErrorContent />
+						Something went wrong while sending your message. Please try again.
+					</DialogDescription>
+				</DialogContent>
+			</Dialog>
+		</motion.div>
+	);
 };
 
 export default Chat;

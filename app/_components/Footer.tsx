@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { GrLinkTop } from "react-icons/gr";
-import { checkLocation } from "../../lib/handyFunctions";
+import { CheckLocation } from "../../lib/functions";
 import { GiCoffeeMug } from "react-icons/gi";
 import { SuccessContent, ErrorContent } from "../_components/modal-content";
 import { useState } from "react";
@@ -41,7 +41,7 @@ const Footer = () => {
 			await navigator.clipboard.writeText(text);
 			setResult(true);
 			toggleModal();
-		} catch (err) {
+		} catch {
 			setResult(false);
 			toggleModal();
 		}
@@ -107,7 +107,7 @@ const Footer = () => {
 			{/* UNDER THE FOOTER */}
 			<div className="flex flex-row items-center justify-around bg-neutral-100 w-full p-5 dark:bg-neutral-900 dark:text-white">
 				<Link
-					href={checkLocation()}
+					href={CheckLocation()}
 					className={`text-2xl flex flex-col md:flex-row items-start md:items-center justify-center ${underlineDrawAmber()}`}
 				>
 					<span>Back to top</span> &nbsp;

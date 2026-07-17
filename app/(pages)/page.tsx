@@ -1,22 +1,24 @@
 "use client";
 
-import { CornerDownRight, Type } from 'lucide-react';
-import { useScroll, useTransform, motion } from "motion/react";
+import { CornerDownRight } from 'lucide-react';
+import { motion } from "motion/react";
 import { media, accoladeImages } from "@/lib/data";
 import { Button } from '@/components/ui/button';
 import TypewriterEffect from '../_components/typewriter';
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { underlineDrawAmber } from '../_components/UnderlineDraw';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Home = () => {
-  const { scrollYProgress } = useScroll();
+  // const { scrollYProgress } = useScroll();
   const [isOpen, setIsOpen] = useState(false);
   const [currentAccolade, setCurrentAccolade] = useState<string>("");
 
-  // Flip from 0 to 360 degrees as user scrolls from top to bottom
-  const rotate = useTransform(scrollYProgress, [0, 1], [0, 400]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  // // Flip from 0 to 360 degrees as user scrolls from top to bottom
+  // const rotate = useTransform(scrollYProgress, [0, 1], [0, 400]);
+  // const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
   return (
     <motion.main
@@ -27,7 +29,7 @@ const Home = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="w-full flex flex-col md:flex-row items-center justify-center md:justify-around px-10 py-5"
+        className="w-full flex flex-col md:flex-row items-center justify-center lg:justify-around px-10 py-10"
       >
         <div className="flex flex-col items-center gap-10 md:w-2/4 lg:w-auto">
           <div className="text-6xl md:text-8xl text-center min-w-sm md:min-w-xl max-w-xl">
@@ -38,7 +40,7 @@ const Home = () => {
           </div>
           <div className="flex items-center gap-2 text-2xl">
             <CornerDownRight className="w-10 h-10" />
-            <a
+            <Link
               href="../../Zamar-Wint-Resume1.zip"
               target="_blank"
               rel="noopener noreferrer"
@@ -46,14 +48,17 @@ const Home = () => {
               className={`${underlineDrawAmber()}`}
             >
               Work with me today
-            </a>
+            </Link>
           </div>
         </div>
         <div>
-          <img
+          <Image
             src={media.pictures[0].image}
             alt={media.pictures[0].alt}
-            className="w-150 h-200 md:w-110 object-cover aspect-square rounded-full py-10 md:py-0"
+            className="w-auto h-auto object-cover aspect-auto rounded-full"
+            width={500}
+            height={500}
+            loading="eager"
           />
         </div>
       </motion.section>
@@ -68,10 +73,13 @@ const Home = () => {
         className="flex flex-col md:flex-row items-center justify-center md:justify-around gap-20 m-10 md:m-30"
       >
         <div>
-          <img
+          <Image
             src={media.pictures[1].image}
             alt={media.pictures[1].alt}
-            className="w-150 h-200 md:w-110 md:h-210 object-cover aspect-square rounded-full"
+            className="w-auto h-auto object-cover aspect-auto rounded-full"
+            width={400}
+            height={400}
+            loading="eager"
           />
         </div>
         <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-10 w-full md:w-1/2 text-center md:text-left">
@@ -160,17 +168,17 @@ const Home = () => {
               key={index}
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
             >
-              <div><img src={app.image} alt="App image" /></div>
+              <div><Image src={app.image} alt="App image" width={400} height={400} loading="eager" className='w-auto h-auto object-cover aspect-auto' /></div>
               <div className="text-2xl text-center">
                 {app.description}
               </div>
-              <a
+              <Link
                 href={app.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><CornerDownRight className="w-10 h-10" /> View Project</Button>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -191,10 +199,12 @@ const Home = () => {
           </div>
         </div>
         <div>
-          <img
+          <Image
             src={media.pictures[2].image}
             alt={media.pictures[2].alt}
-            className="w-150 h-200 md:w-110 object-cover aspect-square rounded-full"
+            className="w-auto h-auto object-cover aspect-auto rounded-full"
+            width={400}
+            height={400}
           />
         </div>
       </motion.section>
@@ -218,17 +228,17 @@ const Home = () => {
               key={index}
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
             >
-              <div><img src={app.image} alt="App image" className='w-50 h-50 md:w-fit md:h-fit' /></div>
+              <div><Image src={app.image} alt="App image" width={400} height={400} className='w-auto h-auto aspect-auto' /></div>
               <div className="text-2xl text-center w-sm md:w-fit">
                 {app.description}
               </div>
-              <a
+              <Link
                 href="/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><CornerDownRight className="w-10 h-10" /> Coming soon</Button>
-              </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -259,7 +269,7 @@ const Home = () => {
               }}
               className="w-full h-full p-10 md:p-0 md:w-105 md:h-105 flex flex-col gap-10 items-center justify-center cursor-pointer rounded-4xl border-4 border-neutral-200 dark:border-neutral-800 shadow-2xl/20 shadow-neutral-600 bg-black text-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400"
             >
-              <div><img src={accolade.image} alt="Accolade image" /></div>
+              <div><Image src={accolade.image} alt="Accolade image" width={300} height={300} className='w-auto h-auto aspect-auto' /></div>
               <div className="text-2xl text-center w-75">
                 {accolade.description}
               </div>
@@ -274,13 +284,13 @@ const Home = () => {
           </DialogHeader>
           <div>
             {currentAccolade.includes("Emmanuel") && (
-              <img src={accoladeImages.eacPortmore} draggable="false" alt={currentAccolade} className="rounded-lg pointer-events-none select-none" />
+              <Image src={accoladeImages.eacPortmore} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" />
             )}
             {currentAccolade.includes("Kingston") && (
-              <img src={accoladeImages.kingstonCollege} draggable="false" alt={currentAccolade} className="rounded-lg pointer-events-none select-none" />
+              <Image src={accoladeImages.kingstonCollege} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" />
             )}
             {currentAccolade.includes("University") && (
-              <img src={accoladeImages.ucc} draggable="false" alt={currentAccolade} className="rounded-lg pointer-events-none select-none" />
+              <Image src={accoladeImages.ucc} draggable="false" alt={currentAccolade} width={600} height={600} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" />
             )}
           </div>
         </DialogContent>

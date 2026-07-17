@@ -6,6 +6,7 @@ import { gallery } from "@/lib/data";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 const Gallery = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -43,21 +44,27 @@ const Gallery = () => {
                     {gallery.map((content) => (
                         <div
                             key={content.id}
-                            className="overflow-hidden rounded-lg shadow-md bg-black"
+                            className="overflow-hidden rounded-lg shadow-md bg-black flex items-center justify-center"
                         >
                             {content.type === "Image" ? (
-                                <img
+                                <Image
                                     src={content.src}
                                     alt={content.alt}
-                                    className="w-full h-64 object-cover hover:scale-105 transition-transform cursor-pointer"
+                                    width={1000}
+                                    height={1000}
+                                    className="w-auto h-auto aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
                                     onClick={() => showContent(content.src, content.type, content.alt)}
+                                    loading="eager"
                                 />
                             ) : (
-                                <img
-                                    src={content.imgPrwSrcForVideo}
+                                <Image
+                                    src={content.imgPrwSrcForVideo as string}
                                     alt={content.alt}
-                                    className="w-full h-64 object-cover hover:scale-105 transition-transform cursor-pointer"
+                                    width={1000}
+                                    height={1000}
+                                    className="w-auto h-auto aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
                                     onClick={() => showContent(content.src, content.type, content.alt, content.videoPage)}
+                                    loading="eager"
                                 />
                             )}
                         </div>
@@ -70,9 +77,9 @@ const Gallery = () => {
                     <DialogHeader>
                         <DialogTitle>{contentTitle}</DialogTitle>
                     </DialogHeader>
-                    <div>
+                    <div className="flex items-center justify-center">
                         {contentType === "Image" ? (
-                            <img src={content} draggable="false" alt={contentTitle} className="rounded-lg pointer-events-none select-none" />
+                            <Image src={content} draggable="false" alt={contentTitle} width={400} height={400} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
                         ) : (
                             <div className="flex flex-col gap-4">
                                 <video src={`${content}#t=0,5`} draggable="false" autoPlay className="rounded-lg select-none" />

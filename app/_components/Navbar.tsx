@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from 'lucide-react';
 import { motion, useScroll } from "framer-motion";
-import { scrollToAnchor } from "../../lib/handyFunctions";
+import { ScrollToAnchor } from "../../lib/functions";
 import { Sun, Moon } from 'lucide-react';
 
 import { useTheme } from "next-themes"
@@ -75,7 +75,7 @@ const Navbar = () => {
 	}, [open]);
 
 	// IMPLEMENTATION
-	scrollToAnchor();
+	ScrollToAnchor();
 	return (
 		<motion.nav
 			initial={{ opacity: 0 }}
@@ -93,7 +93,7 @@ const Navbar = () => {
 
 			{/* DESKTOP MENU */}
 			<div className="hidden lg:flex items-center justify-center gap-2 p-1 rounded-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800">
-				{navigationLinks.map((link, index): any => (
+				{navigationLinks.map((link, index) => (
 					<Link
 						key={index}
 						href={link.path}
@@ -137,7 +137,7 @@ const Navbar = () => {
 				}
 			>
 				{open &&
-					navigationLinks.map((link, index): any => (
+					navigationLinks.map((link, index) => (
 						<Link
 							key={index}
 							href={link.path}

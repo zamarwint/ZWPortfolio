@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 // SCROLL TO ANCHOR LINK
-export const scrollToAnchor = () => {
+export const ScrollToAnchor = () => {
     const pathname = usePathname();
     const lastHash = useRef("");
 
@@ -37,7 +37,7 @@ export const useViewportWidth = () => {
 };
 
 // CHECK LOCATION TO USE FOR ANCHORS
-export const checkLocation = () => {
+export const CheckLocation = () => {
     const location = usePathname();
     const locations = [
         {

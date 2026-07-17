@@ -1,8 +1,8 @@
 # The Portfolio 📖📁
 
-This is the official portfolio of Zamar Wint, a software engineer from Kingston, Jamaica rebuilt in NEXT.js.
+This is the official portfolio of Zamar Wint, a computer software engineer from Kingston, Jamaica.
 
-## Technologies Used
+## Tech Stack
 
 - Next.js
 - TypeScript
@@ -14,16 +14,24 @@ This is the official portfolio of Zamar Wint, a software engineer from Kingston,
 
 ## View the website
 
-Visit the [website.](https://zamarwint.vercel.app/)
+Visit the [website.](https://zamarwint.xyz/)
 
 ## Features
 
 - Animated transitions
 - Smooth scrolling
 - Responsive design
-- Light/dark mode
+- Light/dark theme
 - Gallery page
-- Live chat functionality
+- AI Assistant
+
+## Zamar Wint's AI Assistant 🤖🖥️
+
+Zamar's Assistant is a real-time function that allows users conversate with an intelligent AI chatbot that answers questions on Zamar's behalf.
+
+## Technologies
+
+This function makes use of Google's Gemini API and JSON data.
 
 ## Author
 
