@@ -13,7 +13,7 @@ import {
 	DialogTitle,
 } from "../../../components/ui/dialog";
 
-interface ChatMessage {
+export interface ChatMessage {
 	senderId: string;
 	text: string;
 	timestamp: string;

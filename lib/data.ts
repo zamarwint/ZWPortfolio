@@ -67,7 +67,7 @@ const media = {
             title: "WardPass Project",
             image: "/assets/wardpass-project-picture.png",
             description: "A secure password management system.",
-            link: "https://wardpass.netlify.app/",
+            link: "/",
         },
         {
             title: "Reckon Project",
@@ -163,10 +163,10 @@ const gallery: ContentType[] = [
     { id: 14, type: "Image", src: accoladeImages.eacPortmore, alt: "Long Service Award at EAC Portmore" },
     { id: 15, type: "Image", src: accoladeImages.kingstonCollege, alt: "Diploma in General Studies at Kingston College" },
     { id: 16, type: "Image", src: accoladeImages.ucc, alt: "Highest Academic Award at University of the Commonwealth Caribbean" },
-    { id: 17, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/501/500", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
-    { id: 18, type: "Video", src: media.videos[1].link, imgPrwSrcForVideo: "https://picsum.photos/502/501", videoPage: media.videos[1].videoPage, alt: media.videos[1].title },
-    { id: 19, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/503/503", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
-    { id: 20, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/504/504", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
+    { id: 17, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/700/700", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
+    { id: 18, type: "Video", src: media.videos[1].link, imgPrwSrcForVideo: "https://picsum.photos/700/701", videoPage: media.videos[1].videoPage, alt: media.videos[1].title },
+    { id: 19, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/700/703", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
+    { id: 20, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/700/704", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
 
     // ... more content
 ];

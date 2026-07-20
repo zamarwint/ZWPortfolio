@@ -153,7 +153,7 @@ const Navbar = () => {
 			</div>
 			<motion.div
 				id="scroll-indicator"
-				className="fixed top-0 left-0 right-0 h-[2px] w-screen bg-amber-900 dark:bg-amber-500 origin-left z-50"
+				className="fixed top-0 left-0 right-0 h-0.5 w-screen bg-amber-900 dark:bg-amber-500 origin-left z-50"
 				style={{
 					scaleX: scrollYProgress,
 				}}

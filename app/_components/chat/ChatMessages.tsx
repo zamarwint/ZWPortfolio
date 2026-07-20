@@ -1,10 +1,11 @@
 import { motion } from "motion/react";
+import type { ChatMessage } from "@/app/(pages)/chat/page";
 
 export default function ChatMessages({
 	messages,
 	currentUserId,
 }: {
-	messages: any[];
+	messages: ChatMessage[];
 	currentUserId: string | undefined;
 }) {
 	return (
@@ -18,16 +19,14 @@ export default function ChatMessages({
 						animate={{ opacity: 1, y: 0, scale: 1 }}
 						transition={{ duration: 0.3 }}
 						key={index}
-						className={`flex flex-col max-w-[75%] md:max-w-[60%] ${
-							isMe ? "self-end items-end" : "self-start items-start"
-						}`}
+						className={`flex flex-col max-w-[75%] md:max-w-[60%] ${isMe ? "self-end items-end" : "self-start items-start"
+							}`}
 					>
 						<div
-							className={`p-3 md:p-4 rounded-2xl shadow-sm font-hoves-regular text-[15px] md:text-base ${
-								isMe
+							className={`p-3 md:p-4 rounded-2xl shadow-sm font-hoves-regular text-[15px] md:text-base ${isMe
 									? "bg-black text-white rounded-tr-sm dark:bg-white dark:text-black"
 									: "bg-white text-black rounded-tl-sm border border-neutral-200 dark:bg-neutral-800 dark:text-white dark:border-neutral-700"
-							}`}
+								}`}
 						>
 							<p className="whitespace-pre-wrap wrap-break-word">{msg.text}</p>
 						</div>

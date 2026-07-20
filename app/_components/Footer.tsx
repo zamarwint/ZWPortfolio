@@ -2,12 +2,13 @@ import Link from "next/link";
 import { GrLinkTop } from "react-icons/gr";
 import { CheckLocation } from "../../lib/functions";
 import { GiCoffeeMug } from "react-icons/gi";
-import { SuccessContent, ErrorContent } from "../_components/modal-content";
+import { ErrorContent } from "../_components/modal-content";
 import { useState } from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { underlineDrawAmber, underlineDrawNeutral } from "./UnderlineDraw";
+import { Check, Copy } from "lucide-react";
 
 const bottomLinks = [
 	{
@@ -29,8 +30,10 @@ const bottomLinks = [
 ]
 
 const Footer = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const [result, setResult] = useState(false);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
+	const [isCopiedEmail, setIsCopiedEmail] = useState<boolean>(false);
+	const [isCopiedPhoneNumber, setIsCopiedPhoneNumber] = useState<boolean>(false);
+	const [isCopiedAddress, setIsCopiedAddress] = useState<boolean>(false);
 
 	const toggleModal = () => {
 		setIsOpen(true);
@@ -39,13 +42,37 @@ const Footer = () => {
 	const handleCopy = async (text: string) => {
 		try {
 			await navigator.clipboard.writeText(text);
-			setResult(true);
-			toggleModal();
 		} catch {
-			setResult(false);
 			toggleModal();
 		}
 	};
+
+	const handleCopyEmail = () => {
+		setIsCopiedEmail(true);
+		handleCopy("wintzamar@gmail.com")
+
+		setTimeout(() => {
+			setIsCopiedEmail(false);
+		}, 3000)
+	}
+
+	const handleCopyPhoneNumber = () => {
+		setIsCopiedPhoneNumber(true);
+		handleCopy("18763346720")
+
+		setTimeout(() => {
+			setIsCopiedPhoneNumber(false);
+		}, 3000)
+	}
+
+	const handleCopyAddress = () => {
+		setIsCopiedAddress(true);
+		handleCopy("Jamaica")
+
+		setTimeout(() => {
+			setIsCopiedAddress(false);
+		}, 3000)
+	}
 
 	return (
 		<>
@@ -62,24 +89,26 @@ const Footer = () => {
 				<div className="select-none flex flex-col gap-12 py-10 text-center w-xl md:text-left">
 					<div className="flex flex-col md:flex-row items-center justify-around gap-10 lg:gap-0">
 						<div
-							onClick={() => handleCopy("wintzamar@gmail.com")}
 							className="cursor-pointer"
 						>
 							<div>Email</div>
-							<div className="text-gray-500 hover:text-gray-400">
-								••••••••••••••••••••
+							<div className="text-gray-500 hover:text-gray-400 inline-flex items-center gap-2">
+								<span>••••••••••••••••••••</span>
+								<span onClick={handleCopyEmail}>{isCopiedEmail ? <Check size={18} /> : <Copy size={18} />}</span>
 							</div>
 						</div>
-						<div onClick={() => handleCopy("18763346720")} className="cursor-pointer">
+						<div className="cursor-pointer">
 							<div>Phone number</div>
-							<div className="text-gray-500 hover:text-gray-400">
-								•••••••••••••••••••
+							<div className="text-gray-500 hover:text-gray-400 inline-flex items-center gap-2">
+								<span>•••••••••••••••••••</span>
+								<span onClick={handleCopyPhoneNumber}>{isCopiedPhoneNumber ? <Check size={18} /> : <Copy size={18} />}</span>
 							</div>
 						</div>
-						<div onClick={() => handleCopy("Jamaica")} className="cursor-pointer">
+						<div className="cursor-pointer">
 							<div>Address</div>
-							<div className="text-gray-500 hover:text-gray-400">
-								••••••••••••••••••
+							<div className="text-gray-500 hover:text-gray-400 inline-flex items-center gap-2">
+								<span>••••••••••••••••••</span>
+								<span onClick={handleCopyAddress}>{isCopiedAddress ? <Check size={18} /> : <Copy size={18} />}</span>
 							</div>
 						</div>
 					</div>
@@ -117,7 +146,7 @@ const Footer = () => {
 					ZW
 				</Link>
 				<div className="w-3xs md:w-fit flex flex-col hover:text-neutral-600 hover:dark:text-neutral-300 items-end justify-center text-right gap-4 md:gap-0">
-					<div className="text-lg tracking-wide">
+					<div className="text-lg font-medium tracking-wide">
 						Designed & Developed by Zamar Wint
 					</div>
 					<div>
@@ -142,20 +171,12 @@ const Footer = () => {
 			<Dialog open={isOpen} onOpenChange={setIsOpen}>
 				<DialogContent>
 					<DialogHeader className="text-center">
-						<DialogTitle className="text-2xl font-bold">{result ? "Success" : "Error"}</DialogTitle>
+						<DialogTitle className="text-2xl font-bold">Error</DialogTitle>
 					</DialogHeader>
-					{result ? (
-						<DialogDescription className="flex flex-col items-center justify-center gap-4 text-center">
-							<SuccessContent />
-							Successfully copied to clipboard! I will get back to you as soon as possible.
-						</DialogDescription>
-					) : (
-						<DialogDescription className="flex flex-col items-center justify-center gap-4 text-center">
-							<ErrorContent />
-							There was an error copying to your clipboard. Please try again.
-						</DialogDescription>
-					)
-					}
+					<DialogDescription className="flex flex-col items-center justify-center gap-4 text-center">
+						<ErrorContent />
+						There was an error copying to your clipboard. Please try again.
+					</DialogDescription>
 				</DialogContent>
 			</Dialog>
 		</>

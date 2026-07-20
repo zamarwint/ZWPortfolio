@@ -138,12 +138,22 @@ const Home = () => {
               <p>
                 I have done exceptionally well throughout my school years and now I am in university pursuing a STEM degree.
                 I am a visionary, a problem solver, an innovator, an entrepreneur, and a leader.
-                I innovate to elevate, the lives of others, as I believe that technology should be used to improve the lives of others.
+                I innovate to elevate, the lives of others, as I believe that technology should be used to improve lives.
               </p>
               <p>
                 I have volunteered as a camera operator, and a vision mixer and I have worked as a Data Entry clerk.
-                When I was volunteering as a vision mixer, I also assisted in broadcasting and live streaming and setting up stream schedules.
+                When I was volunteering as a vision mixer, I also assisted in live streaming and setting up stream schedules.
+                Lastly, I have helped out children who were in primary school to pass their Math PEP exams.
               </p>
+              <svg height="50" width="700" xmlns="http://www.w3.org/2000/svg">
+                <line
+                  x1="0"
+                  y1="10"
+                  x2="700"
+                  y2="10"
+                  className="stroke-1 stroke-white"
+                />
+              </svg>
             </div>
           </div>
         </div>

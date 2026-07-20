@@ -41,7 +41,7 @@ export const botData: BotData = {
                 "skill", "tech", "stack", "languages", "frameworks", "tools", "know", "frontend", "backend",
             ],
             response:
-                "Zamar specializes in modern full-stack web development. His core stack includes React, TypeScript, Node.js, Express, and Socket.IO for real-time features. He is also experienced with modern styling tools and database management.",
+                "Zamar specializes in modern full-stack web development. His core stack includes React, TypeScript, Next.js, Motion, Node.js, Express, Socket.IO for real-time features, Shadcn UI as his choice of UI library, PostgreSQL as his choice of database, Docker, and Git for version control.",
         },
         {
             keywords: ["who are you", "your name", "what are you", "bot"],
