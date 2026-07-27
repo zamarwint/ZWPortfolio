@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { GrLinkTop } from "react-icons/gr";
 import { CheckLocation } from "../../lib/functions";
@@ -124,11 +126,11 @@ const Footer = () => {
 						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg">See all links <FiArrowUpRight className="w-7 h-7" /></Button>
 					</a>
 					<a
-						href="https://paypal.me/zamarwint"
+						href="https://buymeacoffee.com/zamfcs"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg">Buy me a coffee via Paypal <GiCoffeeMug className="w-7 h-7" /></Button>
+						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg">Buy me a coffee <GiCoffeeMug className="w-7 h-7" /></Button>
 					</a>
 				</div>
 			</footer>

@@ -66,19 +66,19 @@ const media = {
         {
             title: "WardPass Project",
             image: "/assets/wardpass-project-picture.png",
-            description: "A secure password management system.",
+            description: "Secure password management system for everyone.",
             link: "https://wardpass.netlify.app/",
         },
         {
             title: "Reckon Project",
             image: "/assets/reckon-project-picture.png",
-            description: "An application with mathematical and investment calculators.",
+            description: "All-in-one calculator with financial functions for everyone.",
             link: "https://reckon-p.netlify.app/",
         },
         {
             title: "Portfolio Project",
             image: "/assets/portfolio-project-picture.png",
-            description: "This wonderful portfolio website project.",
+            description: "This wonderful portfolio website project for you to learn about me.",
             link: "/",
         },
     ],
@@ -86,35 +86,25 @@ const media = {
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
-            description: "A productivity suite for writers, planners, bloggers, content creators, journalists, etc.",
+            description: "Productivity suite for writers, planners, journalists, students, etc. who need to focus.",
         },
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
-            description: "Customer relationship management software for small to medium size businesses.",
-        },
-        {
-            title: "Coming Soon",
-            image: "/assets/coming-soon.png",
-            description: "A social media platform for everyone, with an AI algorithm, designed to boost content creators.",
+            description: "Caribbean-only social media platform for content creators, users and businesses.",
         },
         {
             title: "Coming Soon",
             image: "/assets/coming-soon.png",
             description: "Realtime code mapping, analysis and optimization tool for developers and startup founders.",
         },
+        {
+            title: "Coming Soon",
+            image: "/assets/coming-soon.png",
+            description: "Micro-learning platform to develop entrepreneurial minds with lessons from successful entrepeneurs.",
+        },
     ],
     videos: [
-        {
-            title: "EAC Accolade 1 Video",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/eac-accolade-short.mp4`,
-            videoPage: "/videos/eac-accolade-short"
-        },
-        {
-            title: "EAC Accolade 2 Video",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/eac-accolade-short2.mp4`,
-            videoPage: "/videos/eac-accolade-short2"
-        },
         {
             title: "UCC Awards Video",
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/ucc-awards-vid.mp4`,
@@ -165,8 +155,8 @@ const gallery: ContentType[] = [
     { id: 16, type: "Image", src: accoladeImages.ucc, alt: "Highest Academic Award at University of the Commonwealth Caribbean" },
     { id: 17, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/700/700", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
     { id: 18, type: "Video", src: media.videos[1].link, imgPrwSrcForVideo: "https://picsum.photos/700/701", videoPage: media.videos[1].videoPage, alt: media.videos[1].title },
-    { id: 19, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/700/703", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
-    { id: 20, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/700/704", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
+    // { id: 19, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/700/703", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
+    // { id: 20, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/700/704", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
 
     // ... more content
 ];

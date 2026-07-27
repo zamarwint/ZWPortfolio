@@ -138,7 +138,7 @@ const Home = () => {
               <p>
                 I have done exceptionally well throughout my school years and now I am in university pursuing a STEM degree.
                 I am a visionary, a problem solver, an innovator, an entrepreneur, and a leader.
-                I innovate to elevate, the lives of others, as I believe that technology should be used to improve lives.
+                I innovate to elevate the lives of others, because I believe that technology should be used to improve lives.
               </p>
               <p>
                 I have volunteered as a camera operator, and a vision mixer and I have worked as a Data Entry clerk.
@@ -251,9 +251,6 @@ const Home = () => {
               </Link>
             </div>
           ))}
-        </div>
-        <div className="text-lg md:text-xl text-center w-sm md:w-xl">
-          And so much more... in the works. I plan to make AI models and other tremendous solutions that will elevate and improve the lives of others.
         </div>
       </motion.section>
 
