@@ -67,7 +67,7 @@ const media = {
             title: "WardPass Project",
             image: "/assets/wardpass-project-picture.png",
             description: "A secure password management system.",
-            link: "/",
+            link: "https://wardpass.netlify.app/",
         },
         {
             title: "Reckon Project",
