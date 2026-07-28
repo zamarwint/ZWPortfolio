@@ -29,7 +29,7 @@ const Home = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="w-full flex flex-col md:flex-row items-center justify-center lg:justify-around px-10 py-10"
+        className="w-full flex flex-col md:flex-row items-center justify-around gap-10 lg:gap-0 px-10 py-10"
       >
         <div className="flex flex-col items-center gap-10 md:w-2/4 lg:w-auto">
           <div className="text-6xl md:text-8xl text-center min-w-sm md:min-w-xl max-w-xl">
@@ -123,8 +123,8 @@ const Home = () => {
         className="flex flex-col justify-center items-center m-10 md:m-40"
       >
         <div className="flex flex-col gap-50">
-          <div className="flex flex-col gap-10">
-            <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
+          <div className="flex flex-col gap-10 max-w-xs md:max-w-2xl lg:max-w-full">
+            <div className="text-4xl md:text-8xl text-center md:text-left font-semibold">
               Educational Background
             </div>
             <div className="flex flex-col text-2xl text-center md:text-left gap-10">
@@ -145,15 +145,7 @@ const Home = () => {
                 When I was volunteering as a vision mixer, I also assisted in live streaming and setting up stream schedules.
                 Lastly, I have helped out children who were in primary school to pass their Math PEP exams.
               </p>
-              <svg height="50" width="700" xmlns="http://www.w3.org/2000/svg">
-                <line
-                  x1="0"
-                  y1="10"
-                  x2="700"
-                  y2="10"
-                  className="stroke-1 stroke-white"
-                />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="700" height="50"><path d="M0 10h700" className="hidden lg:block stroke-1 stroke-white" /></svg>
             </div>
           </div>
         </div>
@@ -215,6 +207,7 @@ const Home = () => {
             className="w-auto h-auto object-cover aspect-auto rounded-full"
             width={400}
             height={400}
+            loading="eager"
           />
         </div>
       </motion.section>
@@ -238,7 +231,7 @@ const Home = () => {
               key={index}
               className="w-full h-full flex flex-col gap-10 items-center justify-center"
             >
-              <div><Image src={app.image} alt="App image" width={400} height={400} className='w-auto h-auto aspect-auto' /></div>
+              <div><Image src={app.image} alt="App image" width={400} height={400} className='w-auto h-auto aspect-auto' loading="eager" /></div>
               <div className="text-2xl text-center w-sm md:w-fit">
                 {app.description}
               </div>
@@ -276,7 +269,7 @@ const Home = () => {
               }}
               className="w-full h-full p-10 md:p-0 md:w-105 md:h-105 flex flex-col gap-10 items-center justify-center cursor-pointer rounded-4xl border-4 border-neutral-200 dark:border-neutral-800 shadow-2xl/20 shadow-neutral-600 bg-black text-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400"
             >
-              <div><Image src={accolade.image} alt="Accolade image" width={300} height={300} className='w-auto h-auto aspect-auto' /></div>
+              <div><Image src={accolade.image} alt="Accolade image" width={300} height={300} className='w-auto h-auto aspect-auto' loading="eager" /></div>
               <div className="text-2xl text-center w-75">
                 {accolade.description}
               </div>
@@ -291,13 +284,13 @@ const Home = () => {
           </DialogHeader>
           <div>
             {currentAccolade.includes("Emmanuel") && (
-              <Image src={accoladeImages.eacPortmore} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" />
+              <Image src={accoladeImages.eacPortmore} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
             )}
             {currentAccolade.includes("Kingston") && (
-              <Image src={accoladeImages.kingstonCollege} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" />
+              <Image src={accoladeImages.kingstonCollege} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
             )}
             {currentAccolade.includes("University") && (
-              <Image src={accoladeImages.ucc} draggable="false" alt={currentAccolade} width={600} height={600} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" />
+              <Image src={accoladeImages.ucc} draggable="false" alt={currentAccolade} width={600} height={600} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
             )}
           </div>
         </DialogContent>
