@@ -19,7 +19,7 @@ const bottomLinks = [
 	},
 	{
 		name: "X/Twitter",
-		link: "https://x.com/zamrwt"
+		link: "https://x.com/zwbless"
 	},
 	{
 		name: "YouTube",
@@ -27,7 +27,7 @@ const bottomLinks = [
 	},
 	{
 		name: "Instagram",
-		link: "https://www.instagram.com/zamfcs"
+		link: "https://www.instagram.com/zwbless"
 	}
 ]
 
@@ -119,14 +119,14 @@ const Footer = () => {
 				{/* See all links and Paypal buttons */}
 				<div className="cursor-pointer font-bold flex flex-col md:flex-row items-center justify-center gap-5">
 					<a
-						href="https://solo.to/zamfc"
+						href="https://solo.to/zwbless"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
 						<Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg">See all links <FiArrowUpRight className="w-7 h-7" /></Button>
 					</a>
 					<a
-						href="https://buymeacoffee.com/zamfcs"
+						href="https://buymeacoffee.com/zwbless"
 						target="_blank"
 						rel="noopener noreferrer"
 					>

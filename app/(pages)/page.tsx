@@ -124,7 +124,7 @@ const Home = () => {
       >
         <div className="flex flex-col gap-50">
           <div className="flex flex-col gap-10 max-w-xs md:max-w-2xl lg:max-w-full">
-            <div className="text-4xl md:text-8xl text-center md:text-left font-semibold">
+            <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
               Educational Background
             </div>
             <div className="flex flex-col text-2xl text-center md:text-left gap-10">

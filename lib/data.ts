@@ -115,6 +115,11 @@ const media = {
             link: `${process.env.NEXT_PUBLIC_STORE_ID}/math-revision-outreach.mp4`,
             videoPage: "/videos/math-revision-outreach"
         },
+        {
+            title: "WardPass Introduction Video",
+            link: `${process.env.NEXT_PUBLIC_STORE_ID}/wardpass-intro.mp4`,
+            videoPage: "/videos/wardpass-intro"
+        },
     ]
 }
 
@@ -155,7 +160,7 @@ const gallery: ContentType[] = [
     { id: 16, type: "Image", src: accoladeImages.ucc, alt: "Highest Academic Award at University of the Commonwealth Caribbean" },
     { id: 17, type: "Video", src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/700/700", videoPage: media.videos[0].videoPage, alt: media.videos[0].title },
     { id: 18, type: "Video", src: media.videos[1].link, imgPrwSrcForVideo: "https://picsum.photos/700/701", videoPage: media.videos[1].videoPage, alt: media.videos[1].title },
-    // { id: 19, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/700/703", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
+    { id: 19, type: "Video", src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/700/703", videoPage: media.videos[2].videoPage, alt: media.videos[2].title },
     // { id: 20, type: "Video", src: media.videos[3].link, imgPrwSrcForVideo: "https://picsum.photos/700/704", videoPage: media.videos[3].videoPage, alt: media.videos[3].title },
 
     // ... more content
