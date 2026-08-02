@@ -11,7 +11,7 @@ export default function GalleryLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="w-full flex flex-col">
+        <div className="size-full flex flex-col items-center justify-center">
             {children}
         </div>
     );

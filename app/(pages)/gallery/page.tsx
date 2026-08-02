@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react";
 import { useState } from "react";
-import { gallery } from "@/lib/data";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
+import { ContentType, gallery } from "@/lib/data";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../../../components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,15 +12,17 @@ const Gallery = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [content, setContent] = useState("");
     const [contentTitle, setContentTitle] = useState("");
+    const [contentDesc, setContentDesc] = useState("");
     const [contentType, setContentType] = useState("");
     const [contentVideoPage, setContentVideoPage] = useState("");
 
-    const showContent = (content: string, contentType: string, contentAltText: string, contentVideoPage?: string | null) => {
+    const showContent = (content: ContentType) => {
         setIsOpen(true);
-        setContent(content);
-        setContentType(contentType);
-        setContentTitle(contentAltText);
-        setContentVideoPage(contentVideoPage || "");
+        setContent(content.src);
+        setContentType(content.type);
+        setContentTitle(content.title);
+        setContentVideoPage(content.videoPage || "");
+        setContentDesc(content.description || "");
     };
 
     return (
@@ -32,7 +34,7 @@ const Gallery = () => {
                 duration: 2,
             }}
             id="gallery"
-            className="flex flex-col items-center justify-center py-30 w-screen"
+            className="w-[90%] md:w-[80%] flex flex-col items-center justify-center border-x border-foreground/10 pb-150 pt-30"
         >
             <h1 className="text-6xl md:text-8xl font-bold">Gallery</h1>
             <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-4">
@@ -53,7 +55,7 @@ const Gallery = () => {
                                     width={1000}
                                     height={1000}
                                     className="w-auto h-auto aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
-                                    onClick={() => showContent(content.src, content.type, content.alt)}
+                                    onClick={() => showContent(content)}
                                     loading="eager"
                                 />
                             ) : (
@@ -63,7 +65,7 @@ const Gallery = () => {
                                     width={1000}
                                     height={1000}
                                     className="w-auto h-auto aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
-                                    onClick={() => showContent(content.src, content.type, content.alt, content.videoPage)}
+                                    onClick={() => showContent(content)}
                                     loading="eager"
                                 />
                             )}
@@ -76,6 +78,7 @@ const Gallery = () => {
                 <DialogContent className="z-999">
                     <DialogHeader>
                         <DialogTitle>{contentTitle}</DialogTitle>
+                        {contentDesc && <DialogDescription>{contentDesc}</DialogDescription>}
                     </DialogHeader>
                     <div className="flex items-center justify-center">
                         {contentType === "Image" ? (

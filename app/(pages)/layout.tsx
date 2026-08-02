@@ -1,5 +1,5 @@
-import Navbar from "../_components/Navbar";
-import Footer from "../_components/Footer";
+import Navbar from "./_components/Navbar";
+import Footer from "./_components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,9 +13,9 @@ export default function PagesLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="w-full flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen w-full">
             <Navbar />
-            <main className="flex-1 w-full">
+            <main className="flex-1 size-full flex items-center justify-center flex-col">
                 {children}
             </main>
             <Footer />

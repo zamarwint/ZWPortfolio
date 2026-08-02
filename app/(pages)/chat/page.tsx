@@ -140,7 +140,7 @@ const Chat = () => {
 	return (
 		<motion.div
 			id="chat"
-			className="w-full h-full min-h-screen py-30 flex flex-col items-center justify-center"
+			className="w-[90%] md:w-[80%] min-h-screen pt-30 flex flex-col items-center justify-center border-x border-foreground/10 pb-150"
 		>
 			<motion.div
 				initial={{ opacity: 0, y: 50 }}
@@ -160,7 +160,7 @@ const Chat = () => {
 				initial={{ opacity: 0, scale: 0.95 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-				className="w-full max-w-3xl h-[60vh] md:h-[70vh] flex flex-col bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800"
+				className="w-full md:max-w-2xl lg:max-w-3xl h-[60vh] md:h-[70vh] flex flex-col bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800"
 			>
 				<header className="p-5 bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between z-10">
 					<div className="flex items-center gap-3">

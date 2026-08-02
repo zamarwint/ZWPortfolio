@@ -1,67 +1,24 @@
 "use client";
 
-import { CornerDownRight } from 'lucide-react';
 import { motion } from "motion/react";
-import { media, accoladeImages } from "@/lib/data";
-import { Button } from '@/components/ui/button';
-import TypewriterEffect from '../_components/typewriter';
-import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { underlineDrawAmber } from '../_components/UnderlineDraw';
+import { media } from "@/lib/data";
 import Image from 'next/image';
-import Link from 'next/link';
+import { Hero } from './_components/Hero';
+import { ProjectsSet1, ProjectsSet2 } from './_components/Projects';
+import Accolades from "./_components/Accolades";
 
 const Home = () => {
-  // const { scrollYProgress } = useScroll();
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentAccolade, setCurrentAccolade] = useState<string>("");
-
   // // Flip from 0 to 360 degrees as user scrolls from top to bottom
+  // const { scrollYProgress } = useScroll();
   // const rotate = useTransform(scrollYProgress, [0, 1], [0, 400]);
   // const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
 
   return (
     <motion.main
       id="home"
-      className="bg-background flex flex-col items-center justify-center gap-20 py-30 lg:py-10"
+      className="w-[90%] md:w-[80%] bg-background flex flex-col items-center justify-center gap-150 pb-150 border-x border-foreground/10"
     >
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="w-full flex flex-col md:flex-row items-center justify-around gap-10 lg:gap-0 px-10 py-10"
-      >
-        <div className="flex flex-col items-center gap-10 md:w-2/4 lg:w-auto">
-          <div className="text-6xl md:text-8xl text-center min-w-sm md:min-w-xl max-w-xl">
-            Welcome. <br /> I am <span className='text-amber-900 dark:text-amber-500'><TypewriterEffect words={['Zamar Wint', 'a Computer Engineer', 'a Software Engineer', 'a AI Engineer', 'an upcoming Data Scientist', 'a Problem Solver', 'an Entrepreneur', 'a Leader', 'a Researcher', 'a Communicator']} /></span>
-          </div>
-          <div className="text-2xl border border-black rounded-full px-10 py-4 text-center dark:border-white">
-            Zamar Wint / Computer Engineer
-          </div>
-          <div className="flex items-center gap-2 text-2xl">
-            <CornerDownRight className="w-10 h-10" />
-            <Link
-              href="../../Zamar-Wint-Resume1.zip"
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-              className={`${underlineDrawAmber()}`}
-            >
-              Work with me today
-            </Link>
-          </div>
-        </div>
-        <div>
-          <Image
-            src={media.pictures[0].image}
-            alt={media.pictures[0].alt}
-            className="w-auto h-auto object-cover aspect-auto rounded-full"
-            width={500}
-            height={500}
-            loading="eager"
-          />
-        </div>
-      </motion.section>
+      <Hero />
 
       <motion.section
         initial={{ opacity: 0 }}
@@ -70,36 +27,38 @@ const Home = () => {
         transition={{
           duration: 2,
         }}
-        className="flex flex-col md:flex-row items-center justify-center md:justify-around gap-20 m-10 md:m-30"
+        className="size-full flex flex-col md:flex-row items-center justify-around gap-20 md:gap-0"
       >
-        <div>
+        <div className='w-fit mx-10 md:mx-0'>
           <Image
             src={media.pictures[1].image}
-            alt={media.pictures[1].alt}
+            alt={media.pictures[1].title}
             className="w-auto h-auto object-cover aspect-auto rounded-full"
             width={400}
             height={400}
             loading="eager"
           />
         </div>
-        <div className="flex flex-col justify-center items-center md:items-start md:justify-start gap-10 w-full md:w-1/2 text-center md:text-left">
-          <div className="text-6xl md:text-8xl font-semibold">About Me</div>
-          <div className="text-2xl">
-            Zamar Wint is known as a reliable engineer in his field, someone you
-            can depend on to get tasks done no matter the difficulty.
-          </div>
-          <div className="text-2xl">
-            Growing up in the beautiful island of Jamaica in the Caribbean, I
-            developed a passion for computers at a young age. As a result, I
-            expanded my knowledge ever since learning to use computers and the
-            technology behind them, as I had to use devices every day to do my
-            school and college assignments.
-          </div>
-          <div className="text-2xl">
-            I treat every project as a learning experience. When I see
-            something, a design, or a good piece of software, I say to myself, I
-            want to know how to build that too. Every piece of software built
-            can be rebuilt and refined, regardless of complexity.
+        <div className="w-2xs md:w-xl flex flex-col justify-center items-center md:items-start md:justify-start gap-15 text-center md:text-left">
+          <h1 className="text-6xl md:text-8xl font-semibold">About Me</h1>
+          <div className='text-2xl flex flex-col items-start justify-start gap-10'>
+            <p>
+              Zamar Wint is known as a reliable engineer in his field, someone you
+              can depend on to get tasks done no matter the difficulty.
+            </p>
+            <p>
+              Growing up in the beautiful island of Jamaica in the Caribbean, I
+              developed a passion for computers at a young age. As a result, I
+              expanded my knowledge ever since learning to use computers and the
+              technology behind them, as I had to use devices every day to do my
+              school and college assignments.
+            </p>
+            <p>
+              I treat every project as a learning experience. When I see
+              something, a design, or a good piece of software, I say to myself, I
+              want to know how to build that too. Every piece of software built
+              can be rebuilt and refined, regardless of complexity.
+            </p>
           </div>
           <svg height="50" width="250" xmlns="http://www.w3.org/2000/svg">
             <line
@@ -107,7 +66,7 @@ const Home = () => {
               y1="10"
               x2="250"
               y2="10"
-              className="stroke-1 stroke-white"
+              className="stroke-1 stroke-foreground"
             />
           </svg>
         </div>
@@ -120,36 +79,36 @@ const Home = () => {
         transition={{
           duration: 2,
         }}
-        className="flex flex-col justify-center items-center m-10 md:m-40"
+        className="size-full flex flex-col items-center justify-around"
       >
-        <div className="flex flex-col gap-50">
-          <div className="flex flex-col gap-10 max-w-xs md:max-w-2xl lg:max-w-full">
-            <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
-              Educational Background
-            </div>
-            <div className="flex flex-col text-2xl text-center md:text-left gap-10">
-              <p>
-                My educational journey has equipped me with a deep understanding
-                of software engineering, from the ground up. From writing my
-                first line of code in Python back in 2021 to building production
-                projects in React in 2026, my dedication to learning software is
-                evident in my accomplishments.
-              </p>
-              <p>
-                I have done exceptionally well throughout my school years and now I am in university pursuing a STEM degree.
-                I am a visionary, a problem solver, an innovator, an entrepreneur, and a leader.
-                I innovate to elevate the lives of others, because I believe that technology should be used to improve lives.
-              </p>
-              <p>
-                I have volunteered as a camera operator, and a vision mixer and I have worked as a Data Entry clerk.
-                When I was volunteering as a vision mixer, I also assisted in live streaming and setting up stream schedules.
-                Lastly, I have helped out children who were in primary school to pass their Math PEP exams.
-              </p>
-              <svg xmlns="http://www.w3.org/2000/svg" width="700" height="50"><path d="M0 10h700" className="hidden lg:block stroke-1 stroke-white" /></svg>
-            </div>
+        <div className="w-2xs md:w-4xl flex flex-col items-center justify-center gap-15">
+          <h1 className="text-6xl md:text-8xl text-center font-semibold w-md md:w-full">
+            Educational Background
+          </h1>
+          <div className="flex flex-col text-2xl text-center gap-10">
+            <p>
+              My educational journey has equipped me with a deep understanding
+              of software engineering, from the ground up. From writing my
+              first line of code in Python back in 2021 to building production
+              projects in React in 2026, my dedication to learning software is
+              evident in my accomplishments.
+            </p>
+            <p>
+              I have done exceptionally well throughout my school years and now I am in university pursuing a STEM degree.
+              I am a visionary, a problem solver, an innovator, an entrepreneur, and a leader.
+              I innovate to elevate the lives of others, because I believe that technology should be used to improve lives.
+            </p>
+            <p>
+              I have volunteered as a camera operator, and a vision mixer and I have worked as a Data Entry clerk.
+              When I was volunteering as a vision mixer, I also assisted in live streaming and setting up stream schedules.
+              Lastly, I have helped out children who were in primary school to pass their Math PEP exams.
+            </p>
           </div>
+          <svg xmlns="http://www.w3.org/2000/svg" width="700" height="50"><path d="M0 10h700" className="hidden lg:block stroke-1 stroke-foreground" /></svg>
         </div>
       </motion.section>
+
+      <ProjectsSet1 />
 
       <motion.section
         initial={{ opacity: 0 }}
@@ -158,53 +117,16 @@ const Home = () => {
         transition={{
           duration: 2,
         }}
-        id="projects-1"
-        className="flex flex-col justify-center items-center p-30 m-5 gap-20"
+        className="size-full flex flex-col md:flex-row items-center justify-around"
       >
-        <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
-          My Projects
-        </div>
-        <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
-          {media.projects.map((app, index) => (
-            <div
-              key={index}
-              className="w-full h-full flex flex-col gap-10 items-center justify-center"
-            >
-              <div><Image src={app.image} alt="App image" width={400} height={400} loading="eager" className='w-auto h-auto object-cover aspect-auto' /></div>
-              <div className="text-2xl text-center">
-                {app.description}
-              </div>
-              <Link
-                href={app.link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><CornerDownRight className="w-10 h-10" /> View Project</Button>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 2,
-        }}
-        className="flex flex-col md:flex-row justify-center items-center m-5 md:m-20 gap-20"
-      >
-        <div className="flex flex-col gap-10 w-full md:w-1/2 text-left">
-          <div className="text-6xl md:text-8xl text-center md:text-left p-2 font-semibold">
+        <div className="w-fit flex flex-col md:flex-row items-center justify-center gap-20 text-left">
+          <h1 className="text-6xl md:text-8xl text-center md:text-left font-semibold w-xs md:w-xl">
             Hard work and passion will make anyone succeed.
-          </div>
-        </div>
-        <div>
+          </h1>
           <Image
             src={media.pictures[2].image}
-            alt={media.pictures[2].alt}
-            className="w-auto h-auto object-cover aspect-auto rounded-full"
+            alt={media.pictures[2].title}
+            className="w-auto h-auto object-cover aspect-auto rounded-full md:mx-auto"
             width={400}
             height={400}
             loading="eager"
@@ -212,89 +134,9 @@ const Home = () => {
         </div>
       </motion.section>
 
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 2,
-        }}
-        id="projects-2"
-        className="flex flex-col justify-around items-center p-30 m-5 gap-20"
-      >
-        <div className="text-6xl w-sm md:w-fit md:text-8xl text-center md:text-left font-semibold">
-          More of my Work
-        </div>
-        <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
-          {media.comingSoon.map((app, index) => (
-            <div
-              key={index}
-              className="w-full h-full flex flex-col gap-10 items-center justify-center"
-            >
-              <div><Image src={app.image} alt="App image" width={400} height={400} className='w-auto h-auto aspect-auto' loading="eager" /></div>
-              <div className="text-2xl text-center w-sm md:w-fit">
-                {app.description}
-              </div>
-              <Link
-                href="/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button className="rounded-full px-10 py-5 text-xl" variant="secondary" size="lg"><CornerDownRight className="w-10 h-10" /> Coming soon</Button>
-              </Link>
-            </div>
-          ))}
-        </div>
-      </motion.section>
+      <ProjectsSet2 />
 
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 2,
-        }}
-        className="flex flex-col justify-center items-center p-30 m-5 gap-20 mb-50"
-      >
-        <div className="text-6xl md:text-8xl text-center md:text-left font-semibold">
-          Accolades
-        </div>
-        <div className="flex flex-col lg:flex-row gap-10 items-center justify-center">
-          {media.accolades.map((accolade, index) => (
-            <div
-              key={index}
-              onClick={() => {
-                setCurrentAccolade(accolade.description)
-                setIsOpen(true)
-              }}
-              className="w-full h-full p-10 md:p-0 md:w-105 md:h-105 flex flex-col gap-10 items-center justify-center cursor-pointer rounded-4xl border-4 border-neutral-200 dark:border-neutral-800 shadow-2xl/20 shadow-neutral-600 bg-black text-white transition-transform duration-100 hover:scale-105 hover:shadow-neutral-400"
-            >
-              <div><Image src={accolade.image} alt="Accolade image" width={300} height={300} className='w-auto h-auto aspect-auto' loading="eager" /></div>
-              <div className="text-2xl text-center w-75">
-                {accolade.description}
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="z-999">
-          <DialogHeader>
-            <DialogTitle>{currentAccolade}</DialogTitle>
-          </DialogHeader>
-          <div>
-            {currentAccolade.includes("Emmanuel") && (
-              <Image src={accoladeImages.eacPortmore} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
-            )}
-            {currentAccolade.includes("Kingston") && (
-              <Image src={accoladeImages.kingstonCollege} draggable="false" alt={currentAccolade} width={500} height={500} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
-            )}
-            {currentAccolade.includes("University") && (
-              <Image src={accoladeImages.ucc} draggable="false" alt={currentAccolade} width={600} height={600} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
+      <Accolades />
     </motion.main>
   );
 };

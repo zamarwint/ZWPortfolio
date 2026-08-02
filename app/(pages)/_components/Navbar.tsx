@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from 'lucide-react';
+import { Menu, Phone, X } from 'lucide-react';
 import { motion, useScroll } from "framer-motion";
-import { ScrollToAnchor } from "../../lib/functions";
+import { ScrollToAnchor } from "../../../lib/functions";
 import { Sun, Moon } from 'lucide-react';
 
 import { useTheme } from "next-themes"
@@ -17,6 +17,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export function ModeToggle() {
 	const { setTheme } = useTheme()
@@ -60,7 +61,7 @@ const navigationLinks = [
 	},
 ];
 
-const Navbar = () => {
+export default function Navbar() {
 	const [open, setOpen] = useState(false);
 	const { scrollYProgress } = useScroll();
 	const pathName = usePathname();
@@ -77,80 +78,87 @@ const Navbar = () => {
 	// IMPLEMENTATION
 	ScrollToAnchor();
 	return (
-		<motion.nav
+		<motion.header
 			initial={{ opacity: 0 }}
 			whileInView={{ opacity: 1 }}
 			viewport={{ once: true }}
 			transition={{
 				duration: 1,
 			}}
-			className="flex flex-row w-full items-center justify-around py-5 z-999 bg-transparent backdrop-blur-sm fixed"
+			className="w-full mb-5 flex items-center justify-center bg-transparent backdrop-blur-sm fixed top-0 z-999"
 		>
-			{/* LOGO */}
-			<Link href="/" className="text-4xl font-bold cursor-pointer">
-				ZW
-			</Link>
-
-			{/* DESKTOP MENU */}
-			<div className="hidden lg:flex items-center justify-center gap-2 p-1 rounded-full bg-neutral-50 dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-800">
-				{navigationLinks.map((link, index) => (
-					<Link
-						key={index}
-						href={link.path}
-						className={
-							pathName === link.path
-								? `bg-black dark:bg-white text-white dark:text-black cursor-pointer rounded-full px-4 py-1`
-								: "text-black dark:text-white hover:bg-black hover:text-white hover:dark:bg-white hover:dark:text-black cursor-pointer rounded-full px-4 py-1"
-						}
-					>
-						{link.label}
-					</Link>
-				))}
-			</div>
-
-			{/* CONTACT LINK */}
-			<div className="flex flex-row justify-center items-center gap-5">
-				<ModeToggle />
-				<Link
-					href="#contact"
-				>
-					<Button className="text-xl p-5 rounded-full" variant="secondary" size="lg">Contact Me</Button>
+			<nav className="w-[90%] md:w-[80%] py-5 flex items-center justify-between border-x border-foreground/10 px-10">
+				{/* LOGO */}
+				<Link href="/" className="text-4xl font-bold cursor-pointer">
+					ZW
 				</Link>
-			</div>
 
-			{/* MOBILE MENU ICON */}
-			<div className="lg:hidden">
-				<div
-					onClick={() => setOpen(!open)}
-					className="cursor-pointer text-black dark:text-white"
-				>
-					{open ? <X size={48} /> : <Menu size={48} />}
-				</div>
-			</div>
-
-			{/* MOBILE MENU */}
-			<div
-				className={
-					open
-						? "flex flex-col lg:hidden bg-white/90 dark:bg-neutral-900/90 text-black dark:text-white w-screen h-screen items-left justify-left fixed top-20 left-0 z-999"
-						: "hidden"
-				}
-			>
-				{open &&
-					navigationLinks.map((link, index) => (
+				{/* DESKTOP NAV */}
+				<div className="hidden lg:flex lg:items-center lg:justify-center lg:gap-2 lg:p-1 lg:rounded-full bg-foreground/5 border border-foreground/6">
+					{navigationLinks.map((link, index) => (
 						<Link
 							key={index}
 							href={link.path}
 							className={
 								pathName === link.path
-									? `block active:text-amber-900 transition bg-black text-white dark:bg-white dark:text-black w-full p-5`
-									: "block active:text-amber-900 transition text-black dark:text-white w-full p-5"
+									? `bg-foreground text-background cursor-pointer rounded-full px-4 py-1`
+									: "bg-transparent text-foreground hover:bg-foreground hover:text-background cursor-pointer rounded-full px-4 py-1"
 							}
 						>
 							{link.label}
 						</Link>
 					))}
-			</div>
+				</div>
+
+				{/* CONTACT BUTTON FOR DESKTOP AND MOBILE */}
+				<div className="flex flex-row justify-center items-center gap-5">
+					<ModeToggle />
+					<Button className="text-xl px-8 py-6 rounded-md" size="lg">
+						<Link
+							href="#contact"
+							className="flex items-center justify-center gap-2"
+						>
+							{!useIsMobile() && <span className="text-xl">Contact Me</span>}
+							<Phone className="size-4" />
+						</Link>
+					</Button>
+				</div>
+
+				{/* MOBILE NAV */}
+				{/* MOBILE MENU ICON */}
+				<div className="lg:hidden">
+					<div
+						onClick={() => setOpen(!open)}
+						className="cursor-pointer text-black dark:text-white"
+					>
+						{open ? <X size={48} /> : <Menu size={48} />}
+					</div>
+				</div>
+
+				{/* MOBILE MENU */}
+				<div
+					className={
+						open
+							? "flex flex-col lg:hidden bg-white/90 dark:bg-neutral-900/90 text-black dark:text-white w-screen h-screen items-left justify-left fixed top-20 left-0 z-999"
+							: "hidden"
+					}
+				>
+					{open &&
+						navigationLinks.map((link, index) => (
+							<Link
+								key={index}
+								href={link.path}
+								className={
+									pathName === link.path
+										? `block active:text-amber-900 transition bg-black text-white dark:bg-white dark:text-black w-full p-5`
+										: "block active:text-amber-900 transition text-black dark:text-white w-full p-5"
+								}
+							>
+								{link.label}
+							</Link>
+						))}
+				</div>
+			</nav>
 			<motion.div
 				id="scroll-indicator"
 				className="fixed top-0 left-0 right-0 h-0.5 w-screen bg-amber-900 dark:bg-amber-500 origin-left z-50"
@@ -158,8 +166,6 @@ const Navbar = () => {
 					scaleX: scrollYProgress,
 				}}
 			/>
-		</motion.nav>
+		</motion.header>
 	);
 };
-
-export default Navbar;
