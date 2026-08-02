@@ -114,7 +114,7 @@ const Footer = () => {
 
 				{/* See all links and Buy me a coffee buttons */}
 				<div className="size-full cursor-pointer flex flex-col md:flex-row items-center justify-center gap-5">
-					<Button className="rounded-lg py-8 px-15" variant="secondary" size="lg">
+					<Button className="rounded-lg py-8 px-15" variant="outline" size="lg">
 						<Link
 							href="https://solo.to/zwbless"
 							target="_blank"
@@ -125,7 +125,7 @@ const Footer = () => {
 							<FiArrowUpRight className="w-7 h-7" />
 						</Link>
 					</Button>
-					<Button className="rounded-lg py-8 px-15" variant="secondary" size="lg">
+					<Button className="rounded-lg py-8 px-15" variant="outline" size="lg">
 						<Link
 							href="https://buymeacoffee.com/zwbless"
 							target="_blank"
@@ -144,7 +144,7 @@ const Footer = () => {
 				<div className="flex items-center justify-center">
 					<Link
 						href={CheckLocation()}
-						className={cn(underlineDrawAmber(), "text-xl flex items-center justify-center")}
+						className={cn(underlineDrawAmber(), "text-xl flex items-center justify-center hover:text-amber-900 dark:hover:text-amber-500")}
 					>
 						<span>Back to top</span> &nbsp;
 						<MoveUp className="size-5" />

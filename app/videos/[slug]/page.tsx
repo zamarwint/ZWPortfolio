@@ -33,15 +33,15 @@ export default async function VideosPage({
 
     return (
         <div
-            id="gallery"
-            className="flex flex-col items-center justify-center py-10 text-center"
+            id="video"
+            className="w-[90%] md:w-[80%] md:px-20 flex flex-col items-center justify-center py-10 text-center border-x border-foreground/10"
         >
             <h1 className="text-5xl font-bold">{videoFileLink?.title}</h1>
             <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-2">
                 Full video
             </p>
             <div className="container flex flex-col items-center justify-center p-4">
-                <AspectRatio ratio={getAspectRatio()} className="w-full rounded-lg bg-muted">
+                <AspectRatio ratio={getAspectRatio()} className="w-full h-fit rounded-lg bg-muted">
                     <video
                         src={videoFileLink?.link}
                         autoPlay

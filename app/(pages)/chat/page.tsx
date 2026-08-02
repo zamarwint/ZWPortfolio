@@ -160,9 +160,9 @@ const Chat = () => {
 				initial={{ opacity: 0, scale: 0.95 }}
 				animate={{ opacity: 1, scale: 1 }}
 				transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-				className="w-full md:max-w-2xl lg:max-w-3xl h-[60vh] md:h-[70vh] flex flex-col bg-white dark:bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl border border-neutral-200 dark:border-neutral-800"
+				className="w-full md:max-w-2xl lg:max-w-3xl h-[60vh] md:h-[70vh] flex flex-col bg-background rounded-3xl overflow-hidden shadow-2xl border border-foreground/10"
 			>
-				<header className="p-5 bg-neutral-50 dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between z-10">
+				<header className="p-5 bg-foreground/5 border-b border-foreground/10 flex items-center justify-between z-10">
 					<div className="flex items-center gap-3">
 						<div
 							className={
@@ -178,11 +178,11 @@ const Chat = () => {
 					</div>
 				</header>
 
-				<div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth bg-neutral-50/50 dark:bg-neutral-900/50">
+				<div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth bg-foreground/2">
 					<ChatMessages messages={messages} currentUserId={"user"} />
 				</div>
 
-				<footer className="p-4 bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
+				<footer className="p-4 bg-foreground/5 border-t border-foreground/10">
 					<ChatInput onSend={sendMessage} />
 				</footer>
 			</motion.div>
