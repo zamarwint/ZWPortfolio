@@ -37,8 +37,8 @@ export function Hero() {
             </div>
             <div className="mx-10 lg:mx-0">
                 <Image
-                    src={media.pictures[0].image}
-                    alt={media.pictures[0].title}
+                    src={media.gradPictures[0].image}
+                    alt={media.gradPictures[0].title}
                     className="w-auto h-auto object-cover aspect-auto rounded-full"
                     width={400}
                     height={400}

@@ -32,8 +32,8 @@ const Home = () => {
         <div className="w-[90%] flex flex-col lg:flex-row justify-around items-center gap-20">
           <div className='w-fit mx-10 lg:mx-0'>
             <Image
-              src={media.pictures[1].image}
-              alt={media.pictures[1].title}
+              src={media.pictures[0].image}
+              alt={media.pictures[0].title}
               className="w-auto h-auto object-cover aspect-auto rounded-full"
               width={400}
               height={400}
@@ -132,8 +132,8 @@ const Home = () => {
             Hard work and passion will make anyone succeed.
           </h1>
           <Image
-            src={media.pictures[2].image}
-            alt={media.pictures[2].title}
+            src={media.pictures[1].image}
+            alt={media.pictures[1].title}
             className="w-auto h-auto object-cover aspect-auto rounded-full lg:mx-auto"
             width={400}
             height={400}
