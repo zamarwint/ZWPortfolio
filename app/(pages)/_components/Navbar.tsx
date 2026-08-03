@@ -129,7 +129,7 @@ export default function Navbar() {
 				<div className="lg:hidden">
 					<div
 						onClick={() => setOpen(!open)}
-						className="cursor-pointer text-black dark:text-white"
+						className="cursor-pointer"
 					>
 						{open ? <X size={48} /> : <Menu size={48} />}
 					</div>
@@ -139,7 +139,7 @@ export default function Navbar() {
 				<div
 					className={
 						open
-							? "flex flex-col lg:hidden bg-white/90 dark:bg-neutral-900/90 text-black dark:text-white w-screen h-screen items-left justify-left fixed top-20 left-0 z-999"
+							? "flex flex-col lg:hidden bg-white/90 dark:bg-neutral-900/90 w-screen h-screen items-left justify-left fixed top-20 left-0 z-999"
 							: "hidden"
 					}
 				>
@@ -150,8 +150,8 @@ export default function Navbar() {
 								href={link.path}
 								className={
 									pathName === link.path
-										? `block active:text-amber-900 transition bg-black text-white dark:bg-white dark:text-black w-full p-5`
-										: "block active:text-amber-900 transition text-black dark:text-white w-full p-5"
+										? `block active:text-amber-900 transition bg-foreground w-full p-5`
+										: "block active:text-amber-900 transition w-full p-5"
 								}
 							>
 								{link.label}

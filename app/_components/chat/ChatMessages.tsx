@@ -24,8 +24,8 @@ export default function ChatMessages({
 					>
 						<div
 							className={`p-3 md:p-4 rounded-2xl shadow-sm font-hoves-regular text-[15px] md:text-base ${isMe
-									? "bg-black text-white rounded-tr-sm dark:bg-white dark:text-black"
-									: "bg-white text-black rounded-tl-sm border border-neutral-200 dark:bg-neutral-800 dark:text-white dark:border-neutral-700"
+								? "bg-foreground rounded-tr-sm text-background"
+								: "bg-background rounded-tl-sm border border-neutral-200 dark:bg-neutral-800 dark:border-neutral-700"
 								}`}
 						>
 							<p className="whitespace-pre-wrap wrap-break-word">{msg.text}</p>

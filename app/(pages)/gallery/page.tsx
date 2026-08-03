@@ -38,7 +38,7 @@ const Gallery = () => {
             className="w-[90%] lg:w-[80%] flex flex-col items-center justify-center border-x border-foreground/10 pb-150 pt-[20vh]"
         >
             <h1 className="text-6xl md:text-8xl font-bold">Gallery</h1>
-            <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-4">
+            <p className="text-muted-foreground font-hoves-regular py-4">
                 The library of my work.
             </p>
             <div className="container w-full mx-auto p-4 md:p-10">
