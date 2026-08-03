@@ -139,24 +139,26 @@ export default function Navbar() {
 				<div
 					className={
 						open
-							? "flex flex-col lg:hidden bg-white/90 dark:bg-neutral-900/90 w-screen h-screen items-left justify-left fixed top-20 left-0 z-999"
+							? "lg:hidden bg-background/90 backdrop-blur-md flex flex-col w-screen h-screen items-center justify-start fixed top-22 left-0 z-999"
 							: "hidden"
 					}
 				>
-					{open &&
-						navigationLinks.map((link, index) => (
-							<Link
-								key={index}
-								href={link.path}
-								className={
-									pathName === link.path
-										? `block active:text-amber-900 transition bg-foreground w-full p-5`
-										: "block active:text-amber-900 transition w-full p-5"
-								}
-							>
-								{link.label}
-							</Link>
-						))}
+					<div className="flex flex-col items-start justify-start w-[90%] border-x border-y border-foreground/10">
+						{open &&
+							navigationLinks.map((link, index) => (
+								<Link
+									key={index}
+									href={link.path}
+									className={
+										pathName === link.path
+											? `block text-background transition bg-foreground w-full p-5`
+											: "block transition w-full p-5"
+									}
+								>
+									{link.label}
+								</Link>
+							))}
+					</div>
 				</div>
 			</nav>
 			<motion.div
