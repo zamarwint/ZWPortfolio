@@ -85,9 +85,9 @@ export default function Navbar() {
 			transition={{
 				duration: 1,
 			}}
-			className="w-full mb-5 flex items-center justify-center bg-transparent backdrop-blur-sm fixed top-0 z-999"
+			className="w-full flex items-center justify-center bg-transparent backdrop-blur-sm fixed top-0 z-999"
 		>
-			<nav className="w-[90%] md:w-[80%] py-5 flex items-center justify-between border-x border-foreground/10 px-10">
+			<nav className="w-[90%] lg:w-[80%] py-5 flex items-center justify-between border-x border-b border-foreground/10 px-10">
 				{/* LOGO */}
 				<Link href="/" className="text-4xl font-bold cursor-pointer">
 					ZW

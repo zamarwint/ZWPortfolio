@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 
 import type { Metadata } from "next";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { MoveLeft } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
     title: "Videos | Zamar Wint Portfolio",
@@ -34,14 +36,19 @@ export default async function VideosPage({
     return (
         <div
             id="video"
-            className="w-[90%] md:w-[80%] md:px-20 flex flex-col items-center justify-center py-10 text-center border-x border-foreground/10"
+            className="w-[90%] lg:w-[80%] h-screen flex flex-col items-center justify-center gap-10 text-center border-x border-foreground/10"
         >
-            <h1 className="text-5xl font-bold">{videoFileLink?.title}</h1>
-            <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-2">
-                Full video
-            </p>
-            <div className="container flex flex-col items-center justify-center p-4">
-                <AspectRatio ratio={getAspectRatio()} className="w-full h-fit rounded-lg bg-muted">
+            <Button variant="outline" size="lg" className="cursor-pointer rounded-sm p-2 absolute top-5 left-[calc(50%-10rem)] md:left-[calc(50%-20rem)] lg:left-[calc(50%-36rem)]" asChild>
+                <Link href="/gallery" className="flex items-center justify-center gap-2">
+                    <MoveLeft className='size-5' />
+                    <span className="text-md">Back</span>
+                </Link>
+            </Button>
+            <div className="space-y-1">
+                <h1 className="text-3xl font-semibold">{videoFileLink?.title}</h1>
+            </div>
+            <div className={cn("px-10 container flex flex-col items-center justify-center", videoFileLink?.videoAspectRatio === "9/16" ? "w-full max-w-96" : "")}>
+                <AspectRatio ratio={getAspectRatio()} className="rounded-lg bg-muted">
                     <video
                         src={videoFileLink?.link}
                         autoPlay
@@ -51,11 +58,6 @@ export default async function VideosPage({
                     ></video>
                 </AspectRatio>
             </div>
-            <Link href="/gallery">
-                <Button variant="default" size="lg" className="cursor-pointer rounded-full w-full font-semibold px-30 mt-3">
-                    Back to Gallery
-                </Button>
-            </Link>
         </div>
     )
 }

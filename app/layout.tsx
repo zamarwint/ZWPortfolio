@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { seasonsSerif, ttHovesSans } from "./fonts";
 import { ThemeProvider } from "./_components/theme-provider";
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: "Zamar Wint",
@@ -22,7 +24,11 @@ export default function RootLayout({
     >
       <body className="min-h-full min-w-full flex flex-col items-center justify-center overflow-x-hidden">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}</ThemeProvider></body>
+          {children}
+        </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
+      </body>
     </html>
   );
 }

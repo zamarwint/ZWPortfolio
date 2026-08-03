@@ -38,12 +38,12 @@ export const seasonsSerif = localFont({
 
 export const ttHovesSans = localFont({
     src: [
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Bold\ Italic.ttf", weight: "700", style: "italic" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Bold.ttf", weight: "700", style: "normal" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ DemiBold.ttf", weight: "600", style: "normal" },
+        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Bold\ Italic.ttf", weight: "700", style: "bold-italic" },
+        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Bold.ttf", weight: "700", style: "bold" },
+        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ DemiBold.ttf", weight: "600", style: "semibold" },
         { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Italic.ttf", weight: "400", style: "italic" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Light\ Italic.ttf", weight: "400", style: "italic" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Light.ttf", weight: "400", style: "normal" },
+        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Light\ Italic.ttf", weight: "400", style: "light-italic" },
+        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Light.ttf", weight: "400", style: "light" },
         { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Regular.ttf", weight: "400", style: "normal" }
     ],
     variable: '--font-tt-hoves-sans'

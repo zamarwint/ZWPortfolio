@@ -140,7 +140,7 @@ const Chat = () => {
 	return (
 		<motion.div
 			id="chat"
-			className="w-[90%] md:w-[80%] min-h-screen pt-30 flex flex-col items-center justify-center border-x border-foreground/10 pb-150"
+			className="w-[90%] lg:w-[80%] min-h-screen pt-[20vh] flex flex-col items-center justify-center border-x border-foreground/10 pb-150"
 		>
 			<motion.div
 				initial={{ opacity: 0, y: 50 }}

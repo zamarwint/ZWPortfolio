@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <motion.main
       id="home"
-      className="w-[90%] md:w-[80%] bg-background flex flex-col items-center justify-center gap-150 pb-150 border-x border-foreground/10"
+      className="w-[90%] lg:w-[80%] bg-background flex flex-col items-center justify-center gap-150 pb-150 border-x border-foreground/10"
     >
       <Hero />
 
@@ -27,9 +27,9 @@ const Home = () => {
         transition={{
           duration: 2,
         }}
-        className="size-full flex flex-col md:flex-row items-center justify-around gap-20 md:gap-0"
+        className="size-full flex flex-col lg:flex-row items-center justify-around gap-20 lg:gap-0"
       >
-        <div className='w-fit mx-10 md:mx-0'>
+        <div className='w-fit mx-10 lg:mx-0'>
           <Image
             src={media.pictures[1].image}
             alt={media.pictures[1].title}
@@ -39,8 +39,8 @@ const Home = () => {
             loading="eager"
           />
         </div>
-        <div className="w-2xs md:w-xl flex flex-col justify-center items-center md:items-start md:justify-start gap-15 text-center md:text-left">
-          <h1 className="text-6xl md:text-8xl font-semibold">About Me</h1>
+        <div className="w-2xs lg:w-xl flex flex-col justify-center items-center lg:items-start lg:justify-start gap-15 text-center lg:text-left">
+          <h1 className="text-6xl lg:text-8xl font-semibold">About Me</h1>
           <div className='text-2xl flex flex-col items-start justify-start gap-10'>
             <p>
               Zamar Wint is known as a reliable engineer in his field, someone you
@@ -81,8 +81,8 @@ const Home = () => {
         }}
         className="size-full flex flex-col items-center justify-around"
       >
-        <div className="w-2xs md:w-4xl flex flex-col items-center justify-center gap-15">
-          <h1 className="text-6xl md:text-8xl text-center font-semibold w-md md:w-full">
+        <div className="w-2xs lg:w-4xl flex flex-col items-center justify-center gap-15">
+          <h1 className="text-6xl lg:text-8xl text-center font-semibold w-md lg:w-full">
             Educational Background
           </h1>
           <div className="flex flex-col text-2xl text-center gap-10">
@@ -117,16 +117,16 @@ const Home = () => {
         transition={{
           duration: 2,
         }}
-        className="size-full flex flex-col md:flex-row items-center justify-around"
+        className="size-full flex flex-col lg:flex-row items-center justify-around"
       >
-        <div className="w-fit flex flex-col md:flex-row items-center justify-center gap-20 text-left">
-          <h1 className="text-6xl md:text-8xl text-center md:text-left font-semibold w-xs md:w-xl">
+        <div className="w-fit flex flex-col lg:flex-row items-center justify-center gap-20 text-left">
+          <h1 className="text-6xl lg:text-8xl text-center lg:text-left font-semibold w-xs lg:w-xl">
             Hard work and passion will make anyone succeed.
           </h1>
           <Image
             src={media.pictures[2].image}
             alt={media.pictures[2].title}
-            className="w-auto h-auto object-cover aspect-auto rounded-full md:mx-auto"
+            className="w-auto h-auto object-cover aspect-auto rounded-full lg:mx-auto"
             width={400}
             height={400}
             loading="eager"

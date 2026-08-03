@@ -1,9 +1,17 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { accoladeImages, media } from "@/lib/data";
-import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription } from "@/components/ui/card"
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import { ChevronDownIcon } from "lucide-react"
 
 export default function Accolades() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,29 +29,39 @@ export default function Accolades() {
                 }}
                 className='size-full flex flex-col items-center justify-around'
             >
-                <div className='w-fit flex flex-col items-center justify-center gap-20'>
-                    <h1 className="text-6xl md:text-8xl text-center md:text-left font-semibold">
-                        Accolades
-                    </h1>
-                    <div className="w-[90%] h-full flex flex-col gap-10 items-center justify-center">
+                <div className='w-full flex flex-col items-center justify-center gap-20'>
+                    <div className="w-[80%] lg:w-[60%] flex flex-col items-center justify-center gap-5">
+                        <h1 className="text-6xl lg:text-8xl text-center lg:text-left font-semibold">
+                            Accolades
+                        </h1>
+                        <p className="text-muted-foreground text-center text-wrap">Here are some of my awards, certificates, and other achievements.</p>
+                    </div>
+                    <div className="w-[80%] lg:w-[60%] h-full flex flex-col gap-10 items-center justify-center">
                         {media.accolades.map((accolade, index) => (
-                            <div
-                                key={index}
-                                onClick={() => {
-                                    setCurrentAccolade(accolade.title)
-                                    setCurrentAccoladeDescription(accolade.description)
-                                    setIsOpen(true)
-                                }}
-                                className={cn('w-full h-full flex flex-col md:flex-row gap-10 items-center justify-center cursor-pointer',
-                                    'p-10 bg-foreground/3 rounded-xs hover:scale-105 transition-transform duration-200')}
-                            >
-                                <div>
-                                    <Image src={accolade.image} alt="Accolade image" width={300} height={300} className='w-auto h-auto aspect-auto invert dark:invert-0' loading="eager" />
-                                </div>
-                                <h1 className='text-2xl text-center md:text-left w-md'>
-                                    {accolade.title}
-                                </h1>
-                            </div>
+                            <Card key={index} className="mx-auto w-full">
+                                <CardContent>
+                                    <Collapsible className="rounded-lg data-open:bg-muted w-full">
+                                        <CollapsibleTrigger asChild>
+                                            <Button variant="ghost" className="w-full">
+                                                <h1 className="font-semibold lg:text-lg text-wrap text-left">{accolade.title}</h1>
+                                                <ChevronDownIcon className="ml-auto group-data-panel-open/button:rotate-180" />
+                                            </Button>
+                                        </CollapsibleTrigger>
+                                        <CollapsibleContent className="flex flex-col items-start gap-2 p-2.5 pt-0 text-sm">
+                                            <CardDescription className="text-center">
+                                                {accolade.description}
+                                            </CardDescription>
+                                            <div className="w-full h-full flex items-center justify-center cursor-pointer" onClick={() => {
+                                                setCurrentAccolade(accolade.title);
+                                                setCurrentAccoladeDescription(accolade.description);
+                                                setIsOpen(true);
+                                            }}>
+                                                <Image src={accolade.image} alt="Accolade image" width={300} height={300} className='w-auto h-auto aspect-auto invert dark:invert-0' loading="eager" />
+                                            </div>
+                                        </CollapsibleContent>
+                                    </Collapsible>
+                                </CardContent>
+                            </Card>
                         ))}
                     </div>
                 </div>

@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const Gallery = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,7 @@ const Gallery = () => {
                 duration: 2,
             }}
             id="gallery"
-            className="w-[90%] md:w-[80%] flex flex-col items-center justify-center border-x border-foreground/10 pb-150 pt-30"
+            className="w-[90%] lg:w-[80%] flex flex-col items-center justify-center border-x border-foreground/10 pb-150 pt-[20vh]"
         >
             <h1 className="text-6xl md:text-8xl font-bold">Gallery</h1>
             <p className="text-neutral-500 dark:text-neutral-400 font-hoves-regular py-4">
@@ -46,7 +47,7 @@ const Gallery = () => {
                     {gallery.map((content) => (
                         <div
                             key={content.id}
-                            className="overflow-hidden rounded-lg shadow-md bg-black flex items-center justify-center"
+                            className="overflow-hidden rounded-xs shadow-md bg-transparent flex items-center justify-center"
                         >
                             {content.type === "Image" ? (
                                 <Image
@@ -54,7 +55,8 @@ const Gallery = () => {
                                     alt={content.alt}
                                     width={1000}
                                     height={1000}
-                                    className="w-auto h-auto aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
+                                    className={cn("w-auto h-auto aspect-square object-cover hover:scale-105 transition-transform cursor-pointer",
+                                        content.title.toLowerCase().includes('college') || content.title.toLowerCase().includes('university') || content.title.toLowerCase().includes('emmanuel') ? 'invert dark:invert-0' : '')}
                                     onClick={() => showContent(content)}
                                     loading="eager"
                                 />
@@ -82,7 +84,8 @@ const Gallery = () => {
                     </DialogHeader>
                     <div className="flex items-center justify-center">
                         {contentType === "Image" ? (
-                            <Image src={content} draggable="false" alt={contentTitle} width={400} height={400} className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto" loading="eager" />
+                            <Image src={content} draggable="false" alt={contentTitle} width={400} height={400} className={cn("rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto",
+                                contentTitle.toLowerCase().includes('college') || contentTitle.toLowerCase().includes('university') || contentTitle.toLowerCase().includes('emmanuel') ? 'invert dark:invert-0' : '')} loading="eager" />
                         ) : (
                             <div className="flex flex-col gap-4">
                                 <video src={`${content}#t=0,5`} draggable="false" autoPlay className="rounded-lg select-none" />

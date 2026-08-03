@@ -135,11 +135,11 @@ const accoladeImages = {
         image: "/eac-accolade.jpg",
     },
     kingstonCollege: {
-        title: "Diploma in General Studies at Kingston College",
+        title: "Diploma in General Studies at KC",
         image: "/kc-accolade.jpg",
     },
     ucc: {
-        title: "Highest Academic Award at University of the Commonwealth Caribbean",
+        title: "Highest Academic Award at UCC",
         image: "/ucc-accolade.jpg",
     },
 }
