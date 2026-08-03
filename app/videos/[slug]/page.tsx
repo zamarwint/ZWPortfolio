@@ -36,18 +36,19 @@ export default async function VideosPage({
     return (
         <div
             id="video"
-            className="w-[90%] lg:w-[80%] h-screen flex flex-col items-center justify-center gap-10 text-center border-x border-foreground/10"
+            className="w-[90%] lg:w-[80%] h-screen flex flex-col items-center justify-center text-center border-x border-foreground/10"
         >
-            <Button variant="outline" size="lg" className="cursor-pointer rounded-sm p-2 absolute top-5 left-[calc(50%-10rem)] md:left-[calc(50%-20rem)] lg:left-[calc(50%-36rem)]" asChild>
-                <Link href="/gallery" className="flex items-center justify-center gap-2">
-                    <MoveLeft className='size-5' />
-                    <span className="text-md">Back</span>
-                </Link>
-            </Button>
-            <div className="space-y-1">
+            <div className="w-full flex justify-between items-center p-5 border-y border-foreground/10">
+                <Button variant="outline" size="lg" className="w-fit rounded-sm p-2" asChild>
+                    <Link href="/gallery" className="flex items-center justify-center gap-2">
+                        <MoveLeft className='size-5' />
+                        <span className="text-md">Back</span>
+                    </Link>
+                </Button>
                 <h1 className="text-3xl font-semibold">{videoFileLink?.title}</h1>
+                <h2 className="text-md text-muted-foreground">Zamar Wint</h2>
             </div>
-            <div className={cn("px-10 container flex flex-col items-center justify-center", videoFileLink?.videoAspectRatio === "9/16" ? "w-full max-w-96" : "")}>
+            <div className={cn("container w-full p-5 flex flex-col items-center justify-center border-b border-foreground/10", videoFileLink?.videoAspectRatio === "9/16" ? "max-w-96" : "")}>
                 <AspectRatio ratio={getAspectRatio()} className="rounded-lg bg-muted">
                     <video
                         src={videoFileLink?.link}
