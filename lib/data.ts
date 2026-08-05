@@ -121,21 +121,21 @@ export const media = {
         {
             title: "UCC Awards Video",
             description: "Video I made for the UCC Awards.",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/ucc-awards-vid.mp4`,
+            video: `${process.env.NEXT_PUBLIC_STORE_ID}/ucc-awards-vid.mp4`,
             videoPage: "/videos/ucc-awards-vid",
             videoAspectRatio: "16/9",
         },
         {
             title: "Math Revision Outreach Video",
             description: "Math revision outreach video.",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/math-revision-outreach.mp4`,
+            video: `${process.env.NEXT_PUBLIC_STORE_ID}/math-revision-outreach.mp4`,
             videoPage: "/videos/math-revision-outreach",
             videoAspectRatio: "9/16",
         },
         {
             title: "WardPass Introduction Video",
             description: "I introduced my password manager application, WardPass, in this video.",
-            link: `${process.env.NEXT_PUBLIC_STORE_ID}/wardpass-intro.mp4`,
+            video: `${process.env.NEXT_PUBLIC_STORE_ID}/wardpass-intro.mp4`,
             videoPage: "/videos/wardpass-intro",
             videoAspectRatio: "16/9",
         },
@@ -158,41 +158,56 @@ export const accoladeImages = {
     },
 }
 
-// TYPE SAFETY FOR CONTENT
-export type ContentType = {
+// TYPE SAFETY FOR GALLERY CONTENT (IMAGES AND VIDEOS)
+export enum GalleryContentType {
+    IMAGE = "Image",
+    VIDEO = "Video"
+}
+
+export type GalleryImageType = {
     id: number,
+    type: GalleryContentType.IMAGE,
     title: string,
     description?: string,
-    type: "Image" | "Video",
+    src: string
+}
+
+export type GalleryVideoType = {
+    id: number,
+    type: GalleryContentType.VIDEO,
+    title: string,
+    description?: string,
     src: string,
-    imgPrwSrcForVideo?: string,
-    videoPage?: string,
-    videoAspectRatio?: string,
-    alt: string,
+    imgPrwSrcForVideo: string,
+    videoPage: string,
+    videoAspectRatio: string
 }
 
 // GALLERY PAGE DATA
-export const gallery: ContentType[] = [
-    { id: 1, type: "Image", title: media.gradPictures[0].title, src: media.gradPictures[0].image, alt: media.gradPictures[0].title },
-    { id: 2, type: "Image", title: media.pictures[0].title, src: media.pictures[0].image, alt: media.pictures[0].title },
-    { id: 3, type: "Image", title: media.pictures[1].title, src: media.pictures[1].image, alt: media.pictures[1].title },
-    { id: 4, type: "Image", title: media.pictures[2].title, src: media.pictures[2].image, alt: media.pictures[2].title },
-    { id: 5, type: "Image", title: media.pictures[3].title, src: media.pictures[3].image, alt: media.pictures[3].title },
-    { id: 6, type: "Image", title: media.accolades[0].title, description: media.accolades[0].description, src: media.accolades[0].image, alt: media.accolades[0].title },
-    { id: 7, type: "Image", title: media.accolades[1].title, description: media.accolades[1].description, src: media.accolades[1].image, alt: media.accolades[1].title },
-    { id: 8, type: "Image", title: media.accolades[2].title, description: media.accolades[2].description, src: media.accolades[2].image, alt: media.accolades[2].title },
-    { id: 9, type: "Image", title: media.projects[0].title, description: media.projects[0].description, src: media.projects[0].image, alt: media.projects[0].title },
-    { id: 10, type: "Image", title: media.projects[1].title, description: media.projects[1].description, src: media.projects[1].image, alt: media.projects[1].title },
-    { id: 11, type: "Image", title: media.projects[2].title, description: media.projects[2].description, src: media.projects[2].image, alt: media.projects[2].title },
-    { id: 12, type: "Image", title: accoladeImages.eacPortmore.title, src: accoladeImages.eacPortmore.image, alt: accoladeImages.eacPortmore.title },
-    { id: 13, type: "Image", title: accoladeImages.kingstonCollege.title, src: accoladeImages.kingstonCollege.image, alt: accoladeImages.kingstonCollege.title },
-    { id: 14, type: "Image", title: accoladeImages.ucc.title, src: accoladeImages.ucc.image, alt: accoladeImages.ucc.title },
-    { id: 15, type: 'Image', title: media.gradPictures[0].title, src: media.gradPictures[0].image, alt: media.gradPictures[0].title },
-    { id: 16, type: 'Image', title: media.gradPictures[1].title, src: media.gradPictures[1].image, alt: media.gradPictures[1].title },
-    { id: 17, type: 'Image', title: media.gradPictures[2].title, src: media.gradPictures[2].image, alt: media.gradPictures[2].title },
-    { id: 18, type: 'Image', title: media.gradPictures[3].title, src: media.gradPictures[3].image, alt: media.gradPictures[3].title },
-    { id: 19, type: 'Image', title: media.gradPictures[4].title, src: media.gradPictures[4].image, alt: media.gradPictures[4].title },
-    { id: 20, type: "Video", title: media.videos[0].title, description: media.videos[0].description, src: media.videos[0].link, imgPrwSrcForVideo: "https://picsum.photos/700/700", videoPage: media.videos[0].videoPage, videoAspectRatio: media.videos[0].videoAspectRatio, alt: media.videos[0].title },
-    { id: 21, type: "Video", title: media.videos[1].title, description: media.videos[1].description, src: media.videos[1].link, imgPrwSrcForVideo: "https://picsum.photos/700/701", videoPage: media.videos[1].videoPage, videoAspectRatio: media.videos[1].videoAspectRatio, alt: media.videos[1].title },
-    { id: 22, type: "Video", title: media.videos[2].title, description: media.videos[2].description, src: media.videos[2].link, imgPrwSrcForVideo: "https://picsum.photos/700/703", videoPage: media.videos[2].videoPage, videoAspectRatio: media.videos[2].videoAspectRatio, alt: media.videos[2].title }
+export const galleryImages: GalleryImageType[] = [
+    { id: 1, type: GalleryContentType.IMAGE, title: media.gradPictures[0].title, src: media.gradPictures[0].image },
+    { id: 2, type: GalleryContentType.IMAGE, title: media.pictures[0].title, src: media.pictures[0].image },
+    { id: 3, type: GalleryContentType.IMAGE, title: media.pictures[1].title, src: media.pictures[1].image },
+    { id: 4, type: GalleryContentType.IMAGE, title: media.pictures[2].title, src: media.pictures[2].image },
+    { id: 5, type: GalleryContentType.IMAGE, title: media.pictures[3].title, src: media.pictures[3].image },
+    { id: 6, type: GalleryContentType.IMAGE, title: media.accolades[0].title, description: media.accolades[0].description, src: media.accolades[0].image },
+    { id: 7, type: GalleryContentType.IMAGE, title: media.accolades[1].title, description: media.accolades[1].description, src: media.accolades[1].image },
+    { id: 8, type: GalleryContentType.IMAGE, title: media.accolades[2].title, description: media.accolades[2].description, src: media.accolades[2].image },
+    { id: 9, type: GalleryContentType.IMAGE, title: media.projects[0].title, description: media.projects[0].description, src: media.projects[0].image },
+    { id: 10, type: GalleryContentType.IMAGE, title: media.projects[1].title, description: media.projects[1].description, src: media.projects[1].image },
+    { id: 11, type: GalleryContentType.IMAGE, title: media.projects[2].title, description: media.projects[2].description, src: media.projects[2].image },
+    { id: 12, type: GalleryContentType.IMAGE, title: accoladeImages.eacPortmore.title, src: accoladeImages.eacPortmore.image },
+    { id: 13, type: GalleryContentType.IMAGE, title: accoladeImages.kingstonCollege.title, src: accoladeImages.kingstonCollege.image },
+    { id: 14, type: GalleryContentType.IMAGE, title: accoladeImages.ucc.title, src: accoladeImages.ucc.image },
+    { id: 15, type: GalleryContentType.IMAGE, title: media.gradPictures[0].title, src: media.gradPictures[0].image },
+    { id: 16, type: GalleryContentType.IMAGE, title: media.gradPictures[1].title, src: media.gradPictures[1].image },
+    { id: 17, type: GalleryContentType.IMAGE, title: media.gradPictures[2].title, src: media.gradPictures[2].image },
+    { id: 18, type: GalleryContentType.IMAGE, title: media.gradPictures[3].title, src: media.gradPictures[3].image },
+    { id: 19, type: GalleryContentType.IMAGE, title: media.gradPictures[4].title, src: media.gradPictures[4].image }
 ];
+
+export const galleryVideos: GalleryVideoType[] = [
+    { id: 20, type: GalleryContentType.VIDEO, title: media.videos[0].title, description: media.videos[0].description, src: media.videos[0].video, imgPrwSrcForVideo: "https://picsum.photos/700/700", videoPage: media.videos[0].videoPage, videoAspectRatio: media.videos[0].videoAspectRatio },
+    { id: 21, type: GalleryContentType.VIDEO, title: media.videos[1].title, description: media.videos[1].description, src: media.videos[1].video, imgPrwSrcForVideo: "https://picsum.photos/700/701", videoPage: media.videos[1].videoPage, videoAspectRatio: media.videos[1].videoAspectRatio },
+    { id: 22, type: GalleryContentType.VIDEO, title: media.videos[2].title, description: media.videos[2].description, src: media.videos[2].video, imgPrwSrcForVideo: "https://picsum.photos/700/703", videoPage: media.videos[2].videoPage, videoAspectRatio: media.videos[2].videoAspectRatio }
+]

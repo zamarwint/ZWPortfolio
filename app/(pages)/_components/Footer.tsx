@@ -12,7 +12,22 @@ import { underlineDrawAmber, underlineDrawNeutral } from "./../../_components/Un
 import { Check, Copy, Eye, EyeOff, MoveUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const bottomLinks = [
+const footerButtons = [
+	{
+		text: "See all links",
+		href: "https://solo.to/zwbless",
+		icon: <FiArrowUpRight className="size-7" />,
+		disabled: false,
+	},
+	{
+		text: "Buy me a coffee (Coming soon)",
+		href: "/",
+		icon: <GiCoffeeMug className="size-7" />,
+		disabled: true,
+	}
+]
+
+const footerBottomLinks = [
 	{
 		name: "Github",
 		link: "https://github.com/zamarwint"
@@ -147,28 +162,19 @@ const Footer = () => {
 
 				{/* See all links and Buy me a coffee buttons */}
 				<div className="size-full cursor-pointer flex flex-col lg:flex-row items-center justify-center gap-5">
-					<Button className="rounded-lg py-8 px-15" variant="outline" size="lg">
-						<Link
-							href="https://solo.to/zwbless"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex items-center justify-center gap-2"
-						>
-							<span className="text-xl lg:text-2xl">See all links</span>
-							<FiArrowUpRight className="w-7 h-7" />
-						</Link>
-					</Button>
-					<Button className="rounded-lg py-8 px-15" variant="outline" size="lg">
-						<Link
-							href="https://buymeacoffee.com/zwbless"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="flex items-center justify-center gap-2"
-						>
-							<span className="text-xl lg:text-2xl">Buy me a coffee</span>
-							<GiCoffeeMug className="w-7 h-7" />
-						</Link>
-					</Button>
+					{footerButtons.map((button, key) => (
+						<Button key={key} className="rounded-lg py-8 px-15" variant="outline" size="lg" disabled={button.disabled}>
+							<Link
+								href={button.href}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center justify-center gap-2"
+							>
+								<span className="text-xl lg:text-2xl text-wrap">{button.text}</span>
+								{button.icon}
+							</Link>
+						</Button>
+					))}
 				</div>
 			</div>
 
@@ -193,7 +199,7 @@ const Footer = () => {
 						</h1>
 						<div>
 							<div className="flex flex-col lg:flex-row items-end justify-center gap-2">
-								{bottomLinks.map((bottomLink, index) => (
+								{footerBottomLinks.map((bottomLink, index) => (
 									<div key={index} className="flex flex-col items-center lg:items-start">
 										<Link
 											href={bottomLink.link}

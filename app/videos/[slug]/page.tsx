@@ -22,7 +22,7 @@ export default async function VideosPage({
 
     const videoFileLink = media.videos.find((file) => {
         if (file.videoPage.includes(slug)) {
-            return file.link;
+            return file.video;
         }
     })
 
@@ -38,7 +38,7 @@ export default async function VideosPage({
             id="video"
             className="w-[90%] lg:w-[80%] h-screen flex flex-col items-center justify-center text-center border-x border-foreground/10"
         >
-            <div className="w-full flex justify-between items-center p-5 border-y border-foreground/10">
+            <div className="w-full flex flex-col gap-4 lg:gap-0 lg:flex-row justify-between items-center p-5 border-y border-foreground/10">
                 <Button variant="outline" size="lg" className="w-fit rounded-sm p-2" asChild>
                     <Link href="/gallery" className="flex items-center justify-center gap-2">
                         <MoveLeft className='size-5' />
@@ -51,7 +51,7 @@ export default async function VideosPage({
             <div className={cn("container w-full p-5 flex flex-col items-center justify-center border-b border-foreground/10", videoFileLink?.videoAspectRatio === "9/16" ? "max-w-96" : "")}>
                 <AspectRatio ratio={getAspectRatio()} className="rounded-lg bg-muted">
                     <video
-                        src={videoFileLink?.link}
+                        src={videoFileLink?.video}
                         autoPlay
                         controls
                         draggable="false"
