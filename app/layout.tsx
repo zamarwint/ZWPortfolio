@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { seasonsSerif, ttHovesSans } from "./fonts";
 import { ThemeProvider } from "./_components/theme-provider";
-import { Analytics } from '@vercel/analytics/next';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 export const metadata: Metadata = {
   title: "Zamar Wint",
-  description: "Portfolio for Zamar Wint - A computer engineer based in the Caribbean.",
+  description:
+    "Portfolio for Zamar Wint - A computer engineer based in the Caribbean.",
 };
 
 export default function RootLayout({
@@ -23,8 +26,13 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full min-w-full flex flex-col items-center justify-center overflow-x-hidden">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Suspense fallback={<Loading />}>{children}</Suspense>
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />

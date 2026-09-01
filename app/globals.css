@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@source "./(pages)";
-
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -136,7 +134,6 @@
 }
 
 @layer base {
-
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
@@ -150,7 +147,6 @@
 }
 
 @layer base {
-
   /* WEBKIT BROWSERS: CHROME, EDGE AND SAFARI */
   /* Minimalist Scrollbar */
   ::-webkit-scrollbar {
