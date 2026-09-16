@@ -5,8 +5,8 @@ import { MoveLeft } from "lucide-react";
 
 const NotFound = () => {
   return (
-    <div className="w-[90%] lg:w-[80%] h-full lg:h-screen bg-background border-x border-foreground/10 flex items-center justify-center">
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-20 p-10 border-y border-foreground/10">
+    <div className="w-[90%] lg:w-[80%] h-full lg:h-screen bg-background border-x border-border flex items-center justify-center font-funnel-display">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-20 p-10 border-y border-border">
         <div className="flex flex-col gap-20">
           <div className="flex flex-col gap-5">
             <h1 className="text-8xl max-w-3xl">

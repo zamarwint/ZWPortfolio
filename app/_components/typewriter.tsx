@@ -1,28 +1,42 @@
-import { Typewriter } from 'nextjs-simple-typewriter';
+import { Typewriter } from "nextjs-simple-typewriter";
 
-const TypewriterEffect = ({ words }: { words: string[] }) => {
-    const handleType = (count: number) => {
-        console.log(count);
-    }
+const TypewriterEffect = ({
+  words,
+  cursor,
+  cursorBlink,
+  typeSpeed = 70,
+  delSpeed = 50,
+  delaySpeed = 1000,
+}: {
+  words: string[];
+  cursor?: boolean;
+  cursorBlink?: boolean;
+  typeSpeed?: number;
+  delSpeed?: number;
+  delaySpeed?: number;
+}) => {
+  const handleType = (count: number) => {
+    console.log(count);
+  };
 
-    const handleDone = () => {
-        console.log("Done after 5 steps!");
-    }
+  const handleDone = () => {
+    console.log("Done after 5 steps!");
+  };
 
-    return (
-        <Typewriter
-            words={words}
-            loop={0}
-            cursor
-            cursorStyle='.'
-            cursorBlinking={false}
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-            onLoopDone={handleDone}
-            onType={handleType}
-        />
-    )
-}
+  return (
+    <Typewriter
+      words={words}
+      loop={0}
+      cursor={cursor}
+      cursorStyle="."
+      cursorBlinking={cursorBlink}
+      typeSpeed={typeSpeed}
+      deleteSpeed={delSpeed}
+      delaySpeed={delaySpeed}
+      onLoopDone={handleDone}
+      onType={handleType}
+    />
+  );
+};
 
 export default TypewriterEffect;

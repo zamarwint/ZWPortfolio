@@ -30,14 +30,14 @@ export default function DisplayVideos() {
   };
 
   return (
-    <div className="w-full flex gap-5 flex-col items-center justify-center">
+    <div className="w-full flex gap-4 flex-col items-center justify-center px-10">
       {galleryVideos.map((video, key) => (
         <div
           key={key}
-          className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-foreground/10 p-5 gap-5 cursor-pointer"
+          className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-border p-4 gap-4 cursor-pointer"
           onClick={() => showContent(video)}
         >
-          <div>
+          <div className="size-fit flex items-center justify-center">
             <Image
               src={video.imgPrwSrcForVideo as string}
               alt={video.title}
@@ -47,7 +47,7 @@ export default function DisplayVideos() {
               loading="eager"
             />
           </div>
-          <div className="flex flex-col items-center lg:items-start justify-center gap-2">
+          <div className="w-full flex flex-col flex-1 items-center lg:items-start justify-center gap-2">
             <h1 className="text-2xl text-center lg:text-left">{video.title}</h1>
             <p className="text-muted-foreground text-center lg:text-left">
               {video.description}
@@ -56,9 +56,11 @@ export default function DisplayVideos() {
         </div>
       ))}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="z-999">
+        <DialogContent className="z-999 font-funnel-display">
           <DialogHeader>
-            <DialogTitle>{videoTitle}</DialogTitle>
+            <DialogTitle className="font-funnel-display">
+              {videoTitle}
+            </DialogTitle>
             {videoDesc && <DialogDescription>{videoDesc}</DialogDescription>}
           </DialogHeader>
           <div className="flex items-center justify-center">

@@ -3,15 +3,17 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { GalleryContentType } from "@/lib/data";
-import DisplayImages from "./_components/Images";
-import DisplayVideos from "./_components/Videos";
+import DisplayImages from "@/components/gallery/Images";
+import DisplayVideos from "@/components/gallery/Videos";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { useKeyboardShortcuts } from "@/lib/functions";
 
 export default function Gallery() {
   const [selectedContent, setSelectedContent] = useState<GalleryContentType>(
     GalleryContentType.IMAGE,
   );
 
+  useKeyboardShortcuts();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -21,14 +23,14 @@ export default function Gallery() {
         duration: 2,
       }}
       id="gallery"
-      className="w-[90%] lg:w-[80%] flex flex-col items-center justify-center border-x border-foreground/10 pb-150 pt-[20vh]"
+      className="size-full flex flex-col items-center justify-start pt-[10vh] font-funnel-display"
     >
-      <h1 className="text-6xl md:text-8xl font-bold">Gallery</h1>
-      <p className="text-muted-foreground font-hoves-regular py-4">
-        The library of my work.
-      </p>
-      <div className="container w-full mx-auto p-4 md:p-10">
-        <div className="container w-full flex items-center justify-center py-[2vh]">
+      <h1 className="text-6xl md:text-8xl font-editorial-new italic">
+        Gallery
+      </h1>
+      <p className="text-muted-foreground py-4">The library of my work.</p>
+      <div className="container w-full mx-auto pt-5 pb-10">
+        <div className="container w-full flex items-center justify-center py-[2vh] overflow-auto">
           <ToggleGroup
             type="single"
             value={selectedContent}
@@ -39,24 +41,26 @@ export default function Gallery() {
             <ToggleGroupItem
               size="sm"
               value={GalleryContentType.IMAGE}
-              className="text-lg p-6"
+              className="text-lg p-6 rounded-none"
             >
               Images
             </ToggleGroupItem>
             <ToggleGroupItem
               size="sm"
               value={GalleryContentType.VIDEO}
-              className="text-lg p-6"
+              className="text-lg p-6 rounded-none"
             >
               Videos
             </ToggleGroupItem>
           </ToggleGroup>
         </div>
-        {selectedContent === GalleryContentType.IMAGE ? (
-          <DisplayImages />
-        ) : (
-          <DisplayVideos />
-        )}
+        <div className="w-full flex flex-col items-center justify-center">
+          {selectedContent === GalleryContentType.IMAGE ? (
+            <DisplayImages />
+          ) : (
+            <DisplayVideos />
+          )}
+        </div>
       </div>
     </motion.div>
   );

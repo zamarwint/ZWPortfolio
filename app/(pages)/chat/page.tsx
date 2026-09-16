@@ -2,8 +2,8 @@
 
 import { motion } from "motion/react";
 import { useState, useEffect, useRef, useCallback } from "react";
-import ChatMessages from "./_components/ChatMessages";
-import ChatInput from "./_components/ChatInput";
+import ChatMessages from "@/components/chat/ChatMessages";
+import ChatInput from "@/components/chat/ChatInput";
 import { ErrorContent } from "../../_components/modal-content";
 import {
   Dialog,
@@ -12,6 +12,8 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../../../components/ui/dialog";
+import { cn } from "@/lib/utils";
+import { useKeyboardShortcuts } from "@/lib/functions";
 
 export interface ChatMessage {
   senderId: string;
@@ -31,6 +33,8 @@ const Chat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const hasGreeted = useRef(false);
+
+  useKeyboardShortcuts();
 
   // Show initial greeting on mount
   useEffect(() => {
@@ -140,7 +144,7 @@ const Chat = () => {
   return (
     <motion.div
       id="chat"
-      className="w-[90%] lg:w-[80%] min-h-screen pt-[20vh] flex flex-col items-center justify-center border-x border-foreground/10 pb-150"
+      className="min-h-screen min-w-full pt-[10vh] pb-[5vh] flex flex-col items-center justify-center font-funnel-display"
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -148,10 +152,10 @@ const Chat = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-center mb-10"
       >
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-          Ask me anything
+        <h1 className="text-5xl md:text-7xl font-editorial-new italic tracking-tight">
+          Ask me anything...
         </h1>
-        <p className="py-4 text-neutral-500 dark:text-neutral-400 font-normal">
+        <p className="py-4 text-muted-foreground font-normal">
           Drop a message and let&apos;s talk.
         </p>
       </motion.div>
@@ -160,40 +164,55 @@ const Chat = () => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        className="w-full md:max-w-2xl lg:max-w-3xl h-[60vh] md:h-[70vh] flex flex-col bg-background rounded-3xl overflow-hidden shadow-2xl border border-foreground/10"
+        className="w-[80%] h-[60vh] flex flex-col overflow-hidden border border-border"
       >
-        <header className="p-5 bg-foreground/5 border-b border-foreground/10 flex items-center justify-between z-10">
+        <header className="p-4 border-b border-border flex items-center justify-between z-10">
           <div className="flex items-center gap-3">
             <div
-              className={
-                isLoading
-                  ? "w-3 h-3 rounded-full bg-yellow-500 animate-pulse"
-                  : "w-3 h-3 rounded-full bg-green-500"
-              }
+              className={cn(
+                "w-3 h-3 rounded-full",
+                isLoading ? "bg-yellow-500 animate-pulse" : "bg-green-500",
+              )}
             ></div>
-            <span className="font-semibold">Zamar&apos;s Assistant</span>
+            <span
+              className={cn(
+                "font-semibold",
+                isLoading ? "text-muted-foreground" : "",
+              )}
+            >
+              Zamar&apos;s Assistant
+            </span>
           </div>
-          <div className="text-sm font-normal text-neutral-500 dark:text-neutral-400">
+          <div
+            className={cn(
+              "text-sm font-normal",
+              isLoading
+                ? "shimmer shimmer-duration-1000 text-muted-foreground"
+                : "",
+            )}
+          >
             {isLoading ? "Thinking..." : "Ready"}
           </div>
         </header>
 
         <div
           ref={messagesContainerRef}
-          className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth bg-foreground/2"
+          className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth"
         >
           <ChatMessages messages={messages} currentUserId={"user"} />
         </div>
 
-        <footer className="p-4 bg-foreground/5 border-t border-foreground/10">
+        <footer className="p-4 border-t border-border">
           <ChatInput onSend={sendMessage} />
         </footer>
       </motion.div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent>
+        <DialogContent className="font-funnel-display">
           <DialogHeader className="text-center">
-            <DialogTitle className="text-2xl font-bold">Error</DialogTitle>
+            <DialogTitle className="text-2xl font-bold font-funnel-display">
+              Error
+            </DialogTitle>
           </DialogHeader>
           <DialogDescription className="flex flex-col items-center text-center gap-4">
             <ErrorContent />

@@ -1,24 +1,24 @@
-import Navbar from "./_components/Navbar";
-import Footer from "./_components/Footer";
+import Footer from "@/components/landing/Footer";
+import Nav from "@/components/landing/Nav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Home | Zamar Wint Portfolio",
-    description: "Home page of Zamar Wint's portfolio.",
+  title: "Home",
+  description: "Home page of Zamar Wint's portfolio.",
 };
 
-export default function PagesLayout({
-    children,
+export default function PageLayout({
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <div className="flex flex-col min-h-screen w-full">
-            <Navbar />
-            <main className="flex-1 size-full flex items-center justify-center flex-col">
-                {children}
-            </main>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="flex flex-col size-full justify-items-center md:flex-row overflow-hidden">
+      <Nav />
+      <div className="flex-1 pt-14 md:pt-0 overflow-y-scroll no-scrollbar">
+        {children}
+        <Footer />
+      </div>
+    </div>
+  );
 }

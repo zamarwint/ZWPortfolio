@@ -1,50 +1,25 @@
 import localFont from "next/font/local";
+import { Funnel_Display } from "next/font/google";
 
-export const seasonsSerif = localFont({
-    src: [
-        {
-            path: './fonts/Demo_Fonts/Fontspring-DEMO-theseasons-bd.otf',
-            weight: '700',
-            style: 'bold'
-        },
-        {
-            path: './fonts/Demo_Fonts/Fontspring-DEMO-theseasons-bdit.otf',
-            weight: '700',
-            style: 'italic'
-        },
-        {
-            path: './fonts/Demo_Fonts/Fontspring-DEMO-theseasons-it.otf',
-            weight: '400',
-            style: 'italic'
-        },
-        {
-            path: './fonts/Demo_Fonts/Fontspring-DEMO-theseasons-lt.otf',
-            weight: '400',
-            style: 'normal'
-        },
-        {
-            path: './fonts/Demo_Fonts/Fontspring-DEMO-theseasons-ltit.otf',
-            weight: '400',
-            style: 'italic'
-        },
-        {
-            path: './fonts/Demo_Fonts/Fontspring-DEMO-theseasons-reg.otf',
-            weight: '400',
-            style: 'normal'
-        },
-    ],
-    variable: '--font-seasons-serif'
-})
+export const editorialNew = localFont({
+  src: [
+    {
+      path: "./fonts/EditorialNew-Regular.woff2",
+      weight: "400",
+      style: "regular",
+    },
+    {
+      path: "./fonts/EditorialNew-Medium.woff2",
+      weight: "500",
+      style: "medium",
+    },
+  ],
+  display: "swap",
+  variable: "--font-editorial-new",
+});
 
-export const ttHovesSans = localFont({
-    src: [
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Bold\ Italic.ttf", weight: "700", style: "bold-italic" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Bold.ttf", weight: "700", style: "bold" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ DemiBold.ttf", weight: "600", style: "semibold" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Italic.ttf", weight: "400", style: "italic" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Light\ Italic.ttf", weight: "400", style: "light-italic" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Light.ttf", weight: "400", style: "light" },
-        { path: "./fonts/tt-hoves-pro-trial/TT\ Hoves\ Pro\ Trial\ Regular.ttf", weight: "400", style: "normal" }
-    ],
-    variable: '--font-tt-hoves-sans'
-})
+export const funnelDisplay = Funnel_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-funnel-display",
+});
