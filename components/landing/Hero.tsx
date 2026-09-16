@@ -1,4 +1,5 @@
 import TypewriterEffect from "@/app/_components/typewriter";
+import { media } from "@/lib/data";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,26 +56,26 @@ export default function Hero() {
         <div className="flex flex-wrap gap-4">
           <Link
             href="#work"
-            className="rounded-md bg-primary text-background px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
+            className="bg-primary text-background px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
           >
             View my work
           </Link>
           <Link
             href="/Zamar-Wint-Resume.zip"
-            className="rounded-md border border-primary text-primary hover:bg-primary hover:text-background px-6 py-3 text-sm font-medium transition-colors"
+            className="border border-primary text-primary hover:bg-primary hover:text-background px-6 py-3 text-sm font-medium transition-colors"
           >
             Download résumé
           </Link>
         </div>
       </div>
 
-      <div className="relative aspect-4/5 overflow-hidden rounded-lg border border-border">
+      <div className="relative aspect-4/5 overflow-hidden border-6 border-border bg-border rounded-xs">
         <Image
-          src="/assets/grad-picture.jpg"
-          alt="Zamar Wint"
+          src={media.pictures[3].image}
+          alt={media.pictures[3].title}
           fill
           sizes="(min-width: 768px) 40vw, 90vw"
-          className="object-cover grayscale contrast-[1.07] brightness-[0.92]"
+          className="object-cover grayscale contrast-[1.07] brightness-[0.92] rounded-xs"
           priority
         />
         <div className="absolute inset-0 opacity-[0.24] mix-blend-multiply" />

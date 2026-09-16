@@ -30,7 +30,7 @@ export default function DisplayVideos() {
   };
 
   return (
-    <div className="w-full flex gap-4 flex-col items-center justify-center px-10">
+    <div className="w-full flex gap-4 flex-col items-center justify-center px-10 mt-5">
       {galleryVideos.map((video, key) => (
         <div
           key={key}

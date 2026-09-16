@@ -24,7 +24,7 @@ export default function ChatMessages({
             }`}
           >
             <div
-              className={`p-3 md:p-4 rounded-2xl shadow-sm text-[15px] md:text-base ${
+              className={`p-3 md:p-4 rounded-2xl shadow-xs text-[15px] md:text-base ${
                 isMe
                   ? "bg-primary text-background rounded-tr-sm"
                   : "rounded-tl-sm border border-border bg-accent/20"

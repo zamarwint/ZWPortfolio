@@ -28,9 +28,9 @@ export default function Gallery() {
       <h1 className="text-6xl md:text-8xl font-editorial-new italic">
         Gallery
       </h1>
-      <p className="text-muted-foreground py-4">The library of my work.</p>
+      <p className="text-muted-foreground pt-4">The library of my work.</p>
       <div className="container w-full mx-auto pt-5 pb-10">
-        <div className="container w-full flex items-center justify-center py-[2vh] overflow-auto">
+        <div className="container w-full flex items-center justify-center pt-10 overflow-auto">
           <ToggleGroup
             type="single"
             value={selectedContent}

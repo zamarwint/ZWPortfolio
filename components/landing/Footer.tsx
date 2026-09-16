@@ -18,7 +18,6 @@ const SOCIALS = [
 
 export default function Footer() {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <motion.footer

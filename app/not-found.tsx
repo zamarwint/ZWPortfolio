@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { MoveLeft } from "lucide-react";
+import { useKeyboardShortcuts } from "@/lib/functions";
 
 const NotFound = () => {
+  useKeyboardShortcuts();
   return (
     <div className="w-[90%] lg:w-[80%] h-full lg:h-screen bg-background border-x border-border flex items-center justify-center font-funnel-display">
       <div className="flex flex-col lg:flex-row items-center justify-center gap-20 p-10 border-y border-border">
@@ -28,7 +32,7 @@ const NotFound = () => {
         </div>
         <div className="w-fit">
           <Image
-            src="/Not-Found.svg"
+            src="/vectors/not-found.svg"
             className="w-auto h-auto rounded-lg object-cover object-center"
             alt="Not Found Page Image"
             width={320}

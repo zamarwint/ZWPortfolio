@@ -15,6 +15,30 @@ import {
 import { cn } from "@/lib/utils";
 import { useKeyboardShortcuts } from "@/lib/functions";
 
+function ErrorDialog({
+  open,
+  onOpenChange,
+}: {
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="font-funnel-display">
+        <DialogHeader className="text-center">
+          <DialogTitle className="text-2xl font-bold font-funnel-display">
+            Error
+          </DialogTitle>
+        </DialogHeader>
+        <DialogDescription className="flex flex-col items-center text-center gap-4">
+          <ErrorContent />
+          Something went wrong while sending your message. Please try again.
+        </DialogDescription>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export interface ChatMessage {
   senderId: string;
   text: string;
@@ -170,8 +194,8 @@ const Chat = () => {
           <div className="flex items-center gap-3">
             <div
               className={cn(
-                "w-3 h-3 rounded-full",
-                isLoading ? "bg-yellow-500 animate-pulse" : "bg-green-500",
+                "w-3 h-3 rounded-full animate-pulse",
+                isLoading ? "bg-yellow-500" : "bg-green-500",
               )}
             ></div>
             <span
@@ -207,19 +231,7 @@ const Chat = () => {
         </footer>
       </motion.div>
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="font-funnel-display">
-          <DialogHeader className="text-center">
-            <DialogTitle className="text-2xl font-bold font-funnel-display">
-              Error
-            </DialogTitle>
-          </DialogHeader>
-          <DialogDescription className="flex flex-col items-center text-center gap-4">
-            <ErrorContent />
-            Something went wrong while sending your message. Please try again.
-          </DialogDescription>
-        </DialogContent>
-      </Dialog>
+      <ErrorDialog open={isOpen} onOpenChange={setIsOpen} />
     </motion.div>
   );
 };

@@ -1,3 +1,4 @@
+import { media } from "@/lib/data";
 import { motion } from "motion/react";
 import Image from "next/image";
 
@@ -10,15 +11,15 @@ export default function QuoteBreak() {
       transition={{
         duration: 2,
       }}
-      className="relative mt-28 flex min-h-85 items-center overflow-hidden border-y border-border font-editorial-new"
+      className="relative mt-28 flex min-h-142.5 items-center overflow-hidden border-y border-border font-editorial-new"
     >
       <Image
-        src="/assets/quote-picture.jpeg"
-        alt=""
+        src={media.pictures[1].image}
+        alt={media.pictures[1].title}
         aria-hidden="true"
         fill
         sizes="100vw"
-        className="object-cover grayscale brightness-[0.35]"
+        className="object-cover brightness-[0.35]"
       />
       <div className="relative z-10 mx-auto w-full max-w-295 px-[4vw] py-16">
         <p className="max-w-136 italic text-white text-[clamp(1.5rem,3.2vw,2.3rem)] font-medium leading-snug">
