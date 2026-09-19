@@ -12,7 +12,13 @@ import { type CarouselApi } from "@/components/ui/carousel";
 import { galleryImages } from "@/lib/data";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { LayoutDashboardIcon, X } from "lucide-react";
 
@@ -69,37 +75,38 @@ function ImageCarousel() {
 
   return (
     <Carousel className="mx-auto max-w-xs md:max-w-lg h-fit" setApi={setApi}>
-      <CarouselContent className="flex items-center justify-center">
+      <CarouselContent>
         {galleryImages.map((image, index) => (
-          <CarouselItem key={index}>
-            <Card className="h-fit">
-              <CardHeader className="flex flex-col items-center justify-center">
+          <CarouselItem
+            key={index}
+            className="flex items-center justify-center"
+          >
+            <Card>
+              <CardHeader className="text-center">
                 <CardTitle className="text-2xl font-semibold font-funnel-display">
                   {image.title}
                 </CardTitle>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-5 items-center justify-center">
-                <div>
-                  <Image
-                    src={image.src}
-                    alt={image.title}
-                    width={300}
-                    height={300}
-                    loading="eager"
-                    className={cn(
-                      "w-auto h-auto object-cover aspect-auto",
-                      (image.title.toLowerCase().includes("college") ||
-                        image.title.toLowerCase().includes("university") ||
-                        image.title.toLowerCase().includes("emmanuel")) &&
-                        image.src.toLowerCase().endsWith(".svg")
-                        ? "invert dark:invert-0"
-                        : "",
-                    )}
-                  />
-                </div>
                 {image.description && (
-                  <p className="text-center text-wrap">{image.description}</p>
+                  <CardDescription>{image.description}</CardDescription>
                 )}
+              </CardHeader>
+              <CardContent className="flex items-center justify-center">
+                <Image
+                  src={image.src}
+                  alt={image.title}
+                  width={300}
+                  height={300}
+                  loading="eager"
+                  className={cn(
+                    "w-auto h-auto object-cover aspect-auto rounded-md",
+                    (image.title.toLowerCase().includes("college") ||
+                      image.title.toLowerCase().includes("university") ||
+                      image.title.toLowerCase().includes("emmanuel")) &&
+                      image.src.toLowerCase().endsWith(".svg")
+                      ? "invert dark:invert-0"
+                      : "",
+                  )}
+                />
               </CardContent>
             </Card>
           </CarouselItem>

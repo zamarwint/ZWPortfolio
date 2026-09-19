@@ -12,7 +12,6 @@ const ENTRIES = [
     note: "Information Technology Associate",
   },
   { id: 3, name: "Kingston College", note: "Secondary education" },
-  { id: 4, name: "Emmanuel Apostolic Church", note: "Community" },
 ];
 
 export default function Recognition() {
@@ -32,7 +31,7 @@ export default function Recognition() {
         Recognition
       </p>
       <h2 className="mb-8 text-[clamp(1.6rem,3vw,2.1rem)] font-medium leading-tight font-editorial-new italic">
-        Where I&apos;ve studied and served.
+        Where I&apos;ve studied.
       </h2>
       <div className="border-t border-border">
         {ENTRIES.map((e) => (

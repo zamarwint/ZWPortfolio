@@ -1,5 +1,6 @@
 import TypewriterEffect from "@/app/_components/typewriter";
 import { media } from "@/lib/data";
+import { Download, MoveDown } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -49,30 +50,33 @@ export default function Hero() {
           <span className="animate-blink inline-flex size-1.5 bg-primary"></span>
         </p>
         <p className="mb-9 max-w-136">
-          I build software people can trust with their passwords, their money
-          and their time. Currently completing a STEM degree in Jamaica while
-          shipping production tools on the side.
+          I build software that businesses and consumers can trust with their
+          money and time. Currently completing a STEM degree in Jamaica while
+          building tools and services to automate workflows, enhance
+          productivity, and bridge digital divides.
         </p>
         <div className="flex flex-wrap gap-4">
           <Link
             href="#work"
-            className="bg-primary text-background px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90"
+            className="flex items-center gap-2 bg-primary text-background px-6 py-3 text-sm font-medium transition-opacity hover:opacity-90 group"
           >
-            View my work
+            <span>View my work</span>
+            <MoveDown className="size-3 group-hover:translate-y-0.5 transition-transform duration-300" />
           </Link>
           <Link
-            href="/Zamar-Wint-Resume.zip"
-            className="border border-primary text-primary hover:bg-primary hover:text-background px-6 py-3 text-sm font-medium transition-colors"
+            href="/Zamar-Wint-Resume.pdf"
+            className="flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-background px-6 py-3 text-sm font-medium transition-colors"
           >
-            Download résumé
+            <Download className="size-3" />
+            <span>Download CV / résumé</span>
           </Link>
         </div>
       </div>
 
       <div className="relative aspect-4/5 overflow-hidden border-6 border-border bg-border rounded-xs">
         <Image
-          src={media.pictures[3].image}
-          alt={media.pictures[3].title}
+          src={media.pictures[1].image}
+          alt={media.pictures[1].title}
           fill
           sizes="(min-width: 768px) 40vw, 90vw"
           className="object-cover grayscale contrast-[1.07] brightness-[0.92] rounded-xs"

@@ -24,25 +24,21 @@ export const media = {
     {
       id: 0,
       title: "Zamar Graduation Picture 1",
-      type: "Image",
       image: "/pictures/grad-pic-1.jpg",
     },
     {
       id: 1,
       title: "Zamar Graduation Picture 2",
-      type: "Image",
       image: "/pictures/grad-pic-2.jpg",
     },
     {
       id: 2,
       title: "Zamar Graduation Picture 3",
-      type: "Image",
       image: "/pictures/grad-pic-3.jpg",
     },
     {
       id: 3,
       title: "Zamar Graduation Picture 4",
-      type: "Image",
       image: "/pictures/grad-pic-4.jpg",
     },
   ],
@@ -50,25 +46,21 @@ export const media = {
     {
       id: 0,
       title: "Zamar School Picture",
-      type: "Image",
       image: "/pictures/school-picture.png",
     },
     {
       id: 1,
       title: "Zamar Quote Picture",
-      type: "Image",
       image: "/pictures/quote-picture.jpeg",
     },
     {
       id: 2,
       title: "Voluntary Service at EAC Portmore",
-      type: "Image",
       image: "/pictures/eac-cam-picture.png",
     },
     {
       id: 3,
       title: "Awards Picture 1",
-      type: "Image",
       image: "/pictures/award-picture.jpg",
     },
   ],
@@ -106,15 +98,9 @@ export const media = {
   ],
   videos: [
     {
-      title: "UCC Awards Video",
-      description: "Video I made for the UCC Awards.",
-      video: `${process.env.NEXT_PUBLIC_STORE_ID}/ucc-awards-vid.mp4`,
-      videoPage: "/videos/ucc-awards-vid",
-      videoAspectRatio: "16/9",
-    },
-    {
       title: "Math Revision Outreach Video",
-      description: "Math revision outreach video.",
+      description:
+        "This is a video of my math revision outreach activity. I helped to prepare Grade 4 students for their PEP Math examination. This experience taught me the importance of proper communication, and enhanced my teaching skills. I thank God for this experience and for the opportunity to serve my community.",
       video: `${process.env.NEXT_PUBLIC_STORE_ID}/math-revision-outreach.mp4`,
       videoPage: "/videos/math-revision-outreach",
       videoAspectRatio: "9/16",
@@ -122,10 +108,42 @@ export const media = {
     {
       title: "WardPass Introduction Video",
       description:
-        "I introduced my password manager application, WardPass, in this video.",
+        "In this video I introduced my password manager application, WardPass. I shared a brief walk through of the app and what it does. I plan to continue updating this app as time goes on, and create more videos to showcase every improvement. I believe this app can make a big difference in the lives of many people.",
       video: `${process.env.NEXT_PUBLIC_STORE_ID}/wardpass-intro.mp4`,
       videoPage: "/videos/wardpass-intro",
       videoAspectRatio: "16/9",
+    },
+  ],
+  documents: [
+    {
+      id: 0,
+      title: "WardPass Main Plan",
+      description: "Main plan for the WardPass application.",
+      src: "/docs/wardpass-main-plan.pdf",
+    },
+    {
+      id: 1,
+      title: "WardPass Design Plan",
+      description: "Design system plan for WardPass.",
+      src: "/docs/wardpass-design-plan.pdf",
+    },
+    {
+      id: 2,
+      title: "WardPass Design System Guide",
+      description: "WardPass design system guide for new developers.",
+      src: "/docs/wardpass-design-system-guide.pdf",
+    },
+    {
+      id: 3,
+      title: "Portfolio Main Plan",
+      description: "Main plan for this portfolio website.",
+      src: "/docs/portfolio-main-plan.pdf",
+    },
+    {
+      id: 4,
+      title: "Reckon Main Plan",
+      description: "Main plan for the Reckon application.",
+      src: "/docs/reckon-main-plan.pdf",
     },
   ],
 };
@@ -135,6 +153,7 @@ export enum GalleryContentType {
   IMAGE = "Image",
   IMAGECAROUSEL = "Image Carousel",
   VIDEO = "Video",
+  DOCUMENT = "Document",
 }
 
 export type GalleryImageType = {
@@ -154,6 +173,14 @@ export type GalleryVideoType = {
   imgPrwSrcForVideo: string;
   videoPage: string;
   videoAspectRatio: string;
+};
+
+export type GalleryDocumentType = {
+  id: number;
+  type: GalleryContentType.DOCUMENT;
+  title: string;
+  description: string;
+  src: string;
 };
 
 // GALLERY PAGE DATA
@@ -268,14 +295,42 @@ export const galleryVideos: GalleryVideoType[] = [
     videoPage: media.videos[1].videoPage,
     videoAspectRatio: media.videos[1].videoAspectRatio,
   },
+];
+
+export const galleryDocuments: GalleryDocumentType[] = [
+  {
+    id: 0,
+    type: GalleryContentType.DOCUMENT,
+    title: media.documents[0].title,
+    description: media.documents[0].description,
+    src: media.documents[0].src,
+  },
+  {
+    id: 1,
+    type: GalleryContentType.DOCUMENT,
+    title: media.documents[1].title,
+    description: media.documents[1].description,
+    src: media.documents[1].src,
+  },
   {
     id: 2,
-    type: GalleryContentType.VIDEO,
-    title: media.videos[2].title,
-    description: media.videos[2].description,
-    src: media.videos[2].video,
-    imgPrwSrcForVideo: "https://picsum.photos/700/703",
-    videoPage: media.videos[2].videoPage,
-    videoAspectRatio: media.videos[2].videoAspectRatio,
+    type: GalleryContentType.DOCUMENT,
+    title: media.documents[2].title,
+    description: media.documents[2].description,
+    src: media.documents[2].src,
+  },
+  {
+    id: 3,
+    type: GalleryContentType.DOCUMENT,
+    title: media.documents[3].title,
+    description: media.documents[3].description,
+    src: media.documents[3].src,
+  },
+  {
+    id: 4,
+    type: GalleryContentType.DOCUMENT,
+    title: media.documents[4].title,
+    description: media.documents[4].description,
+    src: media.documents[4].src,
   },
 ];

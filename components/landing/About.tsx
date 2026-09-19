@@ -17,14 +17,13 @@ export default function About() {
         About
       </p>
       <h2 className="mb-8 text-[clamp(1.6rem,3vw,2.1rem)] font-medium leading-tight font-editorial-new italic">
-        Dependable by design.
+        Dependable. Reliable.
       </h2>
       <div className="max-w-160 space-y-5 font-funnel-display">
         <p>
           I grew up on the island of Jamaica, in the Caribbean, where I got
-          hooked on computers early — using one every day for school and college
-          work until I wanted to understand how they worked, not just how to use
-          them.
+          hooked on computers early — using one every day for school until I
+          wanted to understand how they worked, not just how to use them.
         </p>
         <p>
           I treat every project as a lesson. When I see a piece of software, or

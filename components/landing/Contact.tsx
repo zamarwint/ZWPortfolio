@@ -20,13 +20,13 @@ const footerButtons = [
   {
     text: "See all links",
     href: "https://solo.to/zwbless",
-    icon: <FiArrowUpRight className="size-5" />,
+    icon: <FiArrowUpRight className="size-3" />,
     disabled: false,
   },
   {
     text: "Buy me a coffee (Coming soon)",
     href: "/",
-    icon: <GiCoffeeMug className="size-5" />,
+    icon: <GiCoffeeMug className="size-3" />,
     disabled: true,
   },
 ];
@@ -153,14 +153,14 @@ export default function Contact() {
           cursor={true}
           cursorBlink={false}
           typeSpeed={35}
-          delSpeed={25}
+          delSpeed={12}
           delaySpeed={2000}
         />
       </p>
       <h2 className="mb-8 text-[clamp(1.6rem,3vw,2.1rem)] font-medium leading-tight font-editorial-new italic">
-        Let&apos;s build something secure.
+        Let&apos;s build something meaningful...
       </h2>
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 select-none">
         <div>
           {/*
             Replace the masked values below with your real email / phone /

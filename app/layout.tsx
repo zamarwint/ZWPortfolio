@@ -5,7 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from "react";
 import Loading from "./loading";
-import { editorialNew, funnelDisplay } from "./fonts";
+import { editorialNew, funnelDisplay, jetBrainsMono } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${funnelDisplay.variable} ${editorialNew.variable} h-full antialiased`}
+      className={`${funnelDisplay.variable} ${editorialNew.variable} ${jetBrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

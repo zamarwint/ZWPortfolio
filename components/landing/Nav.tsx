@@ -10,7 +10,9 @@ import { Separator } from "../ui/separator";
 
 const PAGELINKS = [
   { href: "/", label: "Home" },
-  { href: "/gallery", label: "Gallery" },
+  { href: "/photos", label: "Photos of Work" },
+  { href: "/videos", label: "Progress Report Videos" },
+  { href: "/documents", label: "Documents of Projects" },
   { href: "/chat", label: "Chat" },
 ];
 

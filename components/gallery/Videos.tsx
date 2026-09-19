@@ -49,7 +49,7 @@ export default function DisplayVideos() {
           </div>
           <div className="w-full flex flex-col flex-1 items-center lg:items-start justify-center gap-2">
             <h1 className="text-2xl text-center lg:text-left">{video.title}</h1>
-            <p className="text-muted-foreground text-center lg:text-left">
+            <p className="text-muted-foreground text-center lg:text-left line-clamp-1">
               {video.description}
             </p>
           </div>
@@ -61,7 +61,11 @@ export default function DisplayVideos() {
             <DialogTitle className="font-funnel-display">
               {videoTitle}
             </DialogTitle>
-            {videoDesc && <DialogDescription>{videoDesc}</DialogDescription>}
+            {videoDesc && (
+              <DialogDescription className="line-clamp-1">
+                {videoDesc}
+              </DialogDescription>
+            )}
           </DialogHeader>
           <div className="flex items-center justify-center">
             <div className="flex flex-col gap-4">

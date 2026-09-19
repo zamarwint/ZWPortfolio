@@ -3,12 +3,14 @@ import { Typewriter } from "nextjs-simple-typewriter";
 const TypewriterEffect = ({
   words,
   cursor,
+  loop,
   cursorBlink,
   typeSpeed = 70,
   delSpeed = 50,
   delaySpeed = 1000,
 }: {
   words: string[];
+  loop?: number;
   cursor?: boolean;
   cursorBlink?: boolean;
   typeSpeed?: number;
@@ -26,7 +28,7 @@ const TypewriterEffect = ({
   return (
     <Typewriter
       words={words}
-      loop={0}
+      loop={loop ?? 0}
       cursor={cursor}
       cursorStyle="."
       cursorBlinking={cursorBlink}

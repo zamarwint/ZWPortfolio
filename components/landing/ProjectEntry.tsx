@@ -30,7 +30,7 @@ export default function ProjectEntry({
       }}
     >
       <div
-        className={`relative aspect-16/10.5 overflow-hidden rounded-lg border border-border ${
+        className={`relative aspect-16/10.5 overflow-hidden border border-border ${
           reverse ? "md:order-2" : ""
         }`}
       >

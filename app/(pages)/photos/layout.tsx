@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gallery | Zamar Wint Portfolio",
-  description: "Gallery of Zamar Wint's portfolio.",
+  title: "Photos | Zamar Wint Portfolio",
+  description: "Photos of Zamar Wint's portfolio.",
 };
 
-export default function GalleryLayout({
+export default function PhotosLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
