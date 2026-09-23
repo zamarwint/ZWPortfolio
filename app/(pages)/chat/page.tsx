@@ -13,7 +13,6 @@ import {
   DialogTitle,
 } from "../../../components/ui/dialog";
 import { cn } from "@/lib/utils";
-import { useKeyboardShortcuts } from "@/lib/functions";
 
 function ErrorDialog({
   open,
@@ -57,8 +56,6 @@ const Chat = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const hasGreeted = useRef(false);
-
-  useKeyboardShortcuts();
 
   // Show initial greeting on mount
   useEffect(() => {
@@ -179,7 +176,7 @@ const Chat = () => {
         <h1 className="text-5xl md:text-7xl font-editorial-new italic tracking-tight">
           Ask me anything...
         </h1>
-        <p className="py-4 text-muted-foreground font-normal">
+        <p className="pt-4 px-4 md:px-0 text-muted-foreground font-normal">
           Drop a message and let&apos;s talk.
         </p>
       </motion.div>

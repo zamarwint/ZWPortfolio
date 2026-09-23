@@ -10,7 +10,7 @@ export default function DisplayDocuments() {
           key={key}
           href={document.src}
           rel="noopener noreferrer"
-          className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-border p-4 gap-4 cursor-pointer"
+          className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-border p-4 gap-4 cursor-pointer hover:scale-102 transition-transform hover:shadow-md"
         >
           <div className="size-fit flex items-center justify-center">
             <Image

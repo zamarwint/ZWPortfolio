@@ -1,3 +1,5 @@
+"use client";
+
 import TypewriterEffect from "@/app/_components/typewriter";
 import { media } from "@/lib/data";
 import { Download, MoveDown } from "lucide-react";

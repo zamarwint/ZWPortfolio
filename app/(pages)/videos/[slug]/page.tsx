@@ -1,27 +1,42 @@
-"use client";
-
 import { media } from "@/lib/data";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { MoveLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useParams } from "next/navigation";
-import { useKeyboardShortcuts } from "@/lib/functions";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
-export default function VideosPage() {
-  const params = useParams<{ slug: string }>();
-  useKeyboardShortcuts();
+import type { Metadata } from "next";
 
-  const router = useRouter();
-
-  const videoFile = media.videos.find((file) => {
-    if (file.videoPage.includes(params.slug)) {
+const findVideo = (slug: string) =>
+  media.videos.find((file) => {
+    if (file.videoPage.includes(slug)) {
       return file.video;
     }
   });
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  return {
+    title: findVideo(slug)?.title + " | Videos | ZW",
+    description: findVideo(slug)?.description,
+  };
+}
+
+export default async function VideosPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+
+  const videoFile = findVideo(slug);
 
   const getAspectRatio = (): number => {
     if (videoFile?.videoAspectRatio === "9/16") {
@@ -40,10 +55,12 @@ export default function VideosPage() {
           variant="outline"
           size="lg"
           className="w-fit p-2 flex items-center justify-center gap-2"
-          onClick={() => router.back()}
+          asChild
         >
-          <MoveLeft className="size-5" />
-          <span className="text-md">Back</span>
+          <Link href="/videos">
+            <MoveLeft className="size-5" />
+            <span className="text-md">Back</span>
+          </Link>
         </Button>
       </div>
       <div

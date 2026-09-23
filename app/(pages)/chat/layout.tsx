@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Chat | Zamar Wint Portfolio",
-  description: "Chat with Zamar Wint's portfolio.",
+  title: "Chat with ZW",
+  description: "Chat with Zamar Wint's Agent.",
 };
 
 export default function ChatLayout({

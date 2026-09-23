@@ -1,11 +1,9 @@
 "use client";
 
 import { motion } from "motion/react";
-import { useKeyboardShortcuts } from "@/lib/functions";
 import DisplayDocuments from "@/components/gallery/Documents";
 
 export default function Documents() {
-  useKeyboardShortcuts();
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -20,7 +18,7 @@ export default function Documents() {
       <h1 className="text-6xl md:text-8xl font-editorial-new italic">
         Documents
       </h1>
-      <p className="text-muted-foreground pt-4 text-center">
+      <p className="text-muted-foreground pt-4 px-4 md:px-0 text-center">
         Deep-dives into processes and technical documentation of projects
         I&apos;ve worked on.
       </p>

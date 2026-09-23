@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "motion/react";
 import ProjectEntry from "./ProjectEntry";
 import { media } from "@/lib/data";

@@ -1,3 +1,5 @@
+"use client";
+
 import { media } from "@/lib/data";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -14,8 +16,8 @@ export default function QuoteBreak() {
       className="relative mt-28 flex min-h-142.5 items-center overflow-hidden border-y border-border font-editorial-new"
     >
       <Image
-        src={media.pictures[3].image}
-        alt={media.pictures[3].title}
+        src={media.accoladeImages[2].image}
+        alt={media.accoladeImages[2].title}
         aria-hidden="true"
         fill
         sizes="100vw"

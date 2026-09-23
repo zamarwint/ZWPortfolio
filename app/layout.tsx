@@ -32,8 +32,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://zamarwint.xyz/open-graph.png",
-        width: 1200,
-        height: 630,
+        width: 500,
+        height: 500,
         alt: "Zamar Wint - Cybersecurity Engineer & Software Developer",
       },
     ],
@@ -45,7 +45,20 @@ export const metadata: Metadata = {
     title: "Zamar Wint — Cybersecurity Engineer & Software Developer",
     description:
       "Portfolio for Zamar Wint - A cybersecurity engineer and software developer based in the Caribbean.",
-    images: ["https://zamarwint.xyz/open-graph.png"],
+    images: "https://zamarwint.xyz/open-graph.png",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 

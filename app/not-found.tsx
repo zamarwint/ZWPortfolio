@@ -20,7 +20,7 @@ const NotFound = () => {
               It happens to the best of us.
             </p>
           </div>
-          <Button className="rounded-md w-fit p-6" size="lg" asChild>
+          <Button className="w-fit p-6" size="lg" asChild>
             <Link
               href="/"
               className="flex items-center justify-center gap-2 group"

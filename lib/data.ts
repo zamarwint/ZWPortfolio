@@ -42,6 +42,48 @@ export const media = {
       image: "/pictures/grad-pic-4.jpg",
     },
   ],
+  worksPictures: [
+    {
+      id: 0,
+      title: "WardPass Hero Image",
+      image: "/works/wardpass-hero.png",
+    },
+    {
+      id: 1,
+      title: "WardPass Security Image",
+      image: "/works/wardpass-security.png",
+    },
+    {
+      id: 2,
+      title: "Reckon Hero Image",
+      image: "/works/reckon-hero.png",
+    },
+    {
+      id: 3,
+      title: "Reckon About Image",
+      image: "/works/reckon-about.png",
+    },
+    {
+      id: 4,
+      title: "Portfolio Hero Image",
+      image: "/works/portfolio-hero.png",
+    },
+    {
+      id: 5,
+      title: "WardPass Code Snapshot 1",
+      image: "/works/wardpass-code1.png",
+    },
+    {
+      id: 6,
+      title: "Reckon Code Snapshot 1",
+      image: "/works/reckon-code1.png",
+    },
+    {
+      id: 7,
+      title: "Portfolio Code Snapshot 1",
+      image: "/works/portfolio-code1.png",
+    },
+  ],
   pictures: [
     {
       id: 0,
@@ -57,11 +99,6 @@ export const media = {
       id: 2,
       title: "Voluntary Service at EAC Portmore",
       image: "/pictures/eac-cam-picture.png",
-    },
-    {
-      id: 3,
-      title: "Awards Picture 1",
-      image: "/pictures/award-picture.jpg",
     },
   ],
   projects: [
@@ -98,7 +135,7 @@ export const media = {
   ],
   videos: [
     {
-      title: "Math Revision Outreach Video",
+      title: "Math Revision Outreach",
       description:
         "This is a video of my math revision outreach activity. I helped to prepare Grade 4 students for their PEP Math examination. This experience taught me the importance of proper communication, and enhanced my teaching skills. I thank God for this experience and for the opportunity to serve my community.",
       video: `${process.env.NEXT_PUBLIC_STORE_ID}/math-revision-outreach.mp4`,
@@ -106,7 +143,7 @@ export const media = {
       videoAspectRatio: "9/16",
     },
     {
-      title: "WardPass Introduction Video",
+      title: "WardPass Introduction",
       description:
         "In this video I introduced my password manager application, WardPass. I shared a brief walk through of the app and what it does. I plan to continue updating this app as time goes on, and create more videos to showcase every improvement. I believe this app can make a big difference in the lives of many people.",
       video: `${process.env.NEXT_PUBLIC_STORE_ID}/wardpass-intro.mp4`,
@@ -206,71 +243,113 @@ export const galleryImages: GalleryImageType[] = [
   {
     id: 3,
     type: GalleryContentType.IMAGE,
-    title: media.pictures[3].title,
-    src: media.pictures[3].image,
-  },
-  {
-    id: 4,
-    type: GalleryContentType.IMAGE,
     title: media.accoladeImages[0].title,
     description: media.accoladeImages[0].description,
     src: media.accoladeImages[0].badgeImage,
   },
   {
-    id: 5,
+    id: 4,
     type: GalleryContentType.IMAGE,
     title: media.accoladeImages[1].title,
     description: media.accoladeImages[1].description,
     src: media.accoladeImages[1].badgeImage,
   },
   {
-    id: 6,
+    id: 5,
     type: GalleryContentType.IMAGE,
     title: media.accoladeImages[2].title,
     description: media.accoladeImages[2].description,
     src: media.accoladeImages[2].badgeImage,
   },
   {
-    id: 7,
+    id: 6,
     type: GalleryContentType.IMAGE,
     title: media.accoladeImages[0].title,
     src: media.accoladeImages[0].image,
   },
   {
-    id: 8,
+    id: 7,
     type: GalleryContentType.IMAGE,
     title: media.accoladeImages[1].title,
     src: media.accoladeImages[1].image,
   },
   {
-    id: 9,
+    id: 8,
     type: GalleryContentType.IMAGE,
     title: media.accoladeImages[2].title,
     src: media.accoladeImages[2].image,
   },
   {
-    id: 10,
+    id: 9,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[0].title,
     src: media.gradPictures[0].image,
   },
   {
-    id: 11,
+    id: 10,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[1].title,
     src: media.gradPictures[1].image,
   },
   {
-    id: 12,
+    id: 11,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[2].title,
     src: media.gradPictures[2].image,
   },
   {
-    id: 13,
+    id: 12,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[3].title,
     src: media.gradPictures[3].image,
+  },
+  {
+    id: 13,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[0].title,
+    src: media.worksPictures[0].image,
+  },
+  {
+    id: 14,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[1].title,
+    src: media.worksPictures[1].image,
+  },
+  {
+    id: 15,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[2].title,
+    src: media.worksPictures[2].image,
+  },
+  {
+    id: 16,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[3].title,
+    src: media.worksPictures[3].image,
+  },
+  {
+    id: 17,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[4].title,
+    src: media.worksPictures[4].image,
+  },
+  {
+    id: 18,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[5].title,
+    src: media.worksPictures[5].image,
+  },
+  {
+    id: 19,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[6].title,
+    src: media.worksPictures[6].image,
+  },
+  {
+    id: 20,
+    type: GalleryContentType.IMAGE,
+    title: media.worksPictures[7].title,
+    src: media.worksPictures[7].image,
   },
 ];
 

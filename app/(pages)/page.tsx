@@ -1,5 +1,3 @@
-"use client";
-
 import Hero from "@/components/landing/Hero";
 import About from "@/components/landing/About";
 import Background from "@/components/landing/Background";
@@ -8,10 +6,14 @@ import Recognition from "@/components/landing/Recognition";
 import QuoteBreak from "@/components/landing/QuoteBreak";
 import Contact from "@/components/landing/Contact";
 import TopBar from "@/components/landing/TopBar";
-import { useKeyboardShortcuts } from "@/lib/functions";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Home page of Zamar Wint's portfolio.",
+};
 
 export default function Home() {
-  useKeyboardShortcuts();
   return (
     <main className="flex flex-col justify-items-center text-foreground text-wrap">
       <TopBar />

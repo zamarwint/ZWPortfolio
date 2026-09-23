@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { underlineDraw } from "@/app/_components/UnderlineDraw";
+import { underlineDraw } from "@/app/_components/underline-draw-animation";
 import Link from "next/link";
 import { MoveUp } from "lucide-react";
 import { cn } from "@/lib/utils";

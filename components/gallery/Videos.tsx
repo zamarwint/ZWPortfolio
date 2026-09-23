@@ -34,7 +34,7 @@ export default function DisplayVideos() {
       {galleryVideos.map((video, key) => (
         <div
           key={key}
-          className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-border p-4 gap-4 cursor-pointer"
+          className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-border p-4 gap-4 cursor-pointer hover:scale-102 transition-transform hover:shadow-md"
           onClick={() => showContent(video)}
         >
           <div className="size-fit flex items-center justify-center">
@@ -43,7 +43,7 @@ export default function DisplayVideos() {
               alt={video.title}
               width={isMobile ? 200 : 150}
               height={isMobile ? 200 : 150}
-              className="w-auto h-auto aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
+              className="w-auto h-auto aspect-square object-cover cursor-pointer"
               loading="eager"
             />
           </div>
