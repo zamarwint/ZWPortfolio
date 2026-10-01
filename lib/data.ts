@@ -1,45 +1,47 @@
 // MEDIA FILES
 export const media = {
-  accoladeImages: [
-    {
-      title: "Emmanuel Apostolic Church",
-      badgeImage: "/vectors/accolade1.svg",
-      image: "/images/eac-accolade.jpg",
-      description: "Long Service Award.",
-    },
-    {
-      title: "Kingston College",
-      badgeImage: "/vectors/accolade2.svg",
-      image: "/images/kc-accolade.jpg",
-      description: "Diploma in General Studies.",
-    },
-    {
-      title: "University of the Commonwealth Caribbean",
-      badgeImage: "/vectors/accolade3.svg",
-      image: "/images/ucc-accolade.jpg",
-      description: "Highest Academic Award.",
-    },
-  ],
   gradPictures: [
     {
       id: 0,
-      title: "Zamar Graduation Picture 1",
+      title: "Graduation Picture 1",
       image: "/pictures/grad-pic-1.jpg",
     },
     {
       id: 1,
-      title: "Zamar Graduation Picture 2",
+      title: "Graduation Picture 2",
       image: "/pictures/grad-pic-2.jpg",
     },
     {
       id: 2,
-      title: "Zamar Graduation Picture 3",
+      title: "Graduation Picture 3",
       image: "/pictures/grad-pic-3.jpg",
     },
     {
       id: 3,
-      title: "Zamar Graduation Picture 4",
+      title: "Graduation Picture 4",
       image: "/pictures/grad-pic-4.jpg",
+    },
+  ],
+  pictures: [
+    {
+      id: 0,
+      title: "Me",
+      image: "/pictures/no-bg-picture.png",
+    },
+    {
+      id: 1,
+      title: "Quote",
+      image: "/pictures/quote-picture.jpeg",
+    },
+    {
+      id: 2,
+      title: "Voluntary Service",
+      image: "/pictures/eac-cam-picture.png",
+    },
+    {
+      id: 3,
+      title: "Awards",
+      image: "/pictures/awards.jpg",
     },
   ],
   worksPictures: [
@@ -84,23 +86,6 @@ export const media = {
       image: "/works/portfolio-code1.png",
     },
   ],
-  pictures: [
-    {
-      id: 0,
-      title: "Zamar School Picture",
-      image: "/pictures/school-picture.png",
-    },
-    {
-      id: 1,
-      title: "Zamar Quote Picture",
-      image: "/pictures/quote-picture.jpeg",
-    },
-    {
-      id: 2,
-      title: "Voluntary Service at EAC Portmore",
-      image: "/pictures/eac-cam-picture.png",
-    },
-  ],
   projects: [
     {
       tag: "Live",
@@ -128,10 +113,9 @@ export const media = {
     },
   ],
   inProgessProjects: [
-    "A productivity suite for writers, planners, journalists and students who need to focus.",
-    "A Caribbean-only social platform for content creators, users and businesses.",
-    "Real-time code mapping, analysis and optimization for developers and startup founders.",
-    "A micro-learning platform to build entrepreneurial skills, taught through lessons from founders who've done it.",
+    "Note-taking software for planners, journalists and students with tools to increase focus, reduce distractions and minimize procrastination.",
+    "Media platform for content creators, users and businesses only in the Caribbean. This platform aims to connect Caribbean people.",
+    "Micro-learning platform to build entrepreneurial skills, taught through lessons from founders who've done it.",
   ],
   videos: [
     {
@@ -243,110 +227,77 @@ export const galleryImages: GalleryImageType[] = [
   {
     id: 3,
     type: GalleryContentType.IMAGE,
-    title: media.accoladeImages[0].title,
-    description: media.accoladeImages[0].description,
-    src: media.accoladeImages[0].badgeImage,
+    title: media.pictures[3].title,
+    src: media.pictures[3].image,
   },
   {
     id: 4,
-    type: GalleryContentType.IMAGE,
-    title: media.accoladeImages[1].title,
-    description: media.accoladeImages[1].description,
-    src: media.accoladeImages[1].badgeImage,
-  },
-  {
-    id: 5,
-    type: GalleryContentType.IMAGE,
-    title: media.accoladeImages[2].title,
-    description: media.accoladeImages[2].description,
-    src: media.accoladeImages[2].badgeImage,
-  },
-  {
-    id: 6,
-    type: GalleryContentType.IMAGE,
-    title: media.accoladeImages[0].title,
-    src: media.accoladeImages[0].image,
-  },
-  {
-    id: 7,
-    type: GalleryContentType.IMAGE,
-    title: media.accoladeImages[1].title,
-    src: media.accoladeImages[1].image,
-  },
-  {
-    id: 8,
-    type: GalleryContentType.IMAGE,
-    title: media.accoladeImages[2].title,
-    src: media.accoladeImages[2].image,
-  },
-  {
-    id: 9,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[0].title,
     src: media.gradPictures[0].image,
   },
   {
-    id: 10,
+    id: 5,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[1].title,
     src: media.gradPictures[1].image,
   },
   {
-    id: 11,
+    id: 6,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[2].title,
     src: media.gradPictures[2].image,
   },
   {
-    id: 12,
+    id: 7,
     type: GalleryContentType.IMAGE,
     title: media.gradPictures[3].title,
     src: media.gradPictures[3].image,
   },
   {
-    id: 13,
+    id: 8,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[0].title,
     src: media.worksPictures[0].image,
   },
   {
-    id: 14,
+    id: 9,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[1].title,
     src: media.worksPictures[1].image,
   },
   {
-    id: 15,
+    id: 10,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[2].title,
     src: media.worksPictures[2].image,
   },
   {
-    id: 16,
+    id: 11,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[3].title,
     src: media.worksPictures[3].image,
   },
   {
-    id: 17,
+    id: 12,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[4].title,
     src: media.worksPictures[4].image,
   },
   {
-    id: 18,
+    id: 13,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[5].title,
     src: media.worksPictures[5].image,
   },
   {
-    id: 19,
+    id: 14,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[6].title,
     src: media.worksPictures[6].image,
   },
   {
-    id: 20,
+    id: 15,
     type: GalleryContentType.IMAGE,
     title: media.worksPictures[7].title,
     src: media.worksPictures[7].image,

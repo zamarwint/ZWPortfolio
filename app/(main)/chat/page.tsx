@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import ChatMessages from "@/components/chat/ChatMessages";
 import ChatInput from "@/components/chat/ChatInput";
-import { ErrorContent } from "../../_components/modal-content";
+import { ErrorImage } from "../../_components/modal-images";
 import {
   Dialog,
   DialogContent,
@@ -30,7 +30,7 @@ function ErrorDialog({
           </DialogTitle>
         </DialogHeader>
         <DialogDescription className="flex flex-col items-center text-center gap-4">
-          <ErrorContent />
+          <ErrorImage />
           Something went wrong while sending your message. Please try again.
         </DialogDescription>
       </DialogContent>

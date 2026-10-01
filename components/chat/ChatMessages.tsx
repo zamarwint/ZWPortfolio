@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import type { ChatMessage } from "@/app/(pages)/chat/page";
+import type { ChatMessage } from "@/app/(main)/chat/page";
 
 export default function ChatMessages({
   messages,

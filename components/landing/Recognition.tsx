@@ -6,14 +6,8 @@ const ENTRIES = [
   {
     id: 1,
     name: "University of the Commonwealth Caribbean",
-    note: "Current — STEM degree",
-  },
-  {
-    id: 2,
-    name: "University of the Commonwealth Caribbean",
     note: "Information Technology Associate",
   },
-  { id: 3, name: "Kingston College", note: "Secondary education" },
 ];
 
 export default function Recognition() {

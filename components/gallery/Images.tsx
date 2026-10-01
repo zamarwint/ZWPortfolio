@@ -7,20 +7,17 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
-import { cn } from "@/lib/utils";
 import { galleryImages, GalleryImageType } from "@/lib/data";
 import DisplayImageCarousel from "@/components/gallery/ImageCarousel";
 
 export default function DisplayImages() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [image, setImage] = useState<string>("");
   const [imageTitle, setImageTitle] = useState<string>("");
   const [imageDesc, setImageDesc] = useState<string>("");
   const [imageSrc, setImageSrc] = useState<string>("");
 
   const showContent = (image: GalleryImageType) => {
     setIsOpen(true);
-    setImage(image.src);
     setImageTitle(image.title);
     setImageDesc(image.description || "");
     setImageSrc(image.src);
@@ -40,15 +37,7 @@ export default function DisplayImages() {
               alt={image.title}
               width={1000}
               height={1000}
-              className={cn(
-                "w-full h-full aspect-square object-cover hover:scale-105 transition-transform cursor-pointer",
-                (image.title.toLowerCase().includes("college") ||
-                  image.title.toLowerCase().includes("university") ||
-                  image.title.toLowerCase().includes("emmanuel")) &&
-                  image.src.toLowerCase().endsWith(".svg")
-                  ? "invert dark:invert-0"
-                  : "",
-              )}
+              className="w-full h-full aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
               onClick={() => showContent(image)}
               loading="eager"
             />
@@ -64,20 +53,12 @@ export default function DisplayImages() {
             </DialogHeader>
             <div className="flex items-center justify-center">
               <Image
-                src={image}
+                src={imageSrc}
                 draggable="false"
                 alt={imageTitle}
                 width={400}
                 height={400}
-                className={cn(
-                  "rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto",
-                  (imageTitle.toLowerCase().includes("college") ||
-                    imageTitle.toLowerCase().includes("university") ||
-                    imageTitle.toLowerCase().includes("emmanuel")) &&
-                    imageSrc.toLowerCase().endsWith(".svg")
-                    ? "invert dark:invert-0"
-                    : "",
-                )}
+                className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto"
                 loading="eager"
               />
             </div>

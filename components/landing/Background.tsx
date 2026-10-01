@@ -20,9 +20,8 @@ const MILESTONES = [
         <strong className="font-medium">
           Building production applications in React
         </strong>{" "}
-        while completing a STEM degree at the University of the Commonwealth
-        Caribbean — shipping real tools like WardPass and Reckon alongside
-        coursework.
+        while completing a STEM degree at university — shipping real tools like
+        WardPass and Reckon alongside coursework.
       </>
     ),
   },

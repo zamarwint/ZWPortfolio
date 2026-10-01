@@ -1,8 +1,8 @@
 "use client";
 
 import { useRef } from "react";
-import Footer from "@/components/landing/Footer";
-import Nav from "@/components/landing/Nav";
+import Footer from "@/components/Footer";
+import Nav from "@/components/Nav";
 import { useKeyboardShortcuts } from "@/lib/functions";
 
 export default function PageLayout({
@@ -15,7 +15,10 @@ export default function PageLayout({
   return (
     <div className="flex flex-col size-full justify-items-center md:flex-row overflow-hidden">
       <Nav scrollContainerRef={scrollContainerRef} />
-      <div ref={scrollContainerRef} className="flex-1 pt-14 md:pt-0 overflow-y-scroll no-scrollbar">
+      <div
+        ref={scrollContainerRef}
+        className="flex-1 pt-14 md:pt-0 overflow-y-scroll no-scrollbar"
+      >
         {children}
         <Footer />
       </div>

@@ -14,7 +14,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function DisplayVideos() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [video, setVideo] = useState<string>("");
+  const [videoSrc, setVideoSrc] = useState<string>("");
   const [videoTitle, setVideoTitle] = useState<string>("");
   const [videoDesc, setVideoDesc] = useState<string>("");
   const [videoPage, setVideoPage] = useState<string>("");
@@ -23,7 +23,7 @@ export default function DisplayVideos() {
 
   const showContent = (video: GalleryVideoType) => {
     setIsOpen(true);
-    setVideo(video.src);
+    setVideoSrc(video.src);
     setVideoTitle(video.title);
     setVideoDesc(video.description || "");
     setVideoPage(video.videoPage);
@@ -70,7 +70,7 @@ export default function DisplayVideos() {
           <div className="flex items-center justify-center">
             <div className="flex flex-col gap-4">
               <video
-                src={`${video}#t=0,5`}
+                src={`${videoSrc}#t=0,5`}
                 draggable="false"
                 autoPlay
                 className="rounded-lg select-none"

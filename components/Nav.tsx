@@ -1,12 +1,12 @@
 "use client";
 
 import { RefObject, useEffect, useState } from "react";
-import { ModeToggle } from "../ThemeToggle";
+import { ModeToggle } from "./ThemeToggle";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, useScroll } from "motion/react";
 import { Menu, X } from "lucide-react";
-import { Separator } from "../ui/separator";
+import { Separator } from "./ui/separator";
 import { cn } from "@/lib/utils";
 
 const PAGELINKS = [
@@ -20,7 +20,7 @@ const PAGELINKS = [
 const SOCIALS = [
   { href: "https://github.com/zamarwint", label: "GH" },
   { href: "https://x.com/zwbless", label: "X" },
-  { href: "https://youtube.com/@blsdcode", label: "DEV YT" },
+  { href: "https://www.youtube.com/@softcodifiers", label: "DEV YT" },
   { href: "https://www.instagram.com/zwbless", label: "IG" },
   { href: "https://www.linkedin.com/in/zamarwint", label: "IN" },
 ];

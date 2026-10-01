@@ -11,7 +11,6 @@ import React, { useState } from "react";
 import { type CarouselApi } from "@/components/ui/carousel";
 import { galleryImages } from "@/lib/data";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import {
   Card,
   CardContent,
@@ -97,15 +96,7 @@ function ImageCarousel() {
                   width={300}
                   height={300}
                   loading="eager"
-                  className={cn(
-                    "w-auto h-auto object-cover aspect-auto rounded-md",
-                    (image.title.toLowerCase().includes("college") ||
-                      image.title.toLowerCase().includes("university") ||
-                      image.title.toLowerCase().includes("emmanuel")) &&
-                      image.src.toLowerCase().endsWith(".svg")
-                      ? "invert dark:invert-0"
-                      : "",
-                  )}
+                  className="w-auto h-auto object-cover aspect-auto rounded-md"
                 />
               </CardContent>
             </Card>

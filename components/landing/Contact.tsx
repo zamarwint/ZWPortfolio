@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { ErrorContent } from "@/app/_components/modal-content";
+import { ErrorImage } from "@/app/_components/modal-images";
 import { FiArrowUpRight } from "react-icons/fi";
 import { GiCoffeeMug } from "react-icons/gi";
 import TypewriterEffect from "@/app/_components/typewriter";
@@ -49,7 +49,7 @@ function ErrorDialog({
           </DialogTitle>
         </DialogHeader>
         <DialogDescription className="flex flex-col items-center justify-center gap-4 text-center">
-          <ErrorContent />
+          <ErrorImage />
           There was an error copying to your clipboard. Please try again.
         </DialogDescription>
       </DialogContent>
@@ -62,18 +62,18 @@ export default function Contact() {
   const [isCopiedEmail, setIsCopiedEmail] = useState<boolean>(false);
   const [isCopiedPhoneNumber, setIsCopiedPhoneNumber] =
     useState<boolean>(false);
-  const [isCopiedAddress, setIsCopiedAddress] = useState<boolean>(false);
+  const [isCopiedLocation, setIsCopiedLocation] = useState<boolean>(false);
 
   const [canSeeEmail, setCanSeeEmail] = useState<boolean>(false);
   const [canSeePhoneNumber, setCanSeePhoneNumber] = useState<boolean>(false);
-  const [canSeeAddress, setCanSeeAddress] = useState<boolean>(false);
+  const [canSeeLocation, setCanSeeLocation] = useState<boolean>(false);
 
   // Opening error dialog
   const toggleModal = () => {
     setIsOpen(true);
   };
 
-  // handle functions for copying email, phone number, and address
+  // handle functions for copying email, phone number, and Location
 
   const handleCopy = async (text: string) => {
     try {
@@ -101,16 +101,16 @@ export default function Contact() {
     }, 3000);
   };
 
-  const handleCopyAddress = () => {
-    setIsCopiedAddress(true);
-    handleCopy("Jamaica");
+  const handleCopyLocation = () => {
+    setIsCopiedLocation(true);
+    handleCopy("Caribbean");
 
     setTimeout(() => {
-      setIsCopiedAddress(false);
+      setIsCopiedLocation(false);
     }, 3000);
   };
 
-  // handle functions for showing email, phone number, and address
+  // handle functions for showing email, phone number, and Location
 
   const handleCanSeeEmail = () => {
     setCanSeeEmail(true);
@@ -126,10 +126,10 @@ export default function Contact() {
     }, 3000);
   };
 
-  const handleCanSeeAddress = () => {
-    setCanSeeAddress(true);
+  const handleCanSeeLocation = () => {
+    setCanSeeLocation(true);
     setTimeout(() => {
-      setCanSeeAddress(false);
+      setCanSeeLocation(false);
     }, 3000);
   };
 
@@ -166,7 +166,7 @@ export default function Contact() {
         <div>
           {/*
             Replace the masked values below with your real email / phone /
-            address, or wire up a reveal-on-click handler here.
+            Location, or wire up a reveal-on-click handler here.
           */}
           <div className="border-t border-border">
             <div className="flex items-center justify-between border-b border-border py-4">
@@ -208,16 +208,16 @@ export default function Contact() {
               </div>
             </div>
             <div className="flex items-center justify-between border-b border-border py-4">
-              <span className="text-sm">Address</span>
+              <span className="text-sm">Location</span>
               <div className="flex items-center gap-2 text-xs transition-all duration-300 ease-in-out">
                 <span className="tracking-[0.2em]">
-                  {canSeeAddress ? "Jamaica" : "•••••••••••"}
+                  {canSeeLocation ? "Caribbean" : "•••••••••••"}
                 </span>
-                <span onClick={handleCanSeeAddress} className="cursor-pointer">
-                  {canSeeAddress ? <EyeOff size={18} /> : <Eye size={18} />}
+                <span onClick={handleCanSeeLocation} className="cursor-pointer">
+                  {canSeeLocation ? <EyeOff size={18} /> : <Eye size={18} />}
                 </span>
-                <span onClick={handleCopyAddress} className="cursor-pointer">
-                  {isCopiedAddress ? <Check size={18} /> : <Copy size={18} />}
+                <span onClick={handleCopyLocation} className="cursor-pointer">
+                  {isCopiedLocation ? <Check size={18} /> : <Copy size={18} />}
                 </span>
               </div>
             </div>

@@ -53,8 +53,8 @@ export default function Hero() {
         </p>
         <p className="mb-9 max-w-136">
           I build software that businesses and consumers can trust with their
-          money and time. Currently completing a STEM degree in Jamaica while
-          building tools and services to automate workflows, enhance
+          money and time. Currently completing a STEM degree in the Caribbean
+          while building tools and services to automate workflows, enhance
           productivity, and bridge digital divides.
         </p>
         <div className="flex flex-wrap gap-4">
@@ -66,7 +66,7 @@ export default function Hero() {
             <MoveDown className="size-3 group-hover:translate-y-0.5 transition-transform duration-300" />
           </Link>
           <Link
-            href="/Zamar-Wint-Resume.pdf"
+            href="/cv-zwint.pdf"
             className="flex items-center gap-2 border border-primary text-primary hover:bg-primary hover:text-background px-6 py-3 text-sm font-medium transition-colors"
           >
             <Download className="size-3" />

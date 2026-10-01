@@ -23,9 +23,9 @@ export default function About() {
       </h2>
       <div className="max-w-160 space-y-5 font-funnel-display">
         <p>
-          I grew up on the island of Jamaica, in the Caribbean, where I got
-          hooked on computers early — using one every day for school until I
-          wanted to understand how they worked, not just how to use them.
+          I grew up in the Caribbean, where I got hooked on computers early —
+          using one every day for school until I wanted to understand how they
+          worked, not just how to use them.
         </p>
         <p>
           I treat every project as a lesson. When I see a piece of software, or

@@ -16,8 +16,8 @@ export default function QuoteBreak() {
       className="relative mt-28 flex min-h-142.5 items-center overflow-hidden border-y border-border font-editorial-new"
     >
       <Image
-        src={media.accoladeImages[2].image}
-        alt={media.accoladeImages[2].title}
+        src={media.pictures[3].image}
+        alt={media.pictures[3].title}
         aria-hidden="true"
         fill
         sizes="100vw"
