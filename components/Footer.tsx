@@ -11,7 +11,7 @@ import { usePathname } from "next/navigation";
 const SOCIALS = [
   { href: "https://github.com/zamarwint", label: "Github" },
   { href: "https://x.com/zwbless", label: "X" },
-  { href: "https://www.youtube.com/@softcodifiers", label: "Dev YouTube" },
+  { href: "https://www.youtube.com/@zacodez", label: "Dev YouTube" },
   { href: "https://www.instagram.com/zwbless", label: "Instagram" },
   { href: "https://www.linkedin.com/in/zamarwint", label: "LinkedIn" },
 ];

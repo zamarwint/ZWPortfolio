@@ -20,7 +20,7 @@ const PAGELINKS = [
 const SOCIALS = [
   { href: "https://github.com/zamarwint", label: "GH" },
   { href: "https://x.com/zwbless", label: "X" },
-  { href: "https://www.youtube.com/@softcodifiers", label: "DEV YT" },
+  { href: "https://www.youtube.com/@zacodez", label: "DEV YT" },
   { href: "https://www.instagram.com/zwbless", label: "IG" },
   { href: "https://www.linkedin.com/in/zamarwint", label: "IN" },
 ];
