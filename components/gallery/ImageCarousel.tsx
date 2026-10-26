@@ -25,13 +25,13 @@ export default function DisplayImageCarousel() {
   const [open, setOpen] = useState(false);
   return (
     <div className="my-5">
-      <Button onClick={() => setOpen((prev) => !prev)}>
+      <Button variant="secondary" onClick={() => setOpen((prev) => !prev)}>
         <LayoutDashboardIcon className="size-4" />
         <span>Open Carousel</span>
       </Button>
       {open && (
         <div className="w-screen h-screen fixed inset-0 bg-background/20 backdrop-blur-md z-50 flex flex-col items-center justify-center">
-          <Button onClick={() => setOpen(false)}>
+          <Button variant="secondary" onClick={() => setOpen(false)}>
             <X className="size-4" />
             <span>Close Carousel</span>
           </Button>

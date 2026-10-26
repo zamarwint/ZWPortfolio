@@ -103,18 +103,9 @@ export const media = {
       alt: "Reckon app screenshot",
       href: "https://reckon-p.netlify.app/",
     },
-    {
-      tag: "Live",
-      title: "Portfolio",
-      description:
-        "This site — designed and built from scratch as a place for people to learn about me and see what I've made.",
-      alt: "Portfolio site screenshot",
-      href: "https://zamarwint.xyz/",
-    },
   ],
   inProgessProjects: [
     "Note-taking software for planners, journalists and students with tools to increase focus, reduce distractions and minimize procrastination.",
-    "Media platform for content creators, users and businesses only in the Caribbean. This platform aims to connect Caribbean people.",
     "Micro-learning platform to build entrepreneurial skills, taught through lessons from founders who've done it.",
   ],
   videos: [
