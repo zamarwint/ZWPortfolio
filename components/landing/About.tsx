@@ -1,6 +1,8 @@
 "use client";
 
+import { media } from "@/lib/data";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -12,33 +14,47 @@ export default function About() {
       transition={{
         duration: 2,
       }}
-      className="max-w-full px-[4vw] pt-24 font-funnel-display"
+      className="grid max-w-full grid-cols-1 items-center gap-14 md:grid-cols-[0.8fr_0.85fr] px-[4vw] pt-16 pb-20 md:pt-24 font-funnel-display"
     >
-      <p className="mb-4 flex items-center gap-2 text-xs">
-        <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-        About
-      </p>
-      <h2 className="mb-8 text-[clamp(1.6rem,3vw,2.1rem)] font-medium leading-tight font-editorial-new italic">
-        Dependable. Reliable.
-      </h2>
-      <div className="max-w-160 space-y-5 font-funnel-display">
-        <p>
-          I grew up in the Caribbean, where I got hooked on computers early —
-          using one every day for school until I wanted to understand how they
-          worked, not just how to use them.
+      <div className="relative aspect-4/5 overflow-hidden border-6 border-border bg-border rounded-xs">
+        <Image
+          src={media.gradPictures[2].image}
+          alt={media.gradPictures[2].title}
+          fill
+          sizes="(min-width: 768px) 40vw, 90vw"
+          className="object-cover grayscale contrast-[1.07] brightness-[0.92] rounded-xs"
+          priority
+        />
+        <div className="absolute inset-0 opacity-[0.24] mix-blend-multiply" />
+      </div>
+      <div>
+        <p className="mb-4 flex items-center gap-2 text-xs">
+          <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
+          About
         </p>
-        <p>
-          I treat every project as a lesson. When I see a piece of software, or
-          a design, that I admire, I take it apart to learn how it was built,
-          then rebuild it my own way. Every piece of software can be rebuilt and
-          refined, no matter how complex it looks from the outside.
-        </p>
-        <p>
-          Outside of engineering, I&apos;ve worked as a camera operator and
-          vision mixer for live broadcasts, helped set up livestream schedules,
-          worked as a data entry clerk, and tutored primary school students
-          through their Math PEP exams.
-        </p>
+        <h2 className="mb-8 text-[clamp(1.6rem,3vw,2.1rem)] font-medium leading-tight font-editorial-new italic">
+          Dependable. Reliable.
+        </h2>
+        <div className="max-w-160 space-y-5 font-funnel-display">
+          <p>
+            I grew up in the Caribbean, where I got hooked on computers early —
+            using one every day for school until I wanted to understand how they
+            worked, not just how to use them.
+          </p>
+          <p>
+            I treat every project as a lesson. When I see a piece of software,
+            or a design, that I admire, I take it apart to learn how it was
+            built, then rebuild it my own way. Every piece of software can be
+            rebuilt and refined, no matter how complex it looks from the
+            outside.
+          </p>
+          <p>
+            Outside of engineering, I&apos;ve worked as a camera operator and
+            vision mixer for live broadcasts, helped set up livestream
+            schedules, worked as a data entry clerk, and tutored primary school
+            students through their Math PEP exams.
+          </p>
+        </div>
       </div>
     </motion.section>
   );

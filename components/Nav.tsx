@@ -75,10 +75,12 @@ export default function Nav({
       }}
       className="font-funnel-display lg:w-62 lg:shrink-0"
     >
+      {/* MOBILE NAV */}
       <div className="top-0 z-12 flex w-full items-center justify-between border-b border-border bg-background px-5 py-4 lg:hidden fixed">
-        <span className="font-medium">ZW</span>
+        <Link href="/" className="font-medium hover:opacity-80">
+          ZW
+        </Link>
 
-        {/* MOBILE NAV */}
         {/* MOBILE MENU ICON */}
         <div className="lg:hidden flex items-center justify-center gap-4">
           <ModeToggle />
@@ -116,6 +118,7 @@ export default function Nav({
         </div>
       </div>
 
+      {/* DESKTOP NAV */}
       <div className="top-0 hidden h-screen w-62 shrink-0 flex-col border-r border-border px-7 py-9 lg:flex sticky">
         <Link href="/" className="font-medium hover:opacity-80">
           ZW
@@ -140,6 +143,7 @@ export default function Nav({
           ))}
         </motion.nav>
 
+        {/* DESKTOP NAV SOCIALS + THEME TOGGLE */}
         <div className="mt-auto flex flex-col gap-5">
           <div className="flex items-center justify-start gap-2">
             <ModeToggle />
