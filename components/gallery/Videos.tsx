@@ -1,33 +1,11 @@
 import Image from "next/image";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { galleryVideos, GalleryVideoType } from "@/lib/data";
+import { galleryVideos } from "@/lib/data";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useRouter } from "next/navigation";
 
 export default function DisplayVideos() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [videoSrc, setVideoSrc] = useState<string>("");
-  const [videoTitle, setVideoTitle] = useState<string>("");
-  const [videoDesc, setVideoDesc] = useState<string>("");
-  const [videoPage, setVideoPage] = useState<string>("");
-
   const isMobile = useIsMobile();
-
-  const showContent = (video: GalleryVideoType) => {
-    setIsOpen(true);
-    setVideoSrc(video.src);
-    setVideoTitle(video.title);
-    setVideoDesc(video.description || "");
-    setVideoPage(video.videoPage);
-  };
+  const router = useRouter();
 
   return (
     <div className="w-full flex gap-4 flex-col items-center justify-center px-10 mt-5">
@@ -35,7 +13,9 @@ export default function DisplayVideos() {
         <div
           key={key}
           className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-border p-4 gap-4 cursor-pointer hover:scale-102 transition-transform hover:shadow-md"
-          onClick={() => showContent(video)}
+          onClick={() => {
+            router.push(`/videos/${video.slug}`);
+          }}
         >
           <div className="size-fit flex items-center justify-center">
             <Image
@@ -55,39 +35,6 @@ export default function DisplayVideos() {
           </div>
         </div>
       ))}
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="z-999 font-funnel-display">
-          <DialogHeader>
-            <DialogTitle className="font-funnel-display">
-              {videoTitle}
-            </DialogTitle>
-            {videoDesc && (
-              <DialogDescription className="line-clamp-1">
-                {videoDesc}
-              </DialogDescription>
-            )}
-          </DialogHeader>
-          <div className="flex items-center justify-center">
-            <div className="flex flex-col gap-4">
-              <video
-                src={`${videoSrc}#t=0,5`}
-                draggable="false"
-                autoPlay
-                className="rounded-lg select-none"
-              />
-              <Link href={videoPage}>
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="cursor-pointer rounded-full w-full font-semibold"
-                >
-                  Watch full video
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 }

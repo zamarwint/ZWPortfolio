@@ -111,17 +111,17 @@ export const media = {
   videos: [
     {
       title: "Math Revision Outreach",
+      slug: "math-revision-outreach",
       description:
         "This is a video of my math revision outreach activity. I helped to prepare Grade 4 students for their PEP Math examination. This experience taught me the importance of proper communication, and enhanced my teaching skills. I thank God for this experience and for the opportunity to serve my community.",
-      video: `${process.env.NEXT_PUBLIC_STORE_ID}/math-revision-outreach.mp4`,
       videoPage: "/videos/math-revision-outreach",
       videoAspectRatio: "9/16",
     },
     {
       title: "WardPass Introduction",
+      slug: "wardpass-intro",
       description:
         "In this video I introduced my password manager application, WardPass. I shared a brief walk through of the app and what it does. I plan to continue updating this app as time goes on, and create more videos to showcase every improvement. I believe this app can make a big difference in the lives of many people.",
-      video: `${process.env.NEXT_PUBLIC_STORE_ID}/wardpass-intro.mp4`,
       videoPage: "/videos/wardpass-intro",
       videoAspectRatio: "16/9",
     },
@@ -180,8 +180,8 @@ export type GalleryVideoType = {
   id: number;
   type: GalleryContentType.VIDEO;
   title: string;
+  slug: string;
   description?: string;
-  src: string;
   imgPrwSrcForVideo: string;
   videoPage: string;
   videoAspectRatio: string;
@@ -300,8 +300,8 @@ export const galleryVideos: GalleryVideoType[] = [
     id: 0,
     type: GalleryContentType.VIDEO,
     title: media.videos[0].title,
+    slug: media.videos[0].slug,
     description: media.videos[0].description,
-    src: media.videos[0].video,
     imgPrwSrcForVideo: "https://picsum.photos/700/700",
     videoPage: media.videos[0].videoPage,
     videoAspectRatio: media.videos[0].videoAspectRatio,
@@ -310,8 +310,8 @@ export const galleryVideos: GalleryVideoType[] = [
     id: 1,
     type: GalleryContentType.VIDEO,
     title: media.videos[1].title,
+    slug: media.videos[1].slug,
     description: media.videos[1].description,
-    src: media.videos[1].video,
     imgPrwSrcForVideo: "https://picsum.photos/700/701",
     videoPage: media.videos[1].videoPage,
     videoAspectRatio: media.videos[1].videoAspectRatio,

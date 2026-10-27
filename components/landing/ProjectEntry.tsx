@@ -52,7 +52,7 @@ export default function ProjectEntry({
         <Link
           href={href}
           target="_blank"
-          className="w-fit flex items-center gap-2 border-b border-border pb-0.5 text-sm font-medium transition-colors hover:border-accent hover:text-primary"
+          className="w-fit flex items-center gap-2 border-b border-border pb-0.5 text-sm font-medium transition-colors hover:border-accent-foreground hover:text-primary"
         >
           <span>View project</span>
           <ExternalLink className="size-3" />

@@ -5,5 +5,5 @@ export const underlineDrawNeutral = (): string => {
 };
 
 export const underlineDraw = (): string => {
-  return "cursor-pointer relative no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full";
+  return "cursor-pointer relative no-underline after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-accent-foreground after:transition-all after:duration-300 hover:after:w-full";
 };

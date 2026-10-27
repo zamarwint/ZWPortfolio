@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { Toaster } from "@/components/ui/sonner";
 import { editorialNew, funnelDisplay, jetBrainsMono } from "./fonts";
 
 export const metadata: Metadata = {
@@ -85,6 +86,7 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
+        <Toaster />
       </body>
     </html>
   );

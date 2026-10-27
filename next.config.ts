@@ -4,14 +4,11 @@ const nextConfig: NextConfig = {
   images: {
     localPatterns: [
       {
-        pathname: '/**',
-        search: ''
-      }
+        pathname: "/**",
+        search: "",
+      },
     ],
-    remotePatterns: [
-      new URL(`${process.env.NEXT_PUBLIC_STORE_ID}/**`),
-      new URL('https://picsum.photos/**')
-    ],
+    remotePatterns: [new URL("https://picsum.photos/**")],
   },
 };
 
