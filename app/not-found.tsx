@@ -1,48 +1,24 @@
-"use client";
-
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { MoveLeft } from "lucide-react";
-import { useKeyboardShortcuts } from "@/lib/functions";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import SiteShell from "@/components/SiteShell";
 
-const NotFound = () => {
-  useKeyboardShortcuts();
+export default function NotFound() {
   return (
-    <div className="w-[90%] lg:w-[80%] h-full lg:h-screen bg-background border-x border-border flex items-center justify-center font-funnel-display">
-      <div className="flex flex-col lg:flex-row items-center justify-center gap-20 p-10 border-y border-border">
-        <div className="flex flex-col gap-20">
-          <div className="flex flex-col gap-5">
-            <h1 className="text-8xl max-w-3xl">
-              You&apos;re a little lost, aren&apos;t you?
-            </h1>
-            <p className="text-2xl max-w-3xl text-muted-foreground">
-              It happens to the best of us.
-            </p>
+    <SiteShell>
+      <main className="flex min-h-[70vh] items-center px-5 py-16 font-funnel-display sm:px-8 md:px-14">
+        <div className="grid w-full items-center gap-10 border-y border-primary/10 py-12 md:grid-cols-[1.15fr_0.85fr] md:gap-16 md:py-16">
+          <div>
+            <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-primary">404 / Page not found</p>
+            <h1 className="max-w-3xl font-editorial-new text-5xl leading-[0.98] tracking-[-0.04em] sm:text-6xl md:text-7xl">A little off the map.</h1>
+            <p className="mt-5 max-w-lg text-base leading-7 text-muted-foreground">The page you&apos;re looking for may have moved. Let&apos;s get you back to the work.</p>
+            <Link href="/" className="glossy-button mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium text-primary-foreground"><ArrowLeft className="size-4" /> Back to the portfolio</Link>
           </div>
-          <Button className="w-fit p-6" size="lg" asChild>
-            <Link
-              href="/"
-              className="flex items-center justify-center gap-2 group"
-            >
-              <MoveLeft className="size-4 group-hover:-translate-x-1 transition-transform duration-300" />
-              <span className="text-xl">Take me back to the beginning</span>
-            </Link>
-          </Button>
+          <div className="mx-auto w-full max-w-[300px] rounded-3xl border border-primary/10 bg-card/70 p-5 sm:max-w-[360px] md:p-8">
+            <Image src="/vectors/not-found.svg" className="h-auto w-full" alt="Illustration for the not found page" width={360} height={400} priority />
+          </div>
         </div>
-        <div className="w-fit">
-          <Image
-            src="/vectors/not-found.svg"
-            className="w-auto h-auto rounded-lg object-cover object-center"
-            alt="Not Found Page Image"
-            width={320}
-            height={400}
-            loading="eager"
-          />
-        </div>
-      </div>
-    </div>
+      </main>
+    </SiteShell>
   );
-};
-
-export default NotFound;
+}

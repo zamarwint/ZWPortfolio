@@ -1,7 +1,5 @@
 import { media } from "@/lib/data";
-import { Button } from "@/components/ui/button";
-
-import { MoveLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
@@ -47,64 +45,25 @@ export default async function VideosPage({
   };
 
   return (
-    <div
-      id="video"
-      className="size-full flex flex-col items-start justify-start font-funnel-display p-8"
-    >
-      <div className="w-full flex flex-col justify-center items-start">
-        <Button
-          variant="outline"
-          size="lg"
-          className="w-fit p-2 flex items-center justify-center gap-2"
-          asChild
-        >
-          <Link href="/videos">
-            <MoveLeft className="size-5" />
-            <span className="text-md">Back</span>
-          </Link>
-        </Button>
-      </div>
-
-      {/* Video Player and Description */}
-      <div
-        className={cn(
-          "flex",
-          videoFile?.videoAspectRatio === "9/16"
-            ? "flex-col lg:flex-row lg:gap-10 items-center justify-center"
-            : "flex-col items-start justify-start",
-        )}
-      >
-        {/* Video Player */}
-        <div
-          className={cn(
-            "container w-full flex flex-col items-center justify-center py-8",
-            videoFile?.videoAspectRatio === "9/16"
-              ? "max-w-96"
-              : "max-w-full md:max-w-[80%]",
-          )}
-        >
+    <main id="video" className="mx-auto w-full max-w-[1440px] px-5 pb-20 pt-10 font-funnel-display sm:px-8 md:px-14 md:pt-14">
+      <Link href="/videos" className="glossy-button mb-8 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm text-primary-foreground"><ArrowLeft className="size-4" /> All videos</Link>
+      <div className={cn("grid items-center gap-8 rounded-3xl border border-primary/10 bg-card p-4 shadow-lg shadow-primary/5 sm:p-6 md:p-8", videoFile?.videoAspectRatio === "9/16" ? "lg:grid-cols-[0.8fr_1.2fr]" : "lg:grid-cols-[1.3fr_0.7fr]")}>
+        <div className={cn("mx-auto w-full", videoFile?.videoAspectRatio === "9/16" ? "max-w-[360px]" : "max-w-5xl")}>
           <VideoJsPlayer
             src={(await getVideo(slug)) as string}
             aspectRatio={getAspectRatio().toString()}
             width="100%"
           />
         </div>
-
-        {/* Video Description */}
-        <div
-          className={cn(
-            "flex flex-col items-start justify-center gap-2 pb-8",
-            videoFile?.videoAspectRatio === "9/16" ? "w-[80%]" : "w-full",
-          )}
-        >
-          <h1 className="text-4xl font-bold">{videoFile?.title}</h1>
-          <h2 className="text-lg font-semibold">Zamar Wint</h2>
-          <Separator className="my-2" />
-          <p className="text-md text-muted-foreground">
-            {videoFile?.description}
-          </p>
+        <div className="flex flex-col items-start justify-center py-2 lg:py-8">
+          <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.18em] text-primary">Video / {videoFile?.videoAspectRatio}</p>
+          <h1 className="font-editorial-new text-4xl leading-tight tracking-tight sm:text-5xl">{videoFile?.title}</h1>
+          <p className="mt-3 text-sm font-medium">Zamar Wint</p>
+          <Separator className="my-5 bg-primary/10" />
+          <p className="text-sm leading-7 text-muted-foreground">{videoFile?.description}</p>
+          <Link href="/videos" className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">More videos <ArrowUpRight className="size-4" /></Link>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

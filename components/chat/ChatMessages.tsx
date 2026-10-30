@@ -24,10 +24,10 @@ export default function ChatMessages({
             }`}
           >
             <div
-              className={`p-3 md:p-4 rounded-2xl shadow-xs text-[15px] md:text-base ${
+              className={`rounded-2xl px-4 py-3 text-sm leading-6 shadow-sm md:px-5 md:py-4 ${
                 isMe
-                  ? "bg-primary text-background rounded-tr-sm"
-                  : "rounded-tl-sm border border-border bg-accent/20"
+                  ? "rounded-tr-sm bg-primary text-primary-foreground"
+                  : "rounded-tl-sm border border-primary/10 bg-card"
               }`}
             >
               <p className="whitespace-pre-wrap wrap-break-word">{msg.text}</p>

@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import Image from "next/image";
 import {
@@ -26,41 +28,48 @@ export default function DisplayImages() {
   return (
     <>
       <DisplayImageCarousel />
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 px-10">
+      <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {galleryImages.map((image) => (
-          <div
+          <button
             key={image.id}
-            className="overflow-hidden shadow-sm bg-transparent flex items-center justify-center"
+            type="button"
+            aria-label={`View ${image.title}`}
+            className="group overflow-hidden rounded-2xl border border-primary/10 bg-card text-left transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            onClick={() => showContent(image)}
           >
-            <Image
-              src={image.src}
-              alt={image.title}
-              width={1000}
-              height={1000}
-              className="w-full h-full aspect-square object-cover hover:scale-105 transition-transform cursor-pointer"
-              onClick={() => showContent(image)}
-              loading="eager"
-            />
-          </div>
+            <div className="relative aspect-[1.15] overflow-hidden bg-secondary/30">
+              <Image
+                src={image.src}
+                alt={image.title}
+                fill
+                sizes="(min-width: 1280px) 24vw, (min-width: 1024px) 32vw, (min-width: 640px) 48vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <span className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-primary/45 to-transparent opacity-70" />
+            </div>
+            <span className="flex items-center justify-between gap-3 px-4 py-3.5">
+              <span className="truncate text-sm font-medium">{image.title}</span>
+              <span className="shrink-0 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">View</span>
+            </span>
+          </button>
         ))}
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
-          <DialogContent className="z-999 font-funnel-display">
+          <DialogContent className="z-999 max-w-4xl overflow-hidden rounded-2xl border-primary/10 bg-background p-0 font-funnel-display">
             <DialogHeader>
-              <DialogTitle className="font-funnel-display">
+              <DialogTitle className="px-6 pt-6 font-editorial-new text-2xl">
                 {imageTitle}
               </DialogTitle>
               {imageDesc && <DialogDescription>{imageDesc}</DialogDescription>}
             </DialogHeader>
             <div className="flex items-center justify-center">
-              <Image
-                src={imageSrc}
-                draggable="false"
-                alt={imageTitle}
-                width={400}
-                height={400}
-                className="rounded-lg pointer-events-none select-none w-auto h-auto aspect-auto"
-                loading="eager"
-              />
+                <Image
+                  src={imageSrc}
+                  draggable="false"
+                  alt={imageTitle}
+                  width={1200}
+                  height={900}
+                  className="max-h-[72vh] w-auto rounded-lg object-contain"
+                />
             </div>
           </DialogContent>
         </Dialog>

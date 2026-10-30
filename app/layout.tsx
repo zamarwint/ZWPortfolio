@@ -6,7 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { Toaster } from "@/components/ui/sonner";
-import { editorialNew, funnelDisplay, jetBrainsMono } from "./fonts";
+import { editorialNew, funnelDisplay, dmMono } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -17,6 +17,10 @@ export const metadata: Metadata = {
     "Portfolio for Zamar Wint - A cybersecurity engineer and software developer based in the Caribbean.",
   keywords: [
     "Zamar Wint",
+    "Zamar",
+    "Wint",
+    "Zamar Wint Portfolio",
+    "Developer portfolio",
     "Cybersecurity Engineer",
     "Software Developer",
     "Caribbean",
@@ -33,8 +37,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "https://zamarwint.xyz/open-graph.png",
-        width: 500,
-        height: 500,
+        width: 200,
+        height: 200,
         alt: "Zamar Wint - Cybersecurity Engineer & Software Developer",
       },
     ],
@@ -71,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${funnelDisplay.variable} ${editorialNew.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      className={`${funnelDisplay.variable} ${editorialNew.variable} ${dmMono.variable} h-full antialiased`}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

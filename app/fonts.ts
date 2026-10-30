@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Funnel_Display, JetBrains_Mono } from "next/font/google";
+import { DM_Mono, Funnel_Display } from "next/font/google";
 
 export const editorialNew = localFont({
   src: [
@@ -24,8 +24,9 @@ export const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
 });
 
-export const jetBrainsMono = JetBrains_Mono({
+export const dmMono = DM_Mono({
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
-  variable: "--font-jetbrains-mono",
+  variable: "--font-dm-mono",
 });

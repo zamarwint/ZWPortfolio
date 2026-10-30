@@ -10,9 +10,5 @@ export default function VideosLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <div className="size-full flex flex-col justify-items-start overflow-auto no-scrollbar">
-      {children}
-    </div>
-  );
+  return <>{children}</>;
 }

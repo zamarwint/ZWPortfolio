@@ -1,35 +1,25 @@
-import { galleryDocuments } from "@/lib/data";
+import { ArrowUpRight, FileText } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
+import { galleryDocuments } from "@/lib/data";
 
 export default function DisplayDocuments() {
   return (
-    <div className="w-full flex gap-4 flex-col items-center justify-center px-10 mt-5">
-      {galleryDocuments.map((document, key) => (
+    <div className="grid w-full gap-3 md:grid-cols-2">
+      {galleryDocuments.map((document, index) => (
         <Link
-          key={key}
+          key={document.id}
           href={document.src}
+          target="_blank"
           rel="noopener noreferrer"
-          className="w-full flex flex-col lg:flex-row items-center justify-center lg:items-start lg:justify-start border border-border p-4 gap-4 cursor-pointer hover:scale-102 transition-transform hover:shadow-md"
+          className="group flex min-h-44 gap-4 rounded-2xl border border-primary/10 bg-card p-5 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:gap-5 sm:p-6"
         >
-          <div className="size-fit flex items-center justify-center">
-            <Image
-              src="/vectors/document-svg.svg"
-              alt="Documents icon"
-              aria-hidden="true"
-              width={150}
-              height={150}
-              className="object-cover"
-            />
-          </div>
-          <div className="w-full flex flex-col flex-1 items-center lg:items-start justify-center gap-2">
-            <h1 className="text-2xl text-center lg:text-left">
-              {document.title}
-            </h1>
-            <p className="text-muted-foreground text-center lg:text-left">
-              {document.description}
-            </p>
-          </div>
+          <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-secondary/70 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><FileText className="size-5" /></span>
+          <span className="flex min-w-0 flex-1 flex-col">
+            <span className="mb-2 flex items-center justify-between gap-3"><span className="font-mono text-[9px] uppercase tracking-[0.15em] text-muted-foreground">DOCUMENT 0{index + 1}</span><ArrowUpRight className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" /></span>
+            <span className="font-editorial-new text-xl leading-tight tracking-tight sm:text-2xl">{document.title}</span>
+            <span className="mt-2 text-sm leading-5 text-muted-foreground">{document.description}</span>
+            <span className="mt-auto pt-4 text-xs font-medium text-primary">Open PDF</span>
+          </span>
         </Link>
       ))}
     </div>

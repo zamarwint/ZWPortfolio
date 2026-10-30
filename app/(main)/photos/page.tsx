@@ -1,53 +1,11 @@
-"use client";
-
-import { motion } from "motion/react";
+import PageIntro from "@/components/PageIntro";
 import DisplayImages from "@/components/gallery/Images";
 
 export default function Photos() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 2,
-      }}
-      id="gallery"
-      className="size-full flex flex-col items-center justify-start pt-[10vh] font-funnel-display"
-    >
-      <h1 className="text-6xl md:text-8xl font-editorial-new italic">Photos</h1>
-      <p className="text-muted-foreground pt-4 px-4 md:px-0 text-center text-wrap">
-        A collection of photos and screenshots of my work.
-      </p>
-      <div className="container w-full mx-auto pt-5 pb-10">
-        {/* <div className="container w-full flex items-center justify-center pt-10 overflow-auto">
-          <ToggleGroup
-            type="single"
-            value={selectedContent}
-            onValueChange={(value) =>
-              setSelectedContent(value as GalleryContentType)
-            }
-          >
-            <ToggleGroupItem
-              size="sm"
-              value={GalleryContentType.IMAGE}
-              className="text-lg p-6 rounded-none"
-            >
-              Images
-            </ToggleGroupItem>
-            <ToggleGroupItem
-              size="sm"
-              value={GalleryContentType.VIDEO}
-              className="text-lg p-6 rounded-none"
-            >
-              Videos
-            </ToggleGroupItem>
-          </ToggleGroup>
-        </div> */}
-        <div className="w-full flex flex-col items-center justify-center">
-          <DisplayImages />
-        </div>
-      </div>
-    </motion.div>
+    <main id="gallery" className="mx-auto w-full max-w-[1440px] px-5 pb-20 pt-14 font-funnel-display sm:px-8 md:px-14 md:pt-20">
+      <PageIntro eyebrow="Visual archive" title="Photos & process." description="A closer look at the projects, people, and moments behind the work." index="01" />
+      <DisplayImages />
+    </main>
   );
 }

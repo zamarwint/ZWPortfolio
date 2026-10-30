@@ -1,28 +1,18 @@
 import Hero from "@/components/landing/Hero";
-import About from "@/components/landing/About";
-import Background from "@/components/landing/Background";
+import Strengths from "@/components/landing/Strengths";
 import Work from "@/components/landing/Work";
-import Recognition from "@/components/landing/Recognition";
-import QuoteBreak from "@/components/landing/QuoteBreak";
+import About from "@/components/landing/About";
+import ExploreMore from "@/components/landing/ExploreMore";
 import Contact from "@/components/landing/Contact";
-import TopBar from "@/components/landing/TopBar";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Home",
-  description: "Home page of Zamar Wint's portfolio.",
-};
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-items-center text-foreground text-wrap">
-      <TopBar />
+    <main className="overflow-hidden text-foreground">
       <Hero />
-      <About />
-      <Background />
+      <Strengths />
       <Work />
-      <Recognition />
-      <QuoteBreak />
+      <About />
+      <ExploreMore />
       <Contact />
     </main>
   );

@@ -67,23 +67,28 @@ export const media = {
     },
     {
       id: 4,
-      title: "Portfolio Hero Image",
-      image: "/works/portfolio-hero.png",
+      title: "Telegram Agent Action Image 1",
+      image: "/works/teleagent-action1.png",
     },
     {
       id: 5,
+      title: "Telegram Agent Action Image 2",
+      image: "/works/teleagent-action2.png",
+    },
+    {
+      id: 6,
       title: "WardPass Code Snapshot 1",
       image: "/works/wardpass-code1.png",
     },
     {
-      id: 6,
+      id: 7,
       title: "Reckon Code Snapshot 1",
       image: "/works/reckon-code1.png",
     },
     {
-      id: 7,
-      title: "Portfolio Code Snapshot 1",
-      image: "/works/portfolio-code1.png",
+      id: 8,
+      title: "Telegram Agent Code Snapshot 1",
+      image: "/works/teleagent-code1.png",
     },
   ],
   projects: [
@@ -102,6 +107,14 @@ export const media = {
         "An all-in-one calculator with financial functions built in, so everyday money math doesn't need five different apps.",
       alt: "Reckon app screenshot",
       href: "https://reckon-p.netlify.app/",
+    },
+    {
+      tag: "Live",
+      title: "Tele-Agent",
+      description:
+        "A telegram bot that acts as my personal assistant, sending messages on my behalf when I'm unreachable.",
+      alt: "Tele-Agent in action screenshot",
+      href: "https://zai-y33j.onrender.com/",
     },
   ],
   inProgessProjects: [

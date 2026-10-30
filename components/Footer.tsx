@@ -1,58 +1,43 @@
 "use client";
 
-import { motion } from "motion/react";
-import { underlineDraw } from "@/app/_components/underline-draw-animation";
 import Link from "next/link";
-import { MoveUp } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { scrollToTop } from "@/lib/functions";
-import { usePathname } from "next/navigation";
+import { ArrowUpRight } from "lucide-react";
 
-const SOCIALS = [
-  { href: "https://github.com/zamarwint", label: "Github" },
-  { href: "https://x.com/zwbless", label: "X" },
-  { href: "https://www.youtube.com/@zacodez", label: "Dev YouTube" },
-  { href: "https://www.instagram.com/zwbless", label: "Instagram" },
+const pageLinks = [
+  { href: "/#work", label: "Projects" },
+  { href: "/photos", label: "Photos" },
+  { href: "/videos", label: "Videos" },
+  { href: "/documents", label: "Documents" },
+  { href: "/chat", label: "Chat" },
+  { href: "/#contact", label: "Contact" },
+];
+
+const socials = [
+  { href: "https://github.com/zamarwint", label: "GitHub" },
+  { href: "https://www.youtube.com/@zacodez", label: "YouTube" },
   { href: "https://www.linkedin.com/in/zamarwint", label: "LinkedIn" },
 ];
 
 export default function Footer() {
-  const pathname = usePathname();
-
   return (
-    <motion.footer
-      className="flex max-w-full flex-wrap items-center justify-between gap-4 border-t border-border px-[4vw] py-9 font-funnel-display"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: false }}
-      transition={{
-        duration: 1,
-      }}
-    >
-      <span className="text-sm">Designed &amp; developed by Zamar Wint</span>
-      <div className="flex gap-6">
-        {SOCIALS.map((s) => (
-          <Link
-            key={s.href}
-            href={s.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`text-sm hover:text-primary ${underlineDraw()}`}
-          >
-            {s.label}
-          </Link>
-        ))}
+    <footer className="overflow-hidden border-t border-primary/10 bg-background font-funnel-display">
+      <div className="px-5 pb-4 pt-8 sm:px-8 md:px-14 md:pt-10">
+        <nav aria-label="Footer navigation" className="grid grid-cols-2 gap-x-6 gap-y-3 text-xs sm:grid-cols-3 md:grid-cols-6 md:gap-4">
+          {pageLinks.map((link) => <Link key={link.href} href={link.href} className="w-fit text-foreground/80 transition-colors hover:text-primary">{link.label}</Link>)}
+        </nav>
+
+        <div className="mt-7 flex flex-col justify-between gap-3 border-t border-primary/10 pt-4 text-[10px] text-muted-foreground sm:flex-row sm:items-center">
+          <p>© {new Date().getFullYear()} Zamar Wint</p>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {socials.map((social) => <Link key={social.href} href={social.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 transition-colors hover:text-primary">{social.label}<ArrowUpRight className="size-2.5" /></Link>)}
+          </div>
+          <Link href="#top" onClick={(event) => { event.preventDefault(); document.querySelector(".site-scroll-region")?.scrollTo({ top: 0, behavior: "smooth" }); }} className="w-fit transition-colors hover:text-primary">Back to top ↑</Link>
+        </div>
       </div>
-      <Link
-        href={`${scrollToTop({ path: pathname })}`}
-        className={cn(
-          "w-fit text-sm hover:text-primary flex justify-between items-center gap-1 cursor-pointer",
-          underlineDraw(),
-        )}
-      >
-        <span>Back to top</span>
-        <MoveUp className="size-3" />
-      </Link>
-    </motion.footer>
+
+      <div aria-label="Zamar Wint" className="select-none overflow-hidden px-3 pt-2 text-center font-funnel-display text-[clamp(4.2rem,17vw,15.5rem)] font-semibold leading-[0.72] tracking-[-0.085em] text-primary opacity-[0.085] sm:pt-3">
+        <span className="block translate-y-[0.11em] whitespace-nowrap">Zamar Wint</span>
+      </div>
+    </footer>
   );
 }

@@ -1,61 +1,39 @@
 "use client";
 
-import { media } from "@/lib/data";
-import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "motion/react";
+import { ArrowRight } from "lucide-react";
+
+const rise = {
+  initial: { opacity: 0, y: 22 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.65, ease: "easeOut" as const },
+};
+
+const skills = ["Cybersecurity", "Web development", "Networking", "Product design", "Community"];
 
 export default function About() {
   return (
-    <motion.section
-      id="about"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: false }}
-      transition={{
-        duration: 2,
-      }}
-      className="grid max-w-full grid-cols-1 items-center gap-14 md:grid-cols-[0.8fr_0.85fr] px-[4vw] pt-16 pb-20 md:pt-24 font-funnel-display"
-    >
-      <div className="relative aspect-4/5 overflow-hidden border-6 border-border bg-border rounded-xs">
-        <Image
-          src={media.gradPictures[2].image}
-          alt={media.gradPictures[2].title}
-          fill
-          sizes="(min-width: 768px) 40vw, 90vw"
-          className="object-cover grayscale contrast-[1.07] brightness-[0.92] rounded-xs"
-          priority
-        />
-        <div className="absolute inset-0 opacity-[0.24] mix-blend-multiply" />
+    <section className="bg-primary text-primary-foreground">
+      <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-8 md:grid-cols-[0.8fr_1.2fr] md:items-center md:px-14 md:py-28">
+        <motion.div {...rise} className="relative mx-auto w-full max-w-[400px]">
+          <div className="absolute -left-3 top-8 z-10 rounded-full bg-secondary px-4 py-2 font-mono text-[9px] uppercase tracking-[0.15em] text-secondary-foreground">Curiosity keeps me moving</div>
+          <div className="relative aspect-[0.95] overflow-hidden rounded-[12px_12px_42%_42%] bg-primary-foreground/10"><Image src="/pictures/eac-cam-picture.png" alt="Zamar working behind a camera during a community broadcast" fill sizes="(min-width: 768px) 34vw, 90vw" className="object-cover" /></div>
+          <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.16em] text-primary-foreground/55">Community work · Live broadcast</p>
+        </motion.div>
+        <motion.div {...rise} id="about" className="scroll-mt-12">
+          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-secondary">02 / A little about me</p>
+          <h2 className="max-w-2xl font-editorial-new text-5xl leading-[1.03] tracking-tight sm:text-6xl">Curious by nature.<br /><span className="italic text-secondary">Grounded in purpose.</span></h2>
+          <div className="mt-7 max-w-xl space-y-4 text-sm leading-7 text-primary-foreground/75">
+            <p>I grew up in the Caribbean with a computer close by and a growing desire to understand how things work. That curiosity has led me through cybersecurity, software engineering, live broadcast work, tutoring, and community service.</p>
+            <p>I enjoy taking complicated problems apart, finding the useful center, and building something people can trust. I&apos;m completing a STEM degree while developing practical products that make everyday digital life a little better.</p>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-2">{skills.map((skill) => <span key={skill} className="rounded-full border border-primary-foreground/20 px-3 py-1.5 text-[10px] text-primary-foreground/85">{skill}</span>)}</div>
+          <Link href="/videos" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-primary-foreground">See how I work <ArrowRight className="size-4" /></Link>
+        </motion.div>
       </div>
-      <div>
-        <p className="mb-4 flex items-center gap-2 text-xs">
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
-          About
-        </p>
-        <h2 className="mb-8 text-[clamp(1.6rem,3vw,2.1rem)] font-medium leading-tight font-editorial-new italic">
-          Dependable. Reliable.
-        </h2>
-        <div className="max-w-160 space-y-5 font-funnel-display">
-          <p>
-            I grew up in the Caribbean, where I got hooked on computers early —
-            using one every day for school until I wanted to understand how they
-            worked, not just how to use them.
-          </p>
-          <p>
-            I treat every project as a lesson. When I see a piece of software,
-            or a design, that I admire, I take it apart to learn how it was
-            built, then rebuild it my own way. Every piece of software can be
-            rebuilt and refined, no matter how complex it looks from the
-            outside.
-          </p>
-          <p>
-            Outside of engineering, I&apos;ve worked as a camera operator and
-            vision mixer for live broadcasts, helped set up livestream
-            schedules, worked as a data entry clerk, and tutored primary school
-            students through their Math PEP exams.
-          </p>
-        </div>
-      </div>
-    </motion.section>
+    </section>
   );
 }

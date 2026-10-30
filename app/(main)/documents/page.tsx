@@ -1,32 +1,11 @@
-"use client";
-
-import { motion } from "motion/react";
+import PageIntro from "@/components/PageIntro";
 import DisplayDocuments from "@/components/gallery/Documents";
 
 export default function Documents() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 2,
-      }}
-      id="gallery"
-      className="size-full flex flex-col items-center justify-start pt-[10vh] font-funnel-display"
-    >
-      <h1 className="text-6xl md:text-8xl font-editorial-new italic">
-        Documents
-      </h1>
-      <p className="text-muted-foreground pt-4 px-4 md:px-0 text-center">
-        Deep-dives into processes and technical documentation of projects
-        I&apos;ve worked on.
-      </p>
-      <div className="container w-full mx-auto pt-5 pb-10">
-        <div className="w-full flex flex-col items-center justify-center">
-          <DisplayDocuments />
-        </div>
-      </div>
-    </motion.div>
+    <main id="gallery" className="mx-auto w-full max-w-[1440px] px-5 pb-20 pt-14 font-funnel-display sm:px-8 md:px-14 md:pt-20">
+      <PageIntro eyebrow="Project notes" title="Plans & documentation." description="Explore the thinking, design systems, and technical notes behind selected projects." index="03" />
+      <DisplayDocuments />
+    </main>
   );
 }

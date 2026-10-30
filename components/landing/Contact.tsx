@@ -1,259 +1,33 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { motion } from "motion/react";
-import { Check, Copy, Eye, EyeOff } from "lucide-react";
+import { ArrowUpRight, Check } from "lucide-react";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import { ErrorImage } from "@/app/_components/modal-images";
-import { FiArrowUpRight } from "react-icons/fi";
-import { GiCoffeeMug } from "react-icons/gi";
-import TypewriterEffect from "@/app/_components/typewriter";
-
-const footerButtons = [
-  {
-    text: "See all links",
-    href: "https://solo.to/zwbless",
-    icon: <FiArrowUpRight className="size-3" />,
-    disabled: false,
-  },
-  {
-    text: "Buy me a coffee (Coming soon)",
-    href: "/",
-    icon: <GiCoffeeMug className="size-3" />,
-    disabled: true,
-  },
-];
-
-function ErrorDialog({
-  isOpen,
-  setIsOpen,
-}: {
-  isOpen: boolean;
-  setIsOpen: (value: boolean) => void;
-}) {
-  return (
-    <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent>
-        <DialogHeader className="text-center">
-          <DialogTitle className="text-2xl font-bold font-funnel-display">
-            Error
-          </DialogTitle>
-        </DialogHeader>
-        <DialogDescription className="flex flex-col items-center justify-center gap-4 text-center">
-          <ErrorImage />
-          There was an error copying to your clipboard. Please try again.
-        </DialogDescription>
-      </DialogContent>
-    </Dialog>
-  );
-}
+const rise = {
+  initial: { opacity: 0, y: 22 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.65, ease: "easeOut" as const },
+};
 
 export default function Contact() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [isCopiedEmail, setIsCopiedEmail] = useState<boolean>(false);
-  const [isCopiedPhoneNumber, setIsCopiedPhoneNumber] =
-    useState<boolean>(false);
-  const [isCopiedLocation, setIsCopiedLocation] = useState<boolean>(false);
-
-  const [canSeeEmail, setCanSeeEmail] = useState<boolean>(false);
-  const [canSeePhoneNumber, setCanSeePhoneNumber] = useState<boolean>(false);
-  const [canSeeLocation, setCanSeeLocation] = useState<boolean>(false);
-
-  // Opening error dialog
-  const toggleModal = () => {
-    setIsOpen(true);
-  };
-
-  // handle functions for copying email, phone number, and Location
-
-  const handleCopy = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch {
-      toggleModal();
-    }
-  };
-
-  const handleCopyEmail = () => {
-    setIsCopiedEmail(true);
-    handleCopy("wintzamar@gmail.com");
-
-    setTimeout(() => {
-      setIsCopiedEmail(false);
-    }, 3000);
-  };
-
-  const handleCopyPhoneNumber = () => {
-    setIsCopiedPhoneNumber(true);
-    handleCopy("18763346720");
-
-    setTimeout(() => {
-      setIsCopiedPhoneNumber(false);
-    }, 3000);
-  };
-
-  const handleCopyLocation = () => {
-    setIsCopiedLocation(true);
-    handleCopy("Caribbean");
-
-    setTimeout(() => {
-      setIsCopiedLocation(false);
-    }, 3000);
-  };
-
-  // handle functions for showing email, phone number, and Location
-
-  const handleCanSeeEmail = () => {
-    setCanSeeEmail(true);
-    setTimeout(() => {
-      setCanSeeEmail(false);
-    }, 3000);
-  };
-
-  const handleCanSeePhoneNumber = () => {
-    setCanSeePhoneNumber(true);
-    setTimeout(() => {
-      setCanSeePhoneNumber(false);
-    }, 3000);
-  };
-
-  const handleCanSeeLocation = () => {
-    setCanSeeLocation(true);
-    setTimeout(() => {
-      setCanSeeLocation(false);
-    }, 3000);
-  };
-
   return (
-    <motion.section
-      id="contact"
-      className="max-w-full px-[4vw] pb-20 pt-24 font-funnel-display"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: false }}
-      transition={{
-        duration: 1,
-      }}
-    >
-      <p className="mb-4 flex items-center gap-2 text-xs">
-        <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-        <TypewriterEffect
-          words={[
-            "Contact Me using one of the options below",
-            "I am online most of the time, so you can expect a response within 24 hours",
-            "I'm looking for a challenging role in the cybersecurity or software engineering field",
-          ]}
-          cursor={true}
-          cursorBlink={false}
-          typeSpeed={35}
-          delSpeed={12}
-          delaySpeed={2000}
-        />
-      </p>
-      <h2 className="mb-8 text-[clamp(1.6rem,3vw,2.1rem)] font-medium leading-tight font-editorial-new italic">
-        Let&apos;s build something meaningful...
-      </h2>
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 select-none">
-        <div>
-          {/*
-            Replace the masked values below with your real email / phone /
-            Location, or wire up a reveal-on-click handler here.
-          */}
-          <div className="border-t border-border">
-            <div className="flex items-center justify-between border-b border-border py-4">
-              <span className="text-sm">Email</span>
-              <div className="flex items-center gap-2 text-xs transition-all duration-300 ease-in-out">
-                <span className="tracking-[0.2em]">
-                  {canSeeEmail ? "wintzamar@gmail.com" : "••••••••••••••"}
-                </span>
-                <span onClick={handleCanSeeEmail} className="cursor-pointer">
-                  {canSeeEmail ? <EyeOff size={18} /> : <Eye size={18} />}
-                </span>
-                <span onClick={handleCopyEmail} className="cursor-pointer">
-                  {isCopiedEmail ? <Check size={18} /> : <Copy size={18} />}
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center justify-between border-b border-border py-4">
-              <span className="text-sm">Phone</span>
-              <div className="flex items-center gap-2 text-xs transition-all duration-300 ease-in-out">
-                <span className="tracking-[0.2em]">
-                  {canSeePhoneNumber ? "18763346720" : "•••••••••••••"}
-                </span>
-                <span
-                  onClick={handleCanSeePhoneNumber}
-                  className="cursor-pointer"
-                >
-                  {canSeePhoneNumber ? <EyeOff size={18} /> : <Eye size={18} />}
-                </span>
-                <span
-                  onClick={handleCopyPhoneNumber}
-                  className="cursor-pointer"
-                >
-                  {isCopiedPhoneNumber ? (
-                    <Check size={18} />
-                  ) : (
-                    <Copy size={18} />
-                  )}
-                </span>
-              </div>
-            </div>
-            <div className="flex items-center justify-between border-b border-border py-4">
-              <span className="text-sm">Location</span>
-              <div className="flex items-center gap-2 text-xs transition-all duration-300 ease-in-out">
-                <span className="tracking-[0.2em]">
-                  {canSeeLocation ? "Caribbean" : "•••••••••••"}
-                </span>
-                <span onClick={handleCanSeeLocation} className="cursor-pointer">
-                  {canSeeLocation ? <EyeOff size={18} /> : <Eye size={18} />}
-                </span>
-                <span onClick={handleCopyLocation} className="cursor-pointer">
-                  {isCopiedLocation ? <Check size={18} /> : <Copy size={18} />}
-                </span>
-              </div>
-            </div>
+    <section id="contact" className="mx-auto max-w-[1440px] scroll-mt-8 px-5 py-24 sm:px-8 md:px-14 md:py-32">
+      <motion.div {...rise} className="relative overflow-hidden rounded-[28px] bg-secondary px-6 py-12 sm:px-12 sm:py-16 md:px-16">
+        <div className="pointer-events-none absolute -right-16 -top-28 size-80 rounded-full border border-secondary-foreground/10" />
+        <div className="pointer-events-none absolute -right-6 -top-16 size-60 rounded-full border border-secondary-foreground/10" />
+        <div className="relative max-w-3xl">
+          <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.18em] text-secondary-foreground/70">03 / Start a conversation</p>
+          <h2 className="font-editorial-new text-5xl leading-[1.02] tracking-tight text-secondary-foreground sm:text-6xl md:text-7xl">Have a good<br /><span className="italic">problem to solve?</span></h2>
+          <p className="mt-6 max-w-lg text-sm leading-6 text-secondary-foreground/75">I&apos;m open to thoughtful opportunities, collaborations, and conversations about building better technology.</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a href="mailto:wintzamar@gmail.com" className="glossy-button inline-flex items-center gap-3 rounded-full px-6 py-3.5 text-sm font-medium text-primary-foreground">Email Zamar <ArrowUpRight className="size-4" /></a>
+            <Link href="https://www.linkedin.com/in/zamarwint" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full border border-secondary-foreground/20 px-5 py-3.5 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary-foreground/5">Connect on LinkedIn <ArrowUpRight className="size-4" /></Link>
           </div>
-          <p className="mt-5 text-sm">
-            Details are kept private to avoid spam scrapers — reach out through
-            the links to get them directly.
-          </p>
+          <p className="mt-8 flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.12em] text-secondary-foreground/65"><Check className="size-3.5" /> Usually replies within a day</p>
         </div>
-        <div className="flex flex-col items-start gap-4">
-          {footerButtons.map((button, index) => (
-            <Button
-              key={index}
-              variant="outline"
-              disabled={button.disabled}
-              className="border border-border p-6 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
-            >
-              <Link
-                href={button.href}
-                rel="noopener noreferrer"
-                target="_blank"
-                className="flex items-center gap-2"
-              >
-                {button.text} {button.icon}
-              </Link>
-            </Button>
-          ))}
-        </div>
-      </div>
-
-      <ErrorDialog
-        isOpen={isOpen}
-        setIsOpen={() => {
-          setIsOpen(!isOpen);
-        }}
-      />
-    </motion.section>
+      </motion.div>
+    </section>
   );
 }

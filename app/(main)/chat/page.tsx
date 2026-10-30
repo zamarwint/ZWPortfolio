@@ -13,6 +13,14 @@ import {
   DialogTitle,
 } from "../../../components/ui/dialog";
 import { cn } from "@/lib/utils";
+import PageIntro from "@/components/PageIntro";
+import { ArrowUpRight, LockKeyhole, Sparkles } from "lucide-react";
+
+const suggestedPrompts = [
+  "Tell me about WardPass",
+  "What kind of roles are you looking for?",
+  "How did you get into cybersecurity?",
+];
 
 function ErrorDialog({
   open,
@@ -80,8 +88,7 @@ const Chat = () => {
   const scrollToLatestMessage = useCallback(() => {
     const container = messagesContainerRef.current;
     if (!container) return;
-    const lastMessage = container.querySelector(".flex.flex-col > :last-child");
-    lastMessage?.scrollIntoView({ behavior: "smooth", block: "start" });
+    container.scrollTop = container.scrollHeight;
   }, []);
 
   useEffect(() => {
@@ -128,22 +135,20 @@ const Chat = () => {
       }
 
       const decoder = new TextDecoder();
-      let accumulated = "";
-
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        accumulated += decoder.decode(value, { stream: true });
+        const chunkText = decoder.decode(value, { stream: true });
 
-        // Update the last message (bot placeholder) with accumulated text
+        // Append the new stream chunk to the pending assistant message.
         setMessages((prev) => {
-          const updated = [...prev];
-          updated[updated.length - 1] = {
-            ...updated[updated.length - 1],
-            text: accumulated,
-          };
-          return updated;
+          const lastIndex = prev.length - 1;
+          return prev.map((message, index) =>
+            index === lastIndex
+              ? { ...message, text: message.text + chunkText }
+              : message,
+          );
         });
       }
     } catch (error) {
@@ -163,73 +168,115 @@ const Chat = () => {
   };
 
   return (
-    <motion.div
+    <main
       id="chat"
-      className="min-h-screen min-w-full pt-[10vh] pb-[5vh] flex flex-col items-center justify-center font-funnel-display"
+      className="mx-auto w-full max-w-[1440px] px-5 pb-20 pt-14 font-funnel-display sm:px-8 md:px-14 md:pt-20"
     >
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-10"
-      >
-        <h1 className="text-5xl md:text-7xl font-editorial-new italic tracking-tight">
-          Ask me anything...
-        </h1>
-        <p className="pt-4 px-4 md:px-0 text-muted-foreground font-normal">
-          Drop a message and let&apos;s talk.
-        </p>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-        className="w-[80%] h-[60vh] flex flex-col overflow-hidden border border-border"
-      >
-        <header className="p-4 border-b border-border flex items-center justify-between z-10">
-          <div className="flex items-center gap-3">
-            <div
-              className={cn(
-                "w-3 h-3 rounded-full animate-pulse",
-                isLoading ? "bg-yellow-500" : "bg-green-500",
-              )}
-            ></div>
-            <span
-              className={cn(
-                "font-semibold",
-                isLoading ? "text-muted-foreground" : "",
-              )}
-            >
-              Zamar&apos;s Assistant
+      <PageIntro
+        eyebrow="A quick conversation"
+        title="Ask me anything."
+        description="Curious about my projects, experience, or what I’m looking for? Start with a question."
+        index="04"
+      />
+      <div className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr] lg:gap-10">
+        <aside className="flex flex-col justify-between rounded-2xl border border-primary/10 bg-card p-6 sm:p-8">
+          <div>
+            <span className="grid size-11 place-items-center rounded-full bg-secondary text-primary">
+              <Sparkles className="size-5" />
             </span>
+            <h2 className="mt-6 font-editorial-new text-3xl leading-tight">
+              A helpful place to start.
+            </h2>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Ask Zamar&apos;s assistant about his work, skills, education, or
+              how to get in touch.
+            </p>
           </div>
-          <div
-            className={cn(
-              "text-sm font-normal",
-              isLoading
-                ? "shimmer shimmer-duration-1000 text-muted-foreground"
-                : "",
-            )}
-          >
-            {isLoading ? "Thinking..." : "Ready"}
+          <div className="mt-8">
+            <p className="mb-3 font-mono text-[9px] uppercase tracking-[0.16em] text-muted-foreground">
+              Try asking
+            </p>
+            <div className="flex flex-col gap-2">
+              {suggestedPrompts.map((prompt) => (
+                <button
+                  key={prompt}
+                  type="button"
+                  disabled={isLoading}
+                  onClick={() => void sendMessage(prompt)}
+                  className="group flex items-center justify-between gap-3 rounded-xl border border-primary/10 bg-background px-4 py-3 text-left text-xs leading-5 transition-colors hover:border-primary/25 hover:text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <span>{prompt}</span>
+                  <ArrowUpRight className="size-3.5 shrink-0 opacity-50 transition-opacity group-hover:opacity-100" />
+                </button>
+              ))}
+            </div>
+            <p className="mt-5 flex items-center gap-2 text-[10px] leading-4 text-muted-foreground">
+              <LockKeyhole className="size-3.5 shrink-0" /> This assistant can
+              make mistakes. Reach out directly for important details.
+            </p>
           </div>
-        </header>
+        </aside>
 
-        <div
-          ref={messagesContainerRef}
-          className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 scroll-smooth"
+        <motion.section
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="flex h-[min(650px,calc(100dvh_-_12rem))] min-h-[420px] min-w-0 flex-col overflow-hidden rounded-2xl border border-primary/15 bg-card shadow-xl shadow-primary/5"
         >
-          <ChatMessages messages={messages} currentUserId={"user"} />
-        </div>
-
-        <footer className="p-4 border-t border-border">
-          <ChatInput onSend={sendMessage} />
-        </footer>
-      </motion.div>
-
+          <header className="flex shrink-0 items-center justify-between gap-4 border-b border-primary/10 bg-background/70 px-5 py-4 sm:px-6">
+            <div className="flex items-center gap-3">
+              <span className="grid size-10 place-items-center rounded-full bg-primary font-editorial-new text-sm text-primary-foreground">
+                ZW
+              </span>
+              <div>
+                <p className="text-sm font-medium">Zamar&apos;s Assistant</p>
+                <p className="mt-0.5 font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                  Portfolio guide
+                </p>
+              </div>
+            </div>
+            <span
+              role="status"
+              className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-background px-3 py-1.5 text-[10px] text-muted-foreground"
+            >
+              <span
+                className={cn(
+                  "size-1.5 rounded-full",
+                  isLoading
+                    ? "animate-pulse bg-secondary-foreground"
+                    : "bg-primary",
+                )}
+              />
+              {isLoading ? "Thinking" : "Ready"}
+            </span>
+          </header>
+          <div
+            ref={messagesContainerRef}
+            aria-live="polite"
+            className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain bg-background/35 p-4 sm:p-6"
+          >
+            <ChatMessages messages={messages} currentUserId="user" />
+            {isLoading && messages[messages.length - 1]?.text === "" && (
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <span className="flex gap-1">
+                  <i className="size-1.5 animate-bounce rounded-full bg-primary [animation-delay:-0.2s]" />
+                  <i className="size-1.5 animate-bounce rounded-full bg-primary [animation-delay:-0.1s]" />
+                  <i className="size-1.5 animate-bounce rounded-full bg-primary" />
+                </span>
+                Preparing a response…
+              </div>
+            )}
+          </div>
+          <footer className="shrink-0 border-t border-primary/10 bg-background/80 p-4 sm:p-5">
+            <ChatInput onSend={sendMessage} disabled={isLoading} />
+            <p className="mt-2 text-center text-[9px] text-muted-foreground">
+              Responses may take a few seconds while they stream in.
+            </p>
+          </footer>
+        </motion.section>
+      </div>
       <ErrorDialog open={isOpen} onOpenChange={setIsOpen} />
-    </motion.div>
+    </main>
   );
 };
 

@@ -5,8 +5,10 @@ import { Send } from "lucide-react";
 
 export default function ChatInput({
   onSend,
+  disabled = false,
 }: {
   onSend: (text: string) => void;
+  disabled?: boolean;
 }) {
   const [text, setText] = useState("");
 
@@ -23,19 +25,22 @@ export default function ChatInput({
       <div className="relative flex-1">
         <input
           type="text"
+          aria-label="Your message"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          className="w-full py-2 px-3 border border-border bg-accent/20 focus:outline-none focus:ring-2 focus:ring-ring transition-all placeholder-muted-foreground"
+          disabled={disabled}
+          className="w-full rounded-xl border border-primary/15 bg-card px-4 py-3 text-sm transition-all placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-60"
           placeholder="Type a message..."
           autoComplete="off"
         />
       </div>
       <button
         type="submit"
-        disabled={!text.trim()}
-        className="shrink-0 p-2 flex items-center justify-center bg-primary text-background hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:hover:scale-100"
+        aria-label="Send message"
+        disabled={disabled || !text.trim()}
+        className="glossy-button grid size-11 shrink-0 place-items-center rounded-xl text-primary-foreground disabled:cursor-not-allowed disabled:opacity-50"
       >
-        <Send className="size-6" />
+        <Send className="size-4" />
       </button>
     </form>
   );
