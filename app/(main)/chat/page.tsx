@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import ChatMessages from "@/components/chat/ChatMessages";
 import ChatInput from "@/components/chat/ChatInput";
-import { ErrorImage } from "../../_components/modal-images";
+import { ErrorImage } from "@/app/_components/modal-images";
 import {
   Dialog,
   DialogContent,

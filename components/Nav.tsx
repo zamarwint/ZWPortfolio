@@ -10,10 +10,8 @@ import { cn } from "@/lib/utils";
 const links = [
   { href: "/#work", label: "Selected work" },
   { href: "/#about", label: "About" },
+  { href: "/projects", label: "Projects" },
   { href: "/chat", label: "Chat with Zamar" },
-  { href: "/photos", label: "Photos" },
-  { href: "/videos", label: "Videos" },
-  { href: "/documents", label: "Documents" },
 ];
 
 export default function Nav({
@@ -33,7 +31,7 @@ export default function Nav({
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
-          {links.slice(0, 3).map((link) => (
+          {links.map((link) => (
             <Link key={link.href} href={link.href} className="text-sm text-foreground/75 transition-colors hover:text-primary">{link.label}</Link>
           ))}
           <Link href="/#contact" className="glossy-button inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm text-primary-foreground">

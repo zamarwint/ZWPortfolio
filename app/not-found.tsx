@@ -15,7 +15,7 @@ export default function NotFound() {
             <Link href="/" className="glossy-button mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-medium text-primary-foreground"><ArrowLeft className="size-4" /> Back to the portfolio</Link>
           </div>
           <div className="mx-auto w-full max-w-[300px] rounded-3xl border border-primary/10 bg-card/70 p-5 sm:max-w-[360px] md:p-8">
-            <Image src="/vectors/not-found.svg" className="h-auto w-full" alt="Illustration for the not found page" width={360} height={400} priority />
+            <Image src="/not-found.svg" className="h-auto w-full" alt="Illustration for the not found page" width={360} height={400} priority />
           </div>
         </div>
       </main>

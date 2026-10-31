@@ -31,7 +31,7 @@ export default function About() {
             <p>I enjoy taking complicated problems apart, finding the useful center, and building something people can trust. I&apos;m completing a STEM degree while developing practical products that make everyday digital life a little better.</p>
           </div>
           <div className="mt-8 flex flex-wrap gap-2">{skills.map((skill) => <span key={skill} className="rounded-full border border-primary-foreground/20 px-3 py-1.5 text-[10px] text-primary-foreground/85">{skill}</span>)}</div>
-          <Link href="/videos" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-primary-foreground">See how I work <ArrowRight className="size-4" /></Link>
+          <Link href="/projects" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-secondary transition-colors hover:text-primary-foreground">Explore my projects <ArrowRight className="size-4" /></Link>
         </motion.div>
       </div>
     </section>

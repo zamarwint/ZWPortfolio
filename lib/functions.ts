@@ -1,26 +1,7 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-
-// SCROLL TO ANCHOR LINK
-export const ScrollToAnchor = () => {
-  const pathname = usePathname();
-  const lastHash = useRef("");
-
-  useEffect(() => {
-    const hash = pathname.split("#")[1];
-    if (hash) {
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }, [pathname]);
-
-  return null;
-};
 
 // TRACK THE VIEWPORT WIDTH
 export const useViewportWidth = () => {

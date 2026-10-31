@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { media } from "@/lib/data";
+import { featuredProjects } from "@/lib/projects";
 
 const rise = {
   initial: { opacity: 0, y: 22 },
@@ -12,27 +12,6 @@ const rise = {
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.65, ease: "easeOut" as const },
 };
-
-const projects = [
-  {
-    ...media.projects[0],
-    image: "/works/wardpass-hero.png",
-    category: "Security · Product engineering",
-    number: "01",
-  },
-  {
-    ...media.projects[1],
-    image: "/works/reckon-hero.png",
-    category: "Fintech · Web application",
-    number: "02",
-  },
-  {
-    ...media.projects[2],
-    image: "/works/zai.png",
-    category: "AI ·telegram bot",
-    number: "03",
-  },
-];
 
 export default function Work() {
   return (
@@ -59,7 +38,7 @@ export default function Work() {
       </motion.div>
 
       <div className="grid gap-5 lg:grid-cols-2">
-        {projects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <motion.article
             key={project.title}
             {...rise}
@@ -67,21 +46,15 @@ export default function Work() {
             className={`project-card group overflow-hidden rounded-2xl border border-primary/10 bg-card ${index === 0 ? "lg:col-span-2" : ""}`}
           >
             <Link
-              href={project.href}
-              target={project.href.startsWith("http") ? "_blank" : undefined}
-              rel={
-                project.href.startsWith("http")
-                  ? "noopener noreferrer"
-                  : undefined
-              }
+              href={`/projects/${project.id}`}
               className={`grid h-full ${index === 0 ? "md:grid-cols-[1.15fr_0.85fr]" : "grid-rows-[auto_1fr]"}`}
             >
               <div
                 className={`relative overflow-hidden bg-secondary/35 ${index === 0 ? "aspect-[1.28] md:aspect-auto md:min-h-[390px]" : "aspect-[1.48]"}`}
               >
                 <Image
-                  src={project.image}
-                  alt={project.alt}
+                  src={project.cover!.src}
+                  alt={project.cover!.alt}
                   fill
                   sizes={
                     index === 0
@@ -100,17 +73,17 @@ export default function Work() {
                 <div>
                   <div className="mb-5 flex items-center justify-between">
                     <span className="font-mono text-[10px] tracking-[0.15em] text-muted-foreground">
-                      PROJECT {project.number}
+                      PROJECT {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="rounded-full bg-primary/7 px-3 py-1 text-[10px] text-primary">
-                      {project.tag}
+                      {project.status}
                     </span>
                   </div>
                   <h3 className="font-editorial-new text-3xl tracking-tight sm:text-4xl">
                     {project.title}
                   </h3>
                   <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
-                    {project.description}
+                    {project.summary}
                   </p>
                 </div>
                 <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-primary">
@@ -129,10 +102,10 @@ export default function Work() {
           platform for aspiring entrepreneurs.
         </p>
         <Link
-          href="/documents"
+          href="/projects"
           className="inline-flex shrink-0 items-center gap-2 text-xs font-medium text-primary hover:underline"
         >
-          Browse project notes <ArrowUpRight className="size-3.5" />
+          View all projects <ArrowUpRight className="size-3.5" />
         </Link>
       </div>
     </section>

@@ -3,16 +3,20 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-const pageLinks = [
-  { href: "/#work", label: "Projects" },
-  { href: "/photos", label: "Photos" },
-  { href: "/videos", label: "Videos" },
-  { href: "/documents", label: "Documents" },
+interface PageLink {
+  href: string,
+  label: string
+}
+
+const pageLinks: PageLink[] = [
+  { href: "/projects", label: "Projects" },
   { href: "/chat", label: "Chat" },
+  { href: "#", label: "Blog" },
+  { href: "/zwint-cv.pdf", label: "Resume" },
   { href: "/#contact", label: "Contact" },
 ];
 
-const socials = [
+const socials: PageLink[] = [
   { href: "https://github.com/zamarwint", label: "GitHub" },
   { href: "https://www.youtube.com/@zacodez", label: "YouTube" },
   { href: "https://www.linkedin.com/in/zamarwint", label: "LinkedIn" },
