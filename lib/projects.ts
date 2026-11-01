@@ -44,11 +44,11 @@ export const projects: Project[] = [
     summary:
       "A secure password manager built for everyone, not just security professionals — straightforward enough for anyone to keep their credentials safe.",
     overview: [
-      "WardPass is a password management system designed to make credential safety feel approachable in everyday use. It brings a security-minded product idea into a clear, practical experience for people who are not security specialists.",
+      "WardPass is a credential management system designed for those who need a safe haven to secure passwords, logins, identities and other critical information. It brings a security-minded product idea into a clear, practical experience for people who are not security specialists.",
       "The project is documented through an application plan, design plan, and design system guide. Product imagery and a code snapshot show parts of the interface and its development process.",
     ],
-    skills: ["Security", "Product engineering"],
-    tools: [],
+    skills: ["Security", "Product engineering", "Software Project Management", "Problem solving", "Software Development Life Cycle (SDLC)"],
+    tools: ["Next.js", "Tailwind", "Shadcn UI", "Framer Motion", "Neon Database Services", "React Hook Form"],
     cover: {
       src: "/works/wardpass-hero.png",
       title: "WardPass product interface",
@@ -115,8 +115,8 @@ export const projects: Project[] = [
       "Reckon brings everyday calculations and financial functions together in one web application. The idea is to make routine money math easier by keeping useful calculations in one place.",
       "The project includes a main plan, product imagery, an about screen, and a code snapshot that document the concept and its implementation.",
     ],
-    skills: ["Fintech", "Web application"],
-    tools: [],
+    skills: ["Fintech", "Web application", "Software Project Management", "Problem solving", "Software Development Life Cycle (SDLC)"],
+    tools: ["Node.js", "TypeScript", "Animate on Scroll", "React Router", "Financial.js (investment functions library)"],
     cover: {
       src: "/works/reckon-hero.png",
       title: "Reckon application",
@@ -162,11 +162,11 @@ export const projects: Project[] = [
     summary:
       "A Telegram bot that acts as a personal assistant, sending messages on my behalf when I’m unreachable.",
     overview: [
-      "Tele-Agent is a personal assistant built around Telegram. It can send messages on my behalf when I’m unavailable, helping keep communication moving.",
+      "Tele-Agent is a personal assistant built for Telegram. It can send messages on my behalf when I’m unavailable, helping keep communication moving.",
       "The project gallery includes examples of the bot in action and a code snapshot from its development.",
     ],
-    skills: ["AI", "Telegram bot"],
-    tools: [],
+    skills: ["AI", "Telegram bot", "Software Documentation", "Software Project Management", "Software development", "AI Engineering"],
+    tools: ["Node.js", "Typescript", "Node-Telegram-Bot-API", "Gemini API"],
     cover: {
       src: "/works/zai.png",
       title: "Tele-Agent in action",
