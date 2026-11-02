@@ -157,7 +157,7 @@ export const projects: Project[] = [
   {
     id: "tele-agent",
     title: "Tele-Agent",
-    category: "AI · Telegram bot",
+    category: "AI Assistant · Telegram bot",
     status: "Live",
     summary:
       "A Telegram bot that acts as a personal assistant, sending messages on my behalf when I’m unreachable.",
@@ -200,9 +200,32 @@ export const projects: Project[] = [
       },
     ],
     videos: [],
-    documents: [],
+    documents: [
+      {
+        title: "Tele-Agent Main Plan",
+        description: "Main plan for the Tele-Agent AI assistant.",
+        src: "/docs/teleagent-main-plan.pdf",
+      },
+    ],
     externalUrl: "https://zai-y33j.onrender.com/",
     featured: true,
+  },
+  {
+    id: "utilities-agent",
+    title: "Utilities Agent",
+    category: "Automated software account · In progress",
+    status: "In progress",
+    summary:
+      "A telegram bot that provides various utility functions to assist users with their daily operations.",
+    overview: [
+      "This in-progress telegram robot is designed to assist telegram users with their day-to-day tasks and activities by providing services such as storage and reminders.",
+    ],
+    skills: [],
+    tools: [],
+    images: [],
+    videos: [],
+    documents: [],
+    featured: false,
   },
   {
     id: "focus-notes",
