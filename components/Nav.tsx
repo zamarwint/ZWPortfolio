@@ -6,6 +6,7 @@ import { useState, type RefObject } from "react";
 import { motion, useScroll } from "motion/react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ModeToggle } from "./ThemeToggle";
 
 const links = [
   { href: "/#work", label: "Selected work" },
@@ -34,6 +35,7 @@ export default function Nav({
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="text-sm text-foreground/75 transition-colors hover:text-primary">{link.label}</Link>
           ))}
+          <ModeToggle />
           <Link href="/#contact" className="glossy-button inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm text-primary-foreground">
             Let&apos;s talk <ArrowUpRight className="size-3.5" />
           </Link>
@@ -46,6 +48,7 @@ export default function Nav({
 
       {open && <nav className="absolute left-0 top-full flex w-full flex-col border-b border-primary/10 bg-background px-6 pb-5 pt-2 shadow-lg md:hidden" aria-label="Mobile navigation">
         {links.map((link) => <Link key={link.href} href={link.href} onClick={() => setOpen(false)} className={cn("border-b border-primary/10 py-4 text-sm", path === link.href && "text-primary")}>{link.label}</Link>)}
+        <ModeToggle />
         <Link href="/#contact" onClick={() => setOpen(false)} className="glossy-button mt-4 inline-flex items-center gap-2 self-start rounded-full px-5 py-3 text-sm text-primary-foreground">Let&apos;s talk <ArrowUpRight className="size-3.5" /></Link>
       </nav>}
 

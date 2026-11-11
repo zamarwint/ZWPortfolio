@@ -11,7 +11,7 @@ interface PageLink {
 const pageLinks: PageLink[] = [
   { href: "/projects", label: "Projects" },
   { href: "/chat", label: "Chat" },
-  { href: "#", label: "Blog" },
+  { href: "https://medium.com/@zwint", label: "Blog" },
   { href: "/zwint-cv.pdf", label: "Resume" },
   { href: "/#contact", label: "Contact" },
 ];
