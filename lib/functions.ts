@@ -1,57 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTheme } from "next-themes";
-
-// TRACK THE VIEWPORT WIDTH
-export const useViewportWidth = () => {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWidth(window.innerWidth);
-
-    // Add event listener
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup listener on unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return width;
-};
-
-// SCROLL TO TOP
-export const scrollToTop = ({ path }: { path: string }) => {
-  //   if (typeof window !== "undefined") {
-  //     window.scrollTo({
-  //       top: 0,
-  //       behavior: "smooth",
-  //     });
-
-  //     return;
-  //   }
-
-  const locations = [
-    {
-      url: "/",
-      anchor: "#hero",
-    },
-    {
-      url: "/gallery",
-      anchor: "#gallery",
-    },
-    {
-      url: "/chat",
-      anchor: "#chat",
-    },
-  ];
-
-  for (const l of locations) {
-    if (path === l.url) {
-      return l.anchor;
-    }
-  }
-};
 
 export function useKeyboardShortcuts() {
   // Keyboard shortcuts.

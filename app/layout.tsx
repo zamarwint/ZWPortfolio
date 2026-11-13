@@ -15,6 +15,18 @@ export const metadata: Metadata = {
   },
   description:
     "Portfolio for Zamar Wint - A cybersecurity engineer and software developer based in the Caribbean.",
+  icons: [
+    {
+      rel: "icon",
+      url: "/logo-light.svg",
+      media: "(prefers-color-scheme: light)"
+    },
+    {
+      rel: "icon",
+      url: "/logo-dark.svg",
+      media: "(prefers-color-scheme: dark)"
+    }
+  ],
   keywords: [
     "Zamar Wint",
     "Zamar",
@@ -33,7 +45,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio for Zamar Wint - A cybersecurity engineer and software developer based in the Caribbean.",
     url: "https://zamarwint.xyz",
-    siteName: "Zamar Wint",
+    siteName: "ZW Portfolio",
     images: [
       {
         url: "https://zamarwint.xyz/open-graph.png",

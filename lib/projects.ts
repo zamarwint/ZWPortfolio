@@ -101,7 +101,7 @@ export const projects: Project[] = [
         src: "/docs/wardpass-performance-and-drizzle-implementation.pdf",
       },
     ],
-    externalUrl: "https://wardpass.netlify.app/",
+    externalUrl: "https://ward-pass.vercel.app/",
     featured: true,
   },
   {
