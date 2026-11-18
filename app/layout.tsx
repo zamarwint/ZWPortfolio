@@ -10,7 +10,7 @@ import { editorialNew, funnelDisplay, dmMono } from "./fonts";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Zamar Wint Portfolio",
+    template: "%s | ZW",
     default: "Zamar Wint — Cybersecurity Engineer & Software Developer",
   },
   description:

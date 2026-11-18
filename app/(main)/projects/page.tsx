@@ -4,7 +4,7 @@ import ProjectCard from "@/components/projects/ProjectCard";
 import { projects } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Projects | Zamar Wint",
+  title: "Projects | ZW",
   description:
     "Explore projects by Zamar Wint, from security-minded products to learning and productivity concepts.",
 };

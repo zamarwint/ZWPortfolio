@@ -228,23 +228,6 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    id: "focus-notes",
-    title: "Focus-first Note-taking Tool",
-    category: "Product concept · In progress",
-    status: "In progress",
-    summary:
-      "Note-taking software for planners, journalists, and students, with tools to increase focus, reduce distractions, and minimize procrastination.",
-    overview: [
-      "This in-progress concept explores a focused note-taking experience for planners, journalists, and students. Its goal is to help people stay with their work by reducing distractions and supporting better focus.",
-    ],
-    skills: [],
-    tools: [],
-    images: [],
-    videos: [],
-    documents: [],
-    featured: false,
-  },
-  {
     id: "entrepreneur-microlearning",
     title: "Micro-learning for Entrepreneurs",
     category: "Learning platform · In progress",

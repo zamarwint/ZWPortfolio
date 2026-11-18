@@ -28,11 +28,11 @@ export async function generateMetadata({
   const project = getProjectById(projectId);
 
   if (!project) {
-    return { title: "Project not found | Zamar Wint" };
+    return { title: "Project not found | ZW" };
   }
 
   return {
-    title: `${project.title} | Projects | Zamar Wint`,
+    title: `${project.title} | Projects | ZW `,
     description: project.summary,
   };
 }
