@@ -227,23 +227,6 @@ export const projects: Project[] = [
     documents: [],
     featured: false,
   },
-  {
-    id: "entrepreneur-microlearning",
-    title: "Micro-learning for Entrepreneurs",
-    category: "Learning platform · In progress",
-    status: "In progress",
-    summary:
-      "A micro-learning platform for building entrepreneurial skills through lessons from founders who have done it.",
-    overview: [
-      "This in-progress learning platform is designed to help people build entrepreneurial skills through short lessons from founders with first-hand experience.",
-    ],
-    skills: [],
-    tools: [],
-    images: [],
-    videos: [],
-    documents: [],
-    featured: false,
-  },
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
