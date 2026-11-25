@@ -98,8 +98,7 @@ export default function Work() {
 
       <div className="mt-7 flex flex-col gap-4 border-t border-primary/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-2xl text-xs leading-5 text-muted-foreground">
-          Also in progress: a focused note-taking tool and a micro-learning
-          platform for aspiring entrepreneurs.
+          Also in progress: a utilities robot to help individuals with daily tasks.
         </p>
         <Link
           href="/projects"

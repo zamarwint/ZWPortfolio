@@ -4,7 +4,6 @@ import { motion } from "motion/react";
 import { useState, useEffect, useRef, useCallback } from "react";
 import ChatMessages from "@/components/chat/ChatMessages";
 import ChatInput from "@/components/chat/ChatInput";
-import { ErrorImage } from "@/app/_components/modal-images";
 import {
   Dialog,
   DialogContent,
@@ -14,7 +13,7 @@ import {
 } from "../../../components/ui/dialog";
 import { cn } from "@/lib/utils";
 import PageIntro from "@/components/PageIntro";
-import { ArrowUpRight, LockKeyhole, Sparkles } from "lucide-react";
+import { ArrowUpRight, CircleExclamationPoint, LockKeyhole, Sparkles } from "lucide-react";
 
 const suggestedPrompts = [
   "Tell me about WardPass",
@@ -38,7 +37,7 @@ function ErrorDialog({
           </DialogTitle>
         </DialogHeader>
         <DialogDescription className="flex flex-col items-center text-center gap-4">
-          <ErrorImage />
+          <CircleExclamationPoint size={32} />
           Something went wrong while sending your message. Please try again.
         </DialogDescription>
       </DialogContent>

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "./_components/theme-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { Toaster } from "@/components/ui/sonner";
 import { editorialNew, funnelDisplay, dmMono } from "./fonts";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: {
@@ -28,16 +29,19 @@ export const metadata: Metadata = {
     }
   ],
   keywords: [
-    "Zamar Wint",
-    "Zamar",
-    "Wint",
-    "Zamar Wint Portfolio",
-    "Developer portfolio",
-    "Cybersecurity Engineer",
-    "Software Developer",
-    "Caribbean",
+    "zamar wint",
+    "zamar",
+    "wint",
+    "zwint",
+    "zamar wint portfolio",
+    "developer portfolio",
+    "cybersecurity",
+    "cybersecurity engineer",
+    "software engineer",
+    "software developer",
+    "caribbean",
+    "caribbean engineers"
   ],
-  authors: [{ name: "Zamar Wint" }],
   creator: "Zamar Wint",
   publisher: "Zamar Wint",
   openGraph: {
@@ -45,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio for Zamar Wint - A cybersecurity engineer and software developer based in the Caribbean.",
     url: "https://zamarwint.xyz",
-    siteName: "ZW Portfolio",
+    siteName: "ZW",
     images: [
       {
         url: "https://zamarwint.xyz/open-graph.png",
@@ -59,24 +63,12 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    creator: "@zwbless",
     title: "Zamar Wint — Cybersecurity Engineer & Software Developer",
     description:
       "Portfolio for Zamar Wint - A cybersecurity engineer and software developer based in the Caribbean.",
     images: "https://zamarwint.xyz/open-graph.png",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  }
 };
 
 export default function RootLayout({
@@ -87,7 +79,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${funnelDisplay.variable} ${editorialNew.variable} ${dmMono.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", funnelDisplay.variable, editorialNew.variable, dmMono.variable)}
       suppressHydrationWarning
       data-scroll-behavior="smooth"
     >

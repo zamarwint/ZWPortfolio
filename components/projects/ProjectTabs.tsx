@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, FileText, Play } from "lucide-react";
-import VideoJsPlayer from "@/app/_components/videojs-player";
+import VideoJsPlayer from "@/components/videojs-player";
 import type { Project } from "@/lib/projects";
 
 export type ProjectTab = "overview" | "videos" | "documents";
